@@ -1,3 +1,6 @@
 [submodule "submodules/jes"]
 	path = submodules/jes
 	url = https://github.com/parentnode/manipulator.git
+[submodule "submodules/js-merger"]
+	path = submodules/js-merger
+	url = https://github.com/parentnode/js-merger.git
