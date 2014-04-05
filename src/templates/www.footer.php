@@ -2,8 +2,9 @@
 
 	<div id="navigation">
 		<ul class="navigation">
-			<li class="docs"><a href="/docs">Documentation</a></li>
-			<li class="principles"><a href="/principles">Principles</a></li>
+			<li class="front"><a href="/">Frontpage</a></li>
+			<!--li class="docs"><a href="/docs">Documentation</a></li>
+			<li class="principles"><a href="/principles">Principles</a></li-->
 		</ul>
 	</div>
 
