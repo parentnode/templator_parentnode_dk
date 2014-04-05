@@ -11,7 +11,7 @@ $action = $page->actions();
 
 
 $page->bodyClass("front");
-$page->pageTitle("Modulator - Markup Killed Markup");
+$page->pageTitle("Markup Killed Markup");
 
 $page->header();
 $page->template("pages/front.php");
