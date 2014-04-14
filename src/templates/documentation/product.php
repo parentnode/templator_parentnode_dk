@@ -1,7 +1,7 @@
 <h2>Preview</h2>
 	<p>Here is a quick preview of WTF-markup for a simple product - <a href="/documentation/product">see explanation here</a>.</p>
 	
-&lt;!DOCTYPE html&gt;
+<code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
 	&lt;title&gt;WTF - Markup Documentation&lt;/title&gt;
@@ -62,4 +62,4 @@
 &lt;/div&gt;
 
 &lt;/body&gt;
-&lt;/html&gt;
+&lt;/html&gt;</code>
