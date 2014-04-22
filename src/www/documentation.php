@@ -92,6 +92,16 @@ else if(count($action) > 0 && $action[0] == "movie") {
 
 }
 
+// form
+else if(count($action) > 0 && $action[0] == "form") {
+
+	$page->header(array("body_class" => "form"));
+	$page->template("documentation/form.php");
+	$page->footer();
+	exit();
+
+}
+
 else {
 
 	$page->header();
