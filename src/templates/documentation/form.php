@@ -50,68 +50,78 @@
 
 <h2>Actions</h2>
 
-<ul class="actions">
+<code>&lt;ul class=&quot;actions&quot;&gt;
+		&lt;li class=&quot;save&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; class=&quot;button primary&quot; /&gt;&lt;/li&gt;
+		&lt;li class=&quot;cancel&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Cancel&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;</code>
+
+<h2>Input field</h2>
+
+<code>&lt;div class=&quot;field select&quot;&gt;
+		&lt;label for=&quot;input_select&quot;&gt;Select&lt;/label&gt;
+		&lt;select name=&quot;select&quot; id=&quot;input_select&quot;&gt;
+			&lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;test&lt;/option&gt;
+	
+		&lt;/select&gt;
+	
+		&lt;div class=&quot;help&quot;&gt;
+			&lt;div class=&quot;hint&quot;&gt;hint message&lt;/div&gt;
+			&lt;div class=&quot;error&quot;&gt;error message&lt;/div&gt;
+		&lt;/div&gt;
+	
+	&lt;/div&gt;</code>
+
+<h2>Input field selected required</h2>
+
+<code>&lt;div class=&quot;field select required&quot;&gt;
+		&lt;label for=&quot;input_select_required&quot;&gt;Select required&lt;/label&gt;
+		&lt;select name=&quot;select_required&quot; id=&quot;input_select_required&quot;&gt;
+			&lt;option value=&quot;0&quot; selected=&quot;selected&quot;&gt;test 2&lt;/option&gt;
+		&lt;/select&gt;
+		&lt;div class=&quot;help&quot;&gt;
+			&lt;div class=&quot;hint&quot;&gt;hint message&lt;/div&gt;
+			&lt;div class=&quot;error&quot;&gt;error message&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code>
+
+<h2>Checkbox</h2>
+
+<code>&lt;div class=&quot;field checkbox&quot;&gt;
+		&lt;input type=&quot;hidden&quot; name=&quot;checkbox&quot; value=&quot;0&quot; /&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;checkbox&quot; id=&quot;input_checkbox&quot; /&gt;
+		&lt;label for=&quot;input_checkbox&quot;&gt;Checkbox&lt;/label&gt;
+	
+		&lt;div class=&quot;help&quot;&gt;
+			&lt;div class=&quot;hint&quot;&gt;hint message&lt;/div&gt;
+			&lt;div class=&quot;error&quot;&gt;error message&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code>
+
+<h2>Checkbox check required</h2>
+
+<code>&lt;div class=&quot;field checkbox required&quot;&gt;
+		&lt;input type=&quot;hidden&quot; name=&quot;checkbox_required&quot; value=&quot;0&quot; /&gt;
+		&lt;input type=&quot;checkbox&quot; name=&quot;checkbox_required&quot; id=&quot;input_checkbox_required&quot; /&gt;
+		&lt;label for=&quot;input_checkbox_required&quot;&gt;Checkbox required&lt;/label&gt;
+		&lt;div class=&quot;help&quot;&gt;
+			&lt;div class=&quot;hint&quot;&gt;hint message&lt;/div&gt;
+			&lt;div class=&quot;error&quot;&gt;error message&lt;/div&gt;
+		&lt;/div&gt;
+	&lt;/div&gt;</code>
+
+<!-- <ul class="actions">
 	<li class="save"><input type="submit" value="Submit" class="button primary" /></li>
 	<li class="cancel"><a href="#" class="button">Cancel</a></li>
-</ul>
+</ul> -->
 
-<div class="field select">
-	<label for="input_select">Select</label>
-	<select name="select" id="input_select">
-		<option value="0" selected="selected">test</option>
-
-	</select>
-	<div class="help">
-		<div class="hint">hint message</div>
-		<div class="error">error message</div>
-	</div>
-</div>			
-
-<div class="field select required">
-	<label for="input_select_required">Select required</label>
-	<select name="select_required" id="input_select_required">
-		<option value="0" selected="selected">test</option>
-	</select>
-	<div class="help">
-		<div class="hint">hint message</div>
-		<div class="error">error message</div>
-	</div>
-</div>
-
-<div class="field checkbox">
-	<input type="hidden" name="checkbox" value="0" />
-	<input type="checkbox" name="checkbox" id="input_checkbox" />
-	<label for="input_checkbox">Checkbox</label>
-
-	<div class="help">
-		<div class="hint">hint message</div>
-		<div class="error">error message</div>
-	</div>
-</div>			
-
-<div class="field checkbox required">
-	<input type="hidden" name="checkbox_required" value="0" />
-	<input type="checkbox" name="checkbox_required" id="input_checkbox_required" />
-	<label for="input_checkbox_required">Checkbox required</label>
-	<div class="help">
-		<div class="hint">hint message</div>
-		<div class="error">error message</div>
-	</div>
-</div>
-
-<ul class="actions">
-	<li class="save"><input type="submit" value="Submit" class="button primary" /></li>
-	<li class="cancel"><a href="#" class="button">Cancel</a></li>
-</ul>
-
-<fieldset>
+<!-- <fieldset>
 	<h3>TODO: radiobuttons</h3>
 </fieldset>
 
 <ul class="actions">
 	<li class="save"><input type="submit" value="Submit" class="button primary" /></li>
 	<li class="cancel"><a href="#" class="button">Cancel</a></li>
-</ul>
+</ul> -->
 
 
 </div>

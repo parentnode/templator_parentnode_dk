@@ -2,8 +2,7 @@
 
 	<h1>Event</h1>
 	
-	<p>releaseDate need to be specified in a content tag and in ISO 8601 date format</p>
-	<p>website need to external</p>
+	<p>Below shows a possible cenario of a event</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Event&quot;&gt;
 	
@@ -36,5 +35,13 @@
 	&lt;/div&gt;
 
 &lt;/div&gt;</code>
+
+<h2>See referances also in:</h2>
+<ul>
+	<li><a href="/documentation/address">Address</a></li>
+	<li><a href="/documentation/geo_location">Geo location</a></li>
+	<li><a href="/documentation/contact">Contact</a></li>
+	<li><a href="/documentation/price">Price</a></li>
+</ul>
 
 </div>

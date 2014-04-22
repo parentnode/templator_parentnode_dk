@@ -1,11 +1,10 @@
 <div class="scene">
 
 	<h1>Product</h1>
-	<p>Here is a quick preview of WTF-markup for a simple product - <a href="/documentation/product">see explanation here</a>.</p>
 	
-	<p>You can customise your itemprop="availability" with the following properties “Discontinued, LimitedAvailability, InStoreOnly, OnlineOnly, OutOfStock, PreOrder, SoldOut" so far we have to use a &lt;link&gt; tag to unambiguously specify the availability as one of the permitted values.</p>
-	
-	<p>releaseDate need to be specified in a content tag and in ISO 8601 date format</p>
+	<p>Below shows a possible cenario of a product</p>
+
+<p>You can customise your itemprop="availability" with the following properties “Discontinued, LimitedAvailability, InStoreOnly, OnlineOnly, OutOfStock, PreOrder, SoldOut" so far we have to use a &lt;link&gt; tag to unambiguously specify the availability as one of the permitted values.</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Product&quot;&gt;
 	
@@ -27,13 +26,11 @@
 		&lt;/ul&gt;
 	&lt;/div&gt;
 	
-	&lt;!-- Items that are related to the one above --&gt;
 	&lt;div itemprop=&quot;isRelatedTo&quot; itemscope itemtype=&quot;http://schema.org/Offer&quot;&gt;
 		&lt;h2 itemprop=&quot;name&quot;&gt;Name of related Product&lt;/h2&gt;
 		&lt;img itemprop=&quot;image&quot; src=&quot;#&quot; alt=&quot;#&quot;&gt;
 		&lt;ul&gt;
 			&lt;li itemprop=&quot;description&quot;&gt;Description&lt;/li&gt;
-			&lt;!-- Price need to be specified in two tags  --&gt;
 			&lt;li&gt;&lt;span itemprop=&quot;price&quot;&gt;55&lt;/span&gt;&lt;span itemprop=&quot;priceCurrency&quot;&gt; DKK&lt;/span&gt;&lt;/li&gt;
 		&lt;/ul&gt;
 	&lt;/div&gt;
@@ -45,8 +42,34 @@
 			&lt;li itemprop=&quot;description&quot;&gt;Description&lt;/li&gt;
 			&lt;li&gt;&lt;span itemprop=&quot;price&quot;&gt;55&lt;/span&gt;&lt;span itemprop=&quot;priceCurrency&quot;&gt; DKK&lt;/span&gt;&lt;/li&gt;
 		&lt;/ul&gt;
+	&lt;/div&gt;
+
+	&lt;div itemprop=&quot;review&quot; itemscope itemtype=&quot;http://schema.org/Review&quot;&gt;
+		
+		&lt;h2 itemprop=&quot;name&quot;&gt;Titel of the review&lt;/h2&gt;
+
+		&lt;ul&gt;
+			&lt;li itemprop=&quot;author&quot;&gt;Name of the revewer&lt;/li&gt;
+			&lt;li itemprop=&quot;datePublished&quot; content=&quot;2011-04-01&quot;&gt;2011-04-01&lt;/li&gt;
+		&lt;/ul&gt;
+
+		&lt;ul itemprop=&quot;reviewRating&quot; itemscope itemtype=&quot;http://schema.org/Rating&quot;&gt;
+			&lt;link itemprop=&quot;worstRating&quot; content = &quot;1&quot;&gt;&lt;/link&gt;
+			&lt;li&gt;&lt;span itemprop=&quot;ratingValue&quot;&gt;3&lt;/span&gt;&lt;span&gt;/&lt;/span&gt;&lt;span itemprop=&quot;bestRating&quot;&gt;5&lt;/span&gt;&lt;span&gt; stars&lt;/span&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+		
+		&lt;div itemprop=&quot;description&quot;&gt;
+			&lt;p&gt;description&lt;/p&gt;
+		&lt;/div&gt;
+
 	&lt;/div&gt;
 
 &lt;/div&gt;</code>
+
+<h2>This section includes parts from:</h2>
+<ul>
+	<li><a href="/documentation/price">Price</a></li>
+	<li><a href="/documentation/review">Review</a></li>
+</ul>
 
 </div>

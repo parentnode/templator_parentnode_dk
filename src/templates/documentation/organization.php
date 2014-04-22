@@ -1,7 +1,7 @@
 <div class="scene">
 
 	<h1>Organization</h1>
-	<p>Opening hours need to be specified in a datetim tag (Mo,We for specific days or Mo-We for including days)</p>
+	<p>Below shows a possible cenario of a organisation</p>
 	
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Organization&quot;&gt;
@@ -53,5 +53,13 @@
 
 &lt;/div&gt;</code>
 
-	
+
+<h2>This section includes parts from:</h2>
+<ul>
+	<li><a href="/documentation/address">Address</a></li>
+	<li><a href="/documentation/geo_location">Geo location</a></li>
+	<li><a href="/documentation/contact">Contact</a></li>
+</ul>
+
+
 </div>

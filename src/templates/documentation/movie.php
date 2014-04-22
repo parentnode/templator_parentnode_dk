@@ -2,7 +2,7 @@
 
 	<h1>Movie</h1>
 	
-	<p>WorstRating need to be defined befor the rating</p>
+	<p>Below shows a possible cenario of a movie</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Movie&quot;&gt;
 
@@ -45,5 +45,14 @@
 	&lt;/div&gt;
 
 &lt;/div&gt;</code>
+
+<h2>This section includes parts from:</h2>
+<ul>
+	<li><a href="/documentation/address">Address</a></li>
+	<li><a href="/documentation/geo_location">Geo location</a></li>
+	<li><a href="/documentation/contact">Contact</a></li>
+	<li><a href="/documentation/price">Price</a></li>
+	<li><a href="/documentation/review">Review</a></li>
+</ul>
 
 </div>

@@ -102,6 +102,56 @@ else if(count($action) > 0 && $action[0] == "form") {
 
 }
 
+// address
+else if(count($action) > 0 && $action[0] == "address") {
+
+	$page->header(array("body_class" => "address"));
+	$page->template("documentation/address.php");
+	$page->footer();
+	exit();
+
+}
+
+// geo_location
+else if(count($action) > 0 && $action[0] == "geo_location") {
+
+	$page->header(array("body_class" => "geo_location"));
+	$page->template("documentation/geo_location.php");
+	$page->footer();
+	exit();
+
+}
+
+// contact
+else if(count($action) > 0 && $action[0] == "contact") {
+
+	$page->header(array("body_class" => "contact"));
+	$page->template("documentation/contact.php");
+	$page->footer();
+	exit();
+
+}
+
+// price
+else if(count($action) > 0 && $action[0] == "price") {
+
+	$page->header(array("body_class" => "price"));
+	$page->template("documentation/price.php");
+	$page->footer();
+	exit();
+
+}
+
+// review
+else if(count($action) > 0 && $action[0] == "review") {
+
+	$page->header(array("body_class" => "review"));
+	$page->template("documentation/review.php");
+	$page->footer();
+	exit();
+
+}
+
 else {
 
 	$page->header();

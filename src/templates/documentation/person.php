@@ -2,8 +2,7 @@
 
 	<h1>Person</h1>
 
-	<p>Birthdate need to be specified in a content tag and in ISO 8601 date format</p>
-
+	<p>Below shows a possible cenario of a person</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Person&quot;&gt;
 	
@@ -22,5 +21,12 @@
 	&lt;/ul&gt;
 
 &lt;/div&gt;</code>
+
+<h2>This section includes parts from:</h2>
+<ul>
+	<li><a href="/documentation/address">Address</a></li>
+	<li><a href="/documentation/geo_location">Geo location</a></li>
+	<li><a href="/documentation/contact">Contact</a></li>
+</ul>
 
 </div>
