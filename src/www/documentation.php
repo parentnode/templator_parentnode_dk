@@ -42,6 +42,56 @@ else if(count($action) > 0 && $action[0] == "product") {
 
 }
 
+// person
+else if(count($action) > 0 && $action[0] == "person") {
+
+	$page->header(array("body_class" => "person"));
+	$page->template("documentation/person.php");
+	$page->footer();
+	exit();
+
+}
+
+// article
+else if(count($action) > 0 && $action[0] == "article") {
+
+	$page->header(array("body_class" => "article"));
+	$page->template("documentation/article.php");
+	$page->footer();
+	exit();
+
+}
+
+// organization
+else if(count($action) > 0 && $action[0] == "organization") {
+
+	$page->header(array("body_class" => "organization"));
+	$page->template("documentation/organization.php");
+	$page->footer();
+	exit();
+
+}
+
+// event
+else if(count($action) > 0 && $action[0] == "event") {
+
+	$page->header(array("body_class" => "event"));
+	$page->template("documentation/event.php");
+	$page->footer();
+	exit();
+
+}
+
+// movie
+else if(count($action) > 0 && $action[0] == "movie") {
+
+	$page->header(array("body_class" => "movie"));
+	$page->template("documentation/movie.php");
+	$page->footer();
+	exit();
+
+}
+
 else {
 
 	$page->header();
