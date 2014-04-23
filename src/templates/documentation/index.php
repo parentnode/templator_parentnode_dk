@@ -56,10 +56,8 @@
 			</li>
 			<li><a href="/documentation/form">Form</a></li>
 			<li><a href="/documentation/list">Lists</a></li>
-			<li><a href="/documentation/galley">Gallery</a></li>
-			<li><a href="/documentation/gridsystem">Grid</a></li>
 			<li><a href="/documentation/actions">Actions</a></li>
-			<li><a href="/documentation/table">Table</a></li>
+			<li><a href="/documentation/sharing">Sharing</a></li>
 		</ul>
 	</div>
 

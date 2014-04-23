@@ -2,7 +2,7 @@
 
 	<h1>Event</h1>
 	
-	<p>Below shows a possible cenario of a event</p>
+	<p>An event happening at a certain time and location, such as a concert, lecture, or festival. Ticketing information may be added via the 'offers' property. Repeated events may be structured as separate Event objects.</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Event&quot;&gt;
 	

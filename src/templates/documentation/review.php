@@ -1,6 +1,8 @@
 <div class="scene">
 
 	<h1>Review</h1>
+
+	<p>A review of an item - for example, a restaurant, movie, or store.</p>
 	
 <code>&lt;div itemprop=&quot;review&quot; itemscope itemtype=&quot;http://schema.org/Review&quot;&gt;
 		

@@ -1,6 +1,8 @@
 <div class="scene">
 
 	<h1>Geo Location</h1>
+
+	<p>The geographic coordinates of a place or event.</p>
 	
 <code>&lt;div&gt;
 		&lt;h2&gt;Where we are:&lt;/h2&gt;

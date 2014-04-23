@@ -2,9 +2,9 @@
 
 	<h1>Product</h1>
 	
-	<p>Below shows a possible cenario of a product</p>
+	<p>A product is anything that is made available for sale—for example, a pair of shoes, a concert ticket, or a car. Commodity services, like haircuts, can also be represented using this type.</p>
 
-<p>You can customise your itemprop="availability" with the following properties “Discontinued, LimitedAvailability, InStoreOnly, OnlineOnly, OutOfStock, PreOrder, SoldOut" so far we have to use a &lt;link&gt; tag to unambiguously specify the availability as one of the permitted values.</p>
+	<p>You can customise your itemprop="availability" with the following properties “Discontinued, LimitedAvailability, InStoreOnly, OnlineOnly, OutOfStock, PreOrder, SoldOut" so far we have to use a &lt;link&gt; tag to unambiguously specify the availability as one of the permitted values.</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Product&quot;&gt;
 	

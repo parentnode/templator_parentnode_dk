@@ -2,7 +2,9 @@
 
 	<h1>Article</h1>
 
-	<p>Dates need to be specified in a content tag and in ISO 8601 date format</p>
+	<p>An article, such as a news article or piece of investigative report. Newspapers and magazines have articles of many different types and this is intended to cover them all.</p>
+
+	<p>Please note: Dates need to be specified in a content tag and in ISO 8601 date format</p>
 
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Article&quot;&gt;

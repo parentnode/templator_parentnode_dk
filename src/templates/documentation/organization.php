@@ -1,7 +1,8 @@
 <div class="scene">
 
 	<h1>Organization</h1>
-	<p>Below shows a possible cenario of a organisation</p>
+
+	<p>Below is a example of an organization such as a school, NGO, corporation, club, etc.</p>
 	
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Organization&quot;&gt;

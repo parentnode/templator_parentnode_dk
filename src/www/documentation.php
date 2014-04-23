@@ -152,6 +152,16 @@ else if(count($action) > 0 && $action[0] == "review") {
 
 }
 
+// actions
+else if(count($action) > 0 && $action[0] == "actions") {
+
+	$page->header(array("body_class" => "actions"));
+	$page->template("documentation/actions.php");
+	$page->footer();
+	exit();
+
+}
+
 else {
 
 	$page->header();

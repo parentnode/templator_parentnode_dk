@@ -2,7 +2,7 @@
 
 	<h1>Person</h1>
 
-	<p>Below shows a possible cenario of a person</p>
+	<p>A person (alive, dead, undead, or fictional).</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Person&quot;&gt;
 	
