@@ -40,7 +40,6 @@
 				<a href="/documentation/movie">Movie</a>
 				<ul>
 					<li><a href="/documentation/address">Address</a></li>
-					<li><a href="/documentation/geo_location">Geo location</a></li>
 					<li><a href="/documentation/contact">Contact</a></li>
 					<li><a href="/documentation/price">Price</a></li>
 					<li><a href="/documentation/review">Review</a></li>
@@ -55,9 +54,16 @@
 				</ul>
 			</li>
 			<li><a href="/documentation/form">Form</a></li>
-			<li><a href="/documentation/list">Lists</a></li>
+				<ul>
+					<li><a href="/documentation/actions">Actions</a></li>
+				</ul>
 			<li><a href="/documentation/actions">Actions</a></li>
 			<li><a href="/documentation/sharing">Sharing</a></li>
+			<li><a href="/documentation/address">Address</a></li>
+			<li><a href="/documentation/geo_location">Geo location</a></li>
+			<li><a href="/documentation/contact">Contact</a></li>
+			<li><a href="/documentation/price">Price</a></li>
+			<li><a href="/documentation/review">Review</a></li>
 		</ul>
 	</div>
 

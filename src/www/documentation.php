@@ -162,6 +162,16 @@ else if(count($action) > 0 && $action[0] == "actions") {
 
 }
 
+// sharing
+else if(count($action) > 0 && $action[0] == "sharing") {
+
+	$page->header(array("body_class" => "sharing"));
+	$page->template("documentation/sharing.php");
+	$page->footer();
+	exit();
+
+}
+
 else {
 
 	$page->header();

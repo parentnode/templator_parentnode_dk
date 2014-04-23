@@ -20,6 +20,13 @@
 		&lt;li itemprop=&quot;birthDate&quot; content=&quot;2014-04-02&quot;&gt;DOB: 04/02/2014&lt;/li&gt;
 	&lt;/ul&gt;
 
+	&lt;dl itemscope itemtype=&quot;http://schema.org/GeoCoordinates&quot;&gt;
+		&lt;dt class=&quot;latitude&quot;&gt;latitude&lt;/dt&gt;
+		&lt;dd class=&quot;latitude&quot; itemprop=&quot;latitude&quot;&gt;55.681159&lt;/dd&gt;
+		&lt;dt class=&quot;longitude&quot;&gt;longitude&lt;/dt&gt;
+		&lt;dd class=&quot;longitude&quot; itemprop=&quot;longitude&quot;&gt;12.58437&lt;/dd&gt;
+	&lt;/dl&gt;
+
 &lt;/div&gt;</code>
 
 <h2>This section includes parts from:</h2>

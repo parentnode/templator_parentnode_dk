@@ -24,6 +24,13 @@
 			&lt;li itemprop=&quot;email&quot;&gt;hallo@granberg.dk&lt;/li&gt;
 		&lt;/ul&gt;
 
+		&lt;dl itemscope itemtype=&quot;http://schema.org/GeoCoordinates&quot;&gt;
+			&lt;dt class=&quot;latitude&quot;&gt;latitude&lt;/dt&gt;
+			&lt;dd class=&quot;latitude&quot; itemprop=&quot;latitude&quot;&gt;55.681159&lt;/dd&gt;
+			&lt;dt class=&quot;longitude&quot;&gt;longitude&lt;/dt&gt;
+			&lt;dd class=&quot;longitude&quot; itemprop=&quot;longitude&quot;&gt;12.58437&lt;/dd&gt;
+		&lt;/dl&gt;
+
 		&lt;ul&gt;
 			&lt;li itemprop=&quot;performers&quot; itemscope itemtype=&quot;http://schema.org/Person&quot;&gt;Performers name 1&lt;/li&gt;
 			&lt;li itemprop=&quot;performers&quot; itemscope itemtype=&quot;http://schema.org/Person&quot;&gt;Performers name 2&lt;/li&gt;
@@ -31,8 +38,13 @@
 	&lt;/div&gt;
 
 	&lt;div itemprop=&quot;offers&quot; itemscope itemtype=&quot;http://schema.org/Offer&quot;&gt;
-		&lt;p&gt;&lt;span itemprop=&quot;price&quot;&gt;55&lt;/span&gt;&lt;span itemprop=&quot;priceCurrency&quot;&gt; DKK&lt;/span&gt;&lt;/p&gt;
-	&lt;/div&gt;
+	&lt;dl&gt;
+		&lt;dt class=&quot;price&quot;&gt;Price&lt;/dt&gt;
+		&lt;dd class=&quot;price&quot; itemprop=&quot;price&quot;&gt;55&lt;/dd&gt;
+		&lt;dt class=&quot;currency&quot;&gt;Currency&lt;/dt&gt;
+		&lt;dd class=&quot;currency&quot; itemprop=&quot;priceCurrency&quot;&gt;DKK&lt;/dd&gt;
+	&lt;/dl&gt;
+&lt;/div&gt;
 
 &lt;/div&gt;</code>
 
