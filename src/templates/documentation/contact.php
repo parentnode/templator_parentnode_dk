@@ -2,7 +2,7 @@
 
 	<h1>Contact</h1>
 
-	<p>A contact point for example, a Customer Complaints department.</p>
+	<p>A contact point for example, a person in a company.</p>
 	
 <code>&lt;div&gt;
 		&lt;h2&gt;Get in touch:&lt;/h2&gt;
