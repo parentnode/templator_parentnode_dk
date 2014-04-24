@@ -17,13 +17,17 @@
 
 &lt;div id=&quot;page&quot;&gt;
 
-	&lt;div id=&quot;header&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;header&quot;&gt;
+
+	&lt;/div&gt;
 
 	&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
 
 	&lt;div id=&quot;navigation&quot;&gt;&lt;/div&gt;
 
-	&lt;div id=&quot;footer&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;footer&quot;&gt;
+
+	&lt;/div&gt;
 
 &lt;/div&gt;
 
