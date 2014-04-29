@@ -26,7 +26,7 @@
 
 	<div id="header">
 		<ul class="servicenavigation">
-			<li class="keynav navigation nofollow"><a href="#navigation">To navigation</a></li>
+			<li class="keynav navigation nofollow"><a href="#navigation" ref="nofollow">To navigation</a></li>
 		</ul>
 	</div>
 
