@@ -23,8 +23,6 @@ body {background: #ffffff;}
 #footer {border-color: #ffb773;}
 #footer p {color: #ff7c00;}
 
-.front #navigation .front,
-.segments #navigation ul li.segments,
-.about #navigation ul li.about,
-.apis #navigation ul li.apis,
-.pricing #navigation ul li.pricing {color: #ff7c00;}
+.front #header .logo,
+.docs #navigation ul li.docs,
+.principles #navigation ul li.principles {color: #ff7c00;}
