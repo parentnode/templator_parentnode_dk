@@ -1,4 +1,9 @@
-#navigation li {display: none;}
+/*#navigation li {display: none;}*/
+
+#content .scene.docs .list ul li {padding: 2px 0;}
+#content .scene.docs .list ul ul {padding-left: 30px;}
+
+#content .scene.docs .list ul ul ul {padding-bottom: 0;}
 
 #content .scene div.vcard {padding: 25px 50px;}
 #content .scene div.vcard .name {padding: 0 0 15px;}

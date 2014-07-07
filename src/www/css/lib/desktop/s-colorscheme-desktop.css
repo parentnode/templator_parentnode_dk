@@ -1,25 +1,23 @@
 /*
-http://colorschemedesigner.com/#3s51Tw0w0w0w0
+http://colorschemedesigner.com/csd-3.5/#3s51Tw0w0w0w0
 
 7908aa
-4e026e
-03899c
+#a63cd4
 
-#04859d - PRIMARY LIGHT
-#ff7c00 - PRIMARY DARK
-#ffb773 - BORDER
+#4e026e - PRIMARY DARK
+#b365d4 - PRIMARY LIGHT
 */
 
 
-* {color: #ff7c00;}
+* {color: #4e026e;}
 
 body {background: #ffffff;}
 
-#header .logo {color: #7908aa;}
-#navigation ul li {color: #7908aa;}
-#content .scene a {color: #03899c;}
+#header .logo {color: #b365d4;}
+#navigation ul li {color: #b365d4;}
+#content .scene a {color: #b365d4;}
 
-#content .scene hr {border-color: #ffb773;}
+#content .scene hr {border-color: #b365d4;}
 #content .scene code {color: #333333;}
 
 #footer {border-color: #4e026e;}
@@ -32,5 +30,5 @@ body {background: #ffffff;}
 
 .terms_notification {background: #ffffff;}
 .terms_notification .accept,
-.terms_notification .details {color: #7908aa;}
-.terms_notification {border-color: #ffb773;}
+.terms_notification .details {color: #b365d4;}
+.terms_notification {border-color: #4e026e;}

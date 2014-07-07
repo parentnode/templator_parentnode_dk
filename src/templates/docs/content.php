@@ -1,13 +1,15 @@
-<div class="scene">
-	<h1>WTF Markup</h1>
+<div class="scene docs">
+	<h1>Fundamental page layout</h1>
+	<p>
+		The <span class="htmltag">div#page</span> node is the outermost node of any Modulator page.
+	</p>
 
 
-	<p>Generic page layout</p>
 
 <code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
-	&lt;title&gt;WTF - Markup Documentation&lt;/title&gt;
+	&lt;title&gt;Modulator - Markup Documentation&lt;/title&gt;
 	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
 	&lt;meta name=&quot;keywords&quot; content=&quot;HTML, JavaScript, CSS, framework, SEO&quot; /&gt;
 	&lt;meta name=&quot;description&quot; content=&quot;Details do matter&quot; /&gt;
@@ -27,7 +29,11 @@
 
 	&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
 
-	&lt;div id=&quot;navigation&quot;&gt;&lt;/div&gt;
+	&lt;div id=&quot;navigation&quot;&gt;
+		&lt;ul class=&quot;navigation&quot;&gt;
+			&lt;li class=&quot;documentation&quot;&gt;&lt;a href=&quot;/docu&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
 
 	&lt;div id=&quot;footer&quot;&gt;
 		&lt;ul class=&quot;servicenavigation&quot;&gt;

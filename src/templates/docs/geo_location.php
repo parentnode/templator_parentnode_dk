@@ -1,4 +1,4 @@
-<div class="scene">
+<div class="scene docs">
 
 	<h1>Geo Location</h1>
 
