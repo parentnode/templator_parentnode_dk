@@ -1,6 +1,10 @@
 /*
 http://colorschemedesigner.com/#3s51Tw0w0w0w0
 
+7908aa
+4e026e
+03899c
+
 #04859d - PRIMARY LIGHT
 #ff7c00 - PRIMARY DARK
 #ffb773 - BORDER
@@ -11,22 +15,22 @@ http://colorschemedesigner.com/#3s51Tw0w0w0w0
 
 body {background: #ffffff;}
 
-#header .logo {color: #04859d;}
-#navigation ul li {color: #04859d;}
-#content .scene a {color: #04859d;}
+#header .logo {color: #7908aa;}
+#navigation ul li {color: #7908aa;}
+#content .scene a {color: #03899c;}
 
 #content .scene hr {border-color: #ffb773;}
 #content .scene code {color: #333333;}
 
-#footer {border-color: #ffb773;}
-#footer p {color: #ff7c00;}
+#footer {border-color: #4e026e;}
+#footer p {color: #4e026e;}
 
 .front #header .logo,
 .docs #navigation ul li.docs,
-.principles #navigation ul li.principles {color: #ff7c00;}
+.principles #navigation ul li.principles {color: #4e026e;}
 
 
 .terms_notification {background: #ffffff;}
 .terms_notification .accept,
-.terms_notification .details {color: #04859d;}
+.terms_notification .details {color: #7908aa;}
 .terms_notification {border-color: #ffb773;}
