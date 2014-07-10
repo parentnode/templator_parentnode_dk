@@ -5,8 +5,8 @@
 		page structure and the content blocks used to structure the individual content of a HTML page.
 	</p>
 
-	<div class="list">
-		<h2>Page layout</h2>
+	<div class="list" id="general_page_layout">
+		<h2>The general page layout</h2>
 		<p>
 			A primary convention of Modulator is the outermost <span class="htmltag">div#page</span>. 
 			This is the Page node. A standard Page contains the four primary 
@@ -18,11 +18,7 @@
 			<li><a href="/docs/page">Page</a>
 				<ul>
 					<li><a href="/docs/header">Header</a></li>
-					<li><a href="/docs/content">Content</a>
-						<ul>
-							<li><a href="/docs/scene">Scene</a></li>
-						</ul>
-					</li>
+					<li><a href="/docs/content">Content</a></li>
 					<li><a href="/docs/navigation">Navigation</a></li>
 					<li><a href="/docs/footer">Footer</a></li>
 				</ul>
@@ -32,10 +28,13 @@
 	</div>
 
 
-	<div class="list">
+	<div class="list" id="content_blocks">
 		<h2>Content blocks</h2>
 		<p>
-			Ehmm.
+			Content blocks are specific HTML content snippets optimized for Search Engine readability in accordance with
+			the <a href="http://schema.org" target="_blank">Schema.org</a> specification. This collection allows you to
+			copy/paste most content structures into your <span class="htmltag">div.scene</span> without having to spend
+			any time reflecting upon HTML, classnames or naming conventions.
 		</p>
 
 

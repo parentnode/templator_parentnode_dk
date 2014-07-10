@@ -3,8 +3,11 @@
 	<p>
 		The outermost <span class="htmltag">div#page</span> is called the Page node. This node will typically 
 		be extended with JavaScript to act as an overall page flow controller. It can be a simple controller handling
-		one or two dynamic elements in the footer or header or and complicated controller taking care of Ajax based 
-		navigation and content loading, updating navigation and so forth.
+		one or two dynamic elements in the footer or header or and complicated controller taking care of AJAX based 
+		navigation and content loading, updating navigation and so forth. The 
+		<a href="http://manipulator.parentnode.dk" target="_blank">Manipulator JavaScript library</a>
+		offers a complete <a href="http://manipulator.parentnode.dk/docs/u-objects" target="_blank">Page controller</a>
+		designed for Modulator.
 	</p>
 
 	<p>
@@ -15,7 +18,6 @@
 		more interested in the content or the navigation? Think structure, not design.
 	</p>
 
-	<p>The Page</p>
 <code>&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;en&quot;&gt;
 &lt;head&gt;
@@ -37,7 +39,7 @@
 &lt;/div&gt;
 
 &lt;/body&gt;
-&lt;/html></code>
+&lt;/html&gt;</code>
 
 
 </div>

@@ -1,53 +1,44 @@
 <div class="scene docs">
-	<h1>Fundamental page layout</h1>
+	<h1>Navigation</h1>
 	<p>
-		The <span class="htmltag">div#page</span> node is the outermost node of any Modulator page.
+		The <span class="htmltag">div#navigation</span> contains the primary navigation element of the site. This can be 
+		presented in a nested structure if needed. The full navigation should be contained in this structure, including 
+		the secondary and tertiary navigation levels. If you are working with a very large sum of navigation elements which
+		could potentially slow down initial page loading sublevels of navigation could be loaded using AJAX.
 	</p>
 
+<code>&lt;div id=&quot;navigation&quot;&gt;
+	&lt;ul class=&quot;navigation&quot;&gt;
+		&lt;li class=&quot;front&quot;&gt;&lt;a href=&quot;/&quot;&gt;Frontpage&lt;/a&gt;&lt;/li&gt;
+		&lt;li class=&quot;docs&quot;&gt;
+			&lt;h6&gt;Documentation&lt;/h6&gt;
+			&lt;ul class=&quot;subjects&quot;&gt;
+				&lt;li class=&quot;front&quot;&gt;&lt;a href=&quot;/&quot;&gt;Frontpage&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/li&gt;
+		&lt;li class=&quot;principles&quot;&gt;&lt;a href=&quot;/principles&quot;&gt;Principles&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/div&gt;</code>
 
+	<p>
+		The <span class="htmltag">div#navigation</span> should be positioned after <span class="htmltag">div#content</span>
+		in the <span class="htmltag">div#page</span> hierarchy because when looking at HTML from a Mobile First perspective
+		you don't want the user to scroll past a massive navigation before reaching the actual content. However it is a
+		common pratice to rearrange the DOM with JavaScript on desktop devices to place the 
+		<span class="htmltag">div#navigation</span> in front of <span class="htmltag">div#content</span>.
+	</p>
+	<p>
+		The <span class="htmltag">div#navigation</span> should not contain any service navigation elements. These should be
+		placed in a <span class="htmltag">ul.servicenavigation</span> in the <span class="htmltag">div#header</span> or
+		the <span class="htmltag">div#footer</span> depending on user relevance.
+	</p>
 
-<code>&lt;!DOCTYPE html&gt;
-&lt;html lang=&quot;en&quot;&gt;
-&lt;head&gt;
-	&lt;title&gt;Modulator - Markup Documentation&lt;/title&gt;
-	&lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html; charset=UTF-8&quot; /&gt;
-	&lt;meta name=&quot;keywords&quot; content=&quot;HTML, JavaScript, CSS, framework, SEO&quot; /&gt;
-	&lt;meta name=&quot;description&quot; content=&quot;Details do matter&quot; /&gt;
-&lt;/head&gt;
-
-&lt;body&gt;
-
-&lt;div id=&quot;page&quot;&gt;
-
-	&lt;div id=&quot;header&quot;&gt;
-		&lt;ul class=&quot;servicenavigation&quot;&gt;
-			&lt;li class=&quot;keynav navigation&quot;&gt;&lt;a href=&quot;#navigation&quot; ref=&quot;nofollow&quot;&gt;To navigation&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;keynav search&quot;&gt;&lt;a href=&quot;/search&quot; ref=&quot;search&quot;&gt;Search&lt;/a&gt;&lt;/li&gt;
-			&lt;li class=&quot;keynav help&quot;&gt;&lt;a href=&quot;/help&quot; ref=&quot;help&quot;&gt;Help&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-
-	&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
-
-	&lt;div id=&quot;navigation&quot;&gt;
-		&lt;ul class=&quot;navigation&quot;&gt;
-			&lt;li class=&quot;documentation&quot;&gt;&lt;a href=&quot;/docu&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-
-	&lt;div id=&quot;footer&quot;&gt;
-		&lt;ul class=&quot;servicenavigation&quot;&gt;
-			&lt;li class=&quot;keynav terms&quot;&gt;&lt;a href=&quot;/terms&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
-		&lt;/ul&gt;
-	&lt;/div&gt;
-
-&lt;/div&gt;
-
-&lt;/body&gt;
-&lt;/html></code>
-
-
-
-
+	<div class="list">
+		<h3>More markup</h3>
+		<ul>
+			<li><a href="/docs#general_page_layout">General page layout</a></li>
+			<li><a href="/docs#content_blocks">Content blocks</a></li>
+		</ul>
+	</div>
 
 </div>
