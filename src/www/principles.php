@@ -13,8 +13,10 @@ $action = $page->actions();
 $page->bodyClass("principles");
 $page->pageTitle("Principles");
 
-$page->header();
-$page->template("pages/principles.php");
-$page->footer();
+
+$page->page(array(
+	"templates" => "pages/principles.php"
+));
+exit();
 
 ?>

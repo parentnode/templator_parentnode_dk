@@ -12,8 +12,8 @@ error_reporting(E_ALL);
 */
 define("SITE_UID", "MODU");
 define("SITE_NAME", "Modulator");
-define("SITE_URL", "modulator.parentnode.dk");
-define("SITE_EMAIL", "martin@kaestel.dk");
+define("SITE_URL", $_SERVER["SERVER_NAME"]);
+define("SITE_EMAIL", "info@parentnode.dk");
 
 /**
 * Optional constants
@@ -21,7 +21,6 @@ define("SITE_EMAIL", "martin@kaestel.dk");
 define("DEFAULT_PAGE_DESCRIPTION", "Modulator - Markup Killed Markup, recyclable HTML with support for ANY HTML capable device.");
 define("DEFAULT_LANGUAGE_ISO", "EN");
 define("DEFAULT_COUNTRY_ISO", "DK");
-define("DEFAULT_CURRENCY_ISO", "DKK");
 
 
 // // Enable items model
