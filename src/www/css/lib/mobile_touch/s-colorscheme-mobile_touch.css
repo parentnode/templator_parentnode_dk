@@ -1,28 +1,33 @@
 * {color: #ff7c00;}
 
 body {background: #ffffff;}
+
 #header {background: #ffffff; z-index: 100;}
-
 #header .logo {color: #04859d;}
-#navigation ul li {color: #04859d;}
-
 #header .servicenavigation li.navigation div {background: #ff7c00;}
 #header .servicenavigation li.navigation.open div {background: #04859d;}
+#navigation ul li {color: #04859d;}
 
-#content .scene a {color: #04859d;}
-
+#content .scene a,
+#content .scene dl.geo.active dd {color: #04859d;}
 #content .scene hr {border-color: #ffb773;}
 #content .scene code {color: #333333;}
+#content ul.actions input.button.primary,
+#content ul.actions a.button.primary {background-color: #04859d;}
+#content ul.actions input.button.primary:active,
+#content ul.actions a.button.primary:active {background-color: #ff7c00;}
 
 #footer {border-color: #ffb773;}
-#footer p {color: #ff7c00;}
-
-.front #header .logo,
-.docs #navigation ul li.docs,
-.principles #navigation ul li.principles {color: #ff7c00;}
-
 
 .terms_notification {background: #ffffff;}
 .terms_notification .accept,
 .terms_notification .details {color: #04859d;}
 .terms_notification {border-color: #ff7c00;}
+
+
+/* LOCAL */
+
+.front #header .logo,
+.docs #navigation ul li.docs,
+.principles #navigation ul li.principles {color: #ff7c00;}
+

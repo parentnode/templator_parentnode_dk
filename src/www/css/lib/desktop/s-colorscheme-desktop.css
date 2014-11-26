@@ -1,13 +1,7 @@
 /*
-http://colorschemedesigner.com/csd-3.5/#3s51Tw0w0w0w0
-
-7908aa
-#a63cd4
-
 #4e026e - PRIMARY DARK
 #b365d4 - PRIMARY LIGHT
 */
-
 
 * {color: #4e026e;}
 
@@ -15,20 +9,26 @@ body {background: #ffffff;}
 
 #header .logo {color: #b365d4;}
 #navigation ul li {color: #b365d4;}
-#content .scene a {color: #b365d4;}
 
+#content .scene a,
+#content .scene dl.geo.active dd {color: #b365d4;}
 #content .scene hr {border-color: #b365d4;}
 #content .scene code {color: #333333;}
+#content ul.actions input.button.primary,
+#content ul.actions a.button.primary {background-color: #b365d4;}
+#content ul.actions input.button.primary:hover,
+#content ul.actions a.button.primary:hover {background-color: #4e026e;}
 
 #footer {border-color: #4e026e;}
-#footer p {color: #4e026e;}
-
-.front #header .logo,
-.docs #navigation ul li.docs,
-.principles #navigation ul li.principles {color: #4e026e;}
-
 
 .terms_notification {background: #ffffff;}
 .terms_notification .accept,
 .terms_notification .details {color: #b365d4;}
 .terms_notification {border-color: #4e026e;}
+
+
+/* LOCAL */
+
+.front #header .logo,
+.docs #navigation ul li.docs,
+.principles #navigation ul li.principles {color: #4e026e;}
