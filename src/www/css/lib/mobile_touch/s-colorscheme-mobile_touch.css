@@ -1,33 +1,37 @@
-* {color: #ff7c00;}
+/*
+#4e026e - PRIMARY DARK
+#b365d4 - PRIMARY LIGHT
+#4e026e - BORDER
+*/
 
-body {background: #ffffff;}
+* {color: #4e026e;}
 
-#header {background: #ffffff; z-index: 100;}
-#header .logo {color: #04859d;}
-#header .servicenavigation li.navigation div {background: #ff7c00;}
-#header .servicenavigation li.navigation.open div {background: #04859d;}
-#navigation ul li {color: #04859d;}
+body {}
+
+#header .logo {color: #b365d4;}
+#header .servicenavigation li.navigation div {background: #b365d4;}
+#header .servicenavigation li.navigation.open div {background: #4e026e;}
+#navigation ul li {color: #b365d4;}
 
 #content .scene a,
-#content .scene dl.geo.active dd {color: #04859d;}
-#content .scene hr {border-color: #ffb773;}
-#content .scene code {color: #333333;}
+#content .scene dl.geo.active dd {color: #b365d4;}
+#content .scene hr {border-color: #4e026e;}
+
 #content ul.actions input.button.primary,
-#content ul.actions a.button.primary {background-color: #04859d;}
+#content ul.actions a.button.primary {background-color: #b365d4;}
 #content ul.actions input.button.primary:active,
-#content ul.actions a.button.primary:active {background-color: #ff7c00;}
+#content ul.actions a.button.primary:active {background-color: #4e026e;}
 
-#footer {border-color: #ffb773;}
+#footer {border-color: #4e026e;}
 
-.terms_notification {background: #ffffff;}
 .terms_notification .accept,
-.terms_notification .details {color: #04859d;}
-.terms_notification {border-color: #ff7c00;}
+.terms_notification .details {color: #b365d4;}
+.terms_notification {border-color: #4e026e;}
 
 
 /* LOCAL */
 
 .front #header .logo,
 .docs #navigation ul li.docs,
-.principles #navigation ul li.principles {color: #ff7c00;}
+.principles #navigation ul li.principles {color: #4e026e;}
 

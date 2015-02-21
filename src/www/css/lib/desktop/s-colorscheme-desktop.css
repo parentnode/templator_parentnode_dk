@@ -1,11 +1,12 @@
 /*
 #4e026e - PRIMARY DARK
 #b365d4 - PRIMARY LIGHT
+#4e026e - BORDER
 */
 
 * {color: #4e026e;}
 
-body {background: #ffffff;}
+body {}
 
 #header .logo {color: #b365d4;}
 #navigation ul li {color: #b365d4;}
@@ -13,15 +14,12 @@ body {background: #ffffff;}
 #content .scene a,
 #content .scene dl.geo.active dd {color: #b365d4;}
 #content .scene hr {border-color: #b365d4;}
-#content .scene code {color: #333333;}
+
 #content ul.actions input.button.primary,
 #content ul.actions a.button.primary {background-color: #b365d4;}
-#content ul.actions input.button.primary:hover,
-#content ul.actions a.button.primary:hover {background-color: #4e026e;}
 
 #footer {border-color: #4e026e;}
 
-.terms_notification {background: #ffffff;}
 .terms_notification .accept,
 .terms_notification .details {color: #b365d4;}
 .terms_notification {border-color: #4e026e;}

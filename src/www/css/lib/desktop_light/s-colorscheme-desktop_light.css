@@ -1,33 +1,37 @@
-* {color: #ff7c00;}
+/*
+#4e026e - PRIMARY DARK
+#b365d4 - PRIMARY LIGHT
+#4e026e - BORDER
+*/
 
-body {background: #ffffff;}
+* {color: #b365d4;}
 
-#header .logo {color: #04859d;}
-#navigation ul li a {color: #04859d;}
+body {}
 
-#content .scene a {color: #04859d;}
-#content .scene hr {border-color: #ffb773;}
-#content .scene code {color: #333333;}
-#content ul.actions input.primary,
-#content ul.actions a.primary,
+#header .logo {color: #4e026e;}
+#navigation ul li a {color: #4e026e;}
+
+#content .scene a {color: #4e026e;}
+#content .scene hr {border-color: #4e026e;}
+
+#content ul.actions input.button.primary,
+#content ul.actions a.button.primary,
 #content .scene .pagination .next,
-#content .scene .pagination .previous {background-color: #ef002a;}
-#content ul.actions input.primary:hover,
-#content ul.actions a.primary:hover,
+#content .scene .pagination .previous {background-color: #4e026e;}
+#content ul.actions input.button.primary:hover,
+#content ul.actions a.button.primary:hover,
 #content .scene .pagination .next:hover,
-#content .scene .pagination .previous:hover {background-color: #9b001c;}
+#content .scene .pagination .previous:hover {background-color: #b365d4;}
 
-#footer {border-color: #ffb773;}
+#footer {border-color: #4e026e;}
 
-
-.terms_notification {background: #ffffff;}
 .terms_notification .accept,
-.terms_notification .details {color: #04859d;}
-.terms_notification {border-color: #ffb773;}
+.terms_notification .details {color: #4e026e;}
+.terms_notification {border-color: #b365d4;}
 
 
 /* LOCAL */
 
 .front #header .logo,
 .docs #navigation ul li.docs,
-.principles #navigation ul li.principles {color: #ff7c00;}
+.principles #navigation ul li.principles {color: #b365d4;}
