@@ -1,0 +1,6 @@
+/* DOCUMENTATION */
+#content .scene.docs .list ul li {padding: 2px 0;}
+#content .scene.docs .list ul ul {padding-left: 10px;}
+#content .scene.docs .list ul ul ul {padding-bottom: 0;}
+#content .scene.docs code {margin-bottom: 10px;}
+
