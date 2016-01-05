@@ -12,7 +12,7 @@
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
-				Modulator wants to help you achive what you want, regardsless of what you want. As frontend/creative developers
+				Modulator wants to help you create what you want, regardsless of what you want. As frontend/creative developers
 				we are faced with a multitude of challenges ranging from design idiocy, varying browser processing and rendering
 				speed, support of different devices and formfactors and restrictions imposed by predefined and often meaningless 
 				CMS output. The worst HTML is made by backend developers whom take HTML for granted. 

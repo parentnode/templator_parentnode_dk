@@ -15,4 +15,22 @@ print '<?xml version="1.0" encoding="UTF-8"?>';
 		<changefreq>weekly</changefreq>
 		<priority>1</priority>
 	</url>
+	<url>
+		<loc>http://modulator.parentnode.dk/principles</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/principles.php")) ?></lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>http://modulator.parentnode.dk/docs</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/docs/index.php")) ?></lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1</priority>
+	</url>
+	<url>
+		<loc>http://modulator.parentnode.dk/terms</loc>
+		<lastmod><?= date("Y-m-d", filemtime(LOCAL_PATH."/templates/pages/terms.php")) ?></lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1</priority>
+	</url>
 </urlset>

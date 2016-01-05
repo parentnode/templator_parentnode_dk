@@ -4,3 +4,6 @@
 #content .scene.docs .list ul ul ul {padding-bottom: 0;}
 #content .scene.docs code {margin-bottom: 20px;}
 
+/* ARTICLES */
+#content .scene .article dl.info {display: none;}
+

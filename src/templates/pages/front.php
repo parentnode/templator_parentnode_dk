@@ -60,4 +60,15 @@
 		</div>
 	</div>
 
+	<div class="usedby">
+		<h2>Selected clients</h2>
+		<ul>
+			<li class="cphpix" title="CPH PIX">CPH PIX</li>
+			<li class="urbangreen" title="Urban Green">Urban Green</li>
+			<li class="metro" title="Copenhagen Metro">Copenhagen Metro</li>
+			<li class="tuborg" title="Tuborg">Tuborg</li>
+			<li class="distortion" title="Distortion">Distortion</li>
+		</ul>
+	</div>
+
 </div>
