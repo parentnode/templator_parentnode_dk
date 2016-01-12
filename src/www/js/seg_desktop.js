@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-js-merged @ 2016-01-06 12:53:11
+js-merged @ 2016-01-12 05:44:52
 */
 
 /*seg_desktop_include.js*/
@@ -6192,7 +6192,7 @@ Util.Objects["article"] = new function() {
 			image._format = u.cv(image, "format");
 			image._variant = u.cv(image, "variant");
 			if(image._id && image._format) {
-				image._image_src = "/images/" + image._id + "/" + (image._variant ? image._variant+"/" : "") + image.offsetWidth + "x." + image._format;
+				image._image_src = "/images/" + image._id + "/" + (image._variant ? image._variant+"/" : "") + "540x." + image._format;
 				u.a.setOpacity(image, 0);
 				image.loaded = function(queue) {
 					u.ac(this, "loaded");
