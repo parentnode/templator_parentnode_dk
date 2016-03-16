@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-js-merged @ 2016-03-16 17:54:33
+js-merged @ 2016-03-16 18:50:49
 */
 
 /*seg_desktop_include.js*/
@@ -4357,6 +4357,7 @@ if(false && document.documentMode <= 10) {
 
 /*u-settings.js*/
 u.site_name = "Templator";
+u.terms_version = "terms_v1";
 u.github_fork = {"url":"https://github.com/parentnode/templator", "text":"Fork me on GitHub"};
 u.ga_account = 'UA-49741763-1';
 u.ga_domain = 'templator.parentnode.dk';
