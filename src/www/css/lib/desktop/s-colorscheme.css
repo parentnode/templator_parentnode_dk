@@ -18,11 +18,9 @@ body {}
 #content ul.actions input.button.primary,
 #content ul.actions a.button.primary {background-color: #b365d4;}
 
-#footer {border-color: #4e026e;}
+#footer {border-color: #b365d4;}
 
-.terms_notification .accept,
-.terms_notification .details {color: #b365d4;}
-.terms_notification {border-color: #4e026e;}
+.terms_notification {background-color: #4e026e;}
 
 
 /* LOCAL */

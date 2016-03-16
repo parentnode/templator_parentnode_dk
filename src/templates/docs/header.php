@@ -1,4 +1,4 @@
-<div class="scene docs">
+<div class="scene docs i:scene">
 	<h1>Header</h1>
 	<p>
 		The <span class="htmltag">div#header</span> node should contain only elements you want to present to the user before
@@ -28,8 +28,8 @@
 	</p>
 	<p>
 		The <span class="value">keynav</span> class on the <span class="htmltag">ul.servicenavigation</span> elements is an optional
-		indicator to a JavaScript <a href="http://manipulator.parentnode.dk/docs/u-objects" target="_blank">Page controller</a>
-		of keyboard accessibily relevance for visually impaired users. It does not have any functionality built in.
+		indicator, that this element should be extended with keyboard accessibility for visually impaired users. 
+		It does not have any functionality built in.
 	</p>
 
 	<div class="list">

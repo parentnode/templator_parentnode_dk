@@ -1,19 +1,33 @@
 <div class="scene principles i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="headline">The principles <br />of Modulator</h1>
+		<h1 itemprop="headline">The principles <br />of Templator</h1>
 
-		<dl class="info">
-			<dt class="published_at">Date published</dt>
-			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
-			<dt class="author">Author</dt>
-			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
-		</dl>
-		<div itemprop="image" content="<?= SITE_URL ?>/img/logo.png"></div>
+		<ul class="info">
+			<li class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
+			<li class="modified_at" itemprop="dateModified" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
+			<li class="author" itemprop="author">Martin Kæstel Nielsen</li>
+			<li class="main_entity share" itemprop="mainEntityOfPage"><?= SITE_URL."/terms" ?></li>
+			<li class="publisher" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+				<ul class="publisher_info">
+					<li class="name" itemprop="name">parentnode.dk</li>
+					<li class="logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+						<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
+						<span class="image_width" itemprop="width" content="720"></span>
+						<span class="image_height" itemprop="height" content="405"></span>
+					</li>
+				</ul>
+			</li>
+			<li class="image_info" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+				<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
+				<span class="image_width" itemprop="width" content="720"></span>
+				<span class="image_height" itemprop="height" content="405"></span>
+			</li>
+		</ul>
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
-				Modulator wants to help you create what you want, regardsless of what you want. As frontend/creative developers
+				Templator wants to help you create what you want, regardsless of what you want. As frontend/creative developers
 				we are faced with a multitude of challenges ranging from design idiocy, varying browser processing and rendering
 				speed, support of different devices and formfactors and restrictions imposed by predefined and often meaningless 
 				CMS output. The worst HTML is made by backend developers whom take HTML for granted. 
@@ -32,7 +46,7 @@
 				<a href="http://en.wikipedia.org/wiki/Separation_of_presentation_and_content" target="_blank">separating Content, Design and Functionality</a>
 				has been around for long. It has been considered anything from an absolute necessity to an utopian ideal. Supporters
 				are fighting for semantic content and opponents for unconstrained design. It would be nice to be able to please both
-				sides, but it is too complicated and probably just can't be done, right? Well, Modulator begs to differ.
+				sides, but it is too complicated and probably just can't be done, right? Well, Templator begs to differ.
 			</p>
 			<p>
 				Think of HTML as XML. Use it to structure your content semantically and forget about the design and interface 
@@ -53,10 +67,10 @@
 
 			<h2>Semantic HTML and SEO</h2>
 			<p>
-				Modulator implements <a href="http://schema.org" target="_blank">Schema.org</a> for extended semantics. Schema has
+				Templator implements <a href="http://schema.org" target="_blank">Schema.org</a> for extended semantics. Schema has
 				been adapted by 
 				<a href="http://en.wikipedia.org/wiki/Schema.org" target="_blank">Google, Yahoo and Microsoft</a>
-				which makes it the broadest supported semantic model available. When using Modulator markup you automatically 
+				which makes it the broadest supported semantic model available. When using Templator markup you automatically 
 				achieve the highest level of Search engine optimization from a code point of view, but you still need to bring 
 				your own content to the party.
 			</p>
@@ -80,16 +94,16 @@
 
 			<h2>Additional levarage</h2>
 			<p>
-				<a href="http://detector.parentnode.dk" target="_blank">Detector</a> is an easy way of
-				grouping all browsers into 9 simple target segments for performance and device optimized interfaces.
+				<a href="http://detector.parentnode.dk" target="_blank">Detector</a> is your one-stop solution to support all 
+				HTML capable devices on earth and lowering your development complexity at the same time.
 			</p>
 			<p>
-				<a href="http://manipulator.parentnode.dk" target="_blank">Manipulator</a> is a full JavaScript library,
-				designed to work with Modulator markup and Detector segments.
+				<a href="http://manipulator.parentnode.dk" target="_blank">Manipulator</a> is an extremely flexible, performance 
+				optimized open source JavaScript library and framework, designed to work with Templator markup and Detector segments.
 			</p>
 			<p>
-				<a href="http://janitor.parentnode.dk" target="_blank">Janitor</a> is a full PHP Content Management Framework and
-				Content Delivery Platform designed to work with Modulator, Detector and Manipulator.
+				<a href="http://janitor.parentnode.dk" target="_blank">Janitor</a> is an open source PHP content management 
+				and distribution developer toolkit, designed to work with Templator, Detector and Manipulator.
 			</p>
 		</div>
 	</div>

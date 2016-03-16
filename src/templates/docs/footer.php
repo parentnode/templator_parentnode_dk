@@ -1,4 +1,4 @@
-<div class="scene docs">
+<div class="scene docs i:scene">
 	<h1>Footer</h1>
 	<p>
 		The <span class="htmltag">div#footer</span> node should contain elements which are of secondary nature. Relevant on

@@ -1,10 +1,15 @@
-<div class="scene docs">
+<div class="scene docs i:scene">
 
-	<h1>Action</h1>
-	
-<code>&lt;ul class=&quot;actions&quot;&gt;
-	&lt;li class=&quot;save&quot;&gt;&lt;input type=&quot;submit&quot; value=&quot;Submit&quot; class=&quot;button primary&quot; /&gt;&lt;/li&gt;
-	&lt;li class=&quot;cancel&quot;&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Cancel&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</code>
+	<h1>Actions</h1>
+	<p>Set of actions (typically buttons related to a form)</p>
+
+
+	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/actions.html")) ?></code>
+
+
+	<h2>Related types:</h2>
+	<ul class="links">
+		<li><a href="/docs/form">Form</a></li>
+	</ul>
 
 </div>

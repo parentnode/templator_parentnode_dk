@@ -3,24 +3,51 @@
 	<div class="article" itemscope itemtype="http://schema.org/Article">
 		<h1 itemprop="headline">It's so simple <br />when you stop <br />making it complicated</h1>
 
-		<dl class="info">
-			<dt class="published_at">Date published</dt>
-			<dd class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></dd>
-			<dt class="author">Author</dt>
-			<dd class="author" itemprop="author">Martin Kæstel Nielsen</dd>
-		</dl>
-		<div itemprop="image" content="<?= SITE_URL ?>/img/logo.png"></div>
+		<ul class="info">
+			<li class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
+			<li class="modified_at" itemprop="dateModified" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
+			<li class="author" itemprop="author">Martin Kæstel Nielsen</li>
+			<li class="main_entity share" itemprop="mainEntityOfPage"><?= SITE_URL."/terms" ?></li>
+			<li class="publisher" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
+				<ul class="publisher_info">
+					<li class="name" itemprop="name">parentnode.dk</li>
+					<li class="logo" itemprop="logo" itemscope itemtype="https://schema.org/ImageObject">
+						<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
+						<span class="image_width" itemprop="width" content="720"></span>
+						<span class="image_height" itemprop="height" content="405"></span>
+					</li>
+				</ul>
+			</li>
+			<li class="image_info" itemprop="image" itemscope itemtype="https://schema.org/ImageObject">
+				<span class="image_url" itemprop="url" content="<?= SITE_URL ?>/img/logo-large.png"></span>
+				<span class="image_width" itemprop="width" content="720"></span>
+				<span class="image_height" itemprop="height" content="405"></span>
+			</li>
+		</ul>
 
 		<div class="articlebody" itemprop="articleBody">
+			<h2>Download</h2>
 			<p>
-				Modulator is a SEO optimized markup model for HTML, that allows you to build any kind of site or app, 
+				Here you can download the full template package, including a boilerplate for getting started with 
+				<a href="http://detector.parentnode.dk" target="_blank">Detector</a>, 
+				<a href="http://manipulator.parentnode.dk">Manipulator</a> and Templator.
+			</p>
+			<ul class="actions">
+				<li class="download"><a href="/assets/templator-v1_5.zip" class="button primary">Download 1.5 (zip)</a></li>
+			</ul>
+
+
+			<h2>New to Templator?</h2>
+			<p>
+				Templator is a semantic search engine optimized HTML template model for web development, that allows for a 
+				complete separation of content, design and functionality. It allows you to build any kind of site or app, 
 				for any kind of device. It is fully W3C- and AAA-compliant, lightweight and as flexible as you will ever need. 
-				The Modulator model is based on a set of bestpractices deducted over more than a decade of working 
+				The Templator model is based on a set of bestpractices deducted over more than a decade of working 
 				professionally with HTML, CSS and JavaScript, prioritizing a complete separation of content, design and 
 				functionality and full accessibility for both the living and the binary.
 			</p>
 			<p>
-				Modulator markup is supported by all HTML capable browsers allowing you to spread your message 
+				Templator markup is supported by all HTML capable browsers allowing you to spread your message 
 				across the planet, regardless of enduser device. That includes more than 6.000.000.000
 				mobilephones. The only question left is: <strong>What do you want to say?</strong>
 			</p>
@@ -28,16 +55,16 @@
 			<h2>Beauty of simplicity</h2>
 			<p>
 				The real beauty of this markup model is it's simplicity. It is just doing what you already know, and forgetting
-				those hacks that you have had to acquire along the way. You do not need them anymore. Modulator is really easy 
+				those hacks that you have had to acquire along the way. You do not need them anymore. Templator is really easy 
 				to implement and works with any modern frontend friendly CMS. It's simplistic and semantic structure makes it easy 
-				to read and implement. You can reuse any Modulator snippet across different websites and designs, apply 
-				functionality as needed. Modulator is perfect for both custom and template based websites.
+				to read and implement. You can reuse any Templator snippet across different websites and designs, apply 
+				functionality as needed. Templator is perfect for both custom and template based websites.
 			</p>
 			<p>
 				 One markup, multiple presentations. This markup is for everyone and everything. It really IS that simple. 
 			</p>
 
-			<h2>Advantages of Modulator</h2>
+			<h2>Advantages of Templator</h2>
 			<ul>
 				<li>Your markup works seamlessly in all HTML browsers.</li>
 				<li>Complete separation of Content, Design and Functionality.</li>
@@ -50,7 +77,7 @@
 			</ul>
 
 			<p>
-				Modulator is part of the <a href="http://parentnode.dk" target="_blank">parentNode</a> family.
+				Templator is part of the <a href="http://parentnode.dk" target="_blank">parentNode</a> family.
 			</p>
 
 			<h2>Want to contribute?</h2>

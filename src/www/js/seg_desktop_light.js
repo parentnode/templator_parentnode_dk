@@ -3646,7 +3646,7 @@ if(String.prototype.substr == undefined || "ABC".substr(-1,1) == "A") {
 
 
 /*u-settings.js*/
-u.site_name = "Modulator";
+u.site_name = "Templator";
 
 /*ga.js*/
 u.ga_account = 'UA-49741763-1';

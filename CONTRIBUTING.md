@@ -1,4 +1,4 @@
-# Contributing to Modulator
+# Contributing to Templator
 
 Any help is welcome. 
 

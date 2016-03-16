@@ -10,15 +10,15 @@ error_reporting(E_ALL);
 /**
 * Required site information
 */
-define("SITE_UID", "MODU");
-define("SITE_NAME", "Modulator");
+define("SITE_UID", "Ttor");
+define("SITE_NAME", "Templator");
 define("SITE_URL", (isset($_SERVER["HTTPS"]) ? "https" : "http")."://".$_SERVER["SERVER_NAME"]);
 define("SITE_EMAIL", "info@parentnode.dk");
 
 /**
 * Optional constants
 */
-define("DEFAULT_PAGE_DESCRIPTION", "Modulator - Markup Killed Markup, recyclable HTML with support for ANY HTML capable device.");
+define("DEFAULT_PAGE_DESCRIPTION", "Templator - Markup Killed Markup, recyclable HTML with support for ANY HTML capable device.");
 define("DEFAULT_LANGUAGE_ISO", "EN");
 define("DEFAULT_COUNTRY_ISO", "DK");
 

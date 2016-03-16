@@ -1,14 +1,14 @@
-<div class="scene docs">
-	<h1>Modulator documentation</h1>
+<div class="scene docs i:scene">
+	<h1>Documentation</h1>
 	<p>
-		This documentation is provided to give you an overview and explanation of the overall Modulator 
+		This documentation is provided to give you an overview and explanation of the overall Templator 
 		page structure and the content blocks used to structure the individual content of a HTML page.
 	</p>
 
 	<div class="list" id="general_page_layout">
 		<h2>The general page layout</h2>
 		<p>
-			A primary convention of Modulator is the outermost <span class="htmltag">div#page</span>. 
+			A primary convention of Templator is the outermost <span class="htmltag">div#page</span>. 
 			This is the Page node. A standard Page contains the four primary 
 			shell nodes, <span class="htmltag">div#header</span>, <span class="htmltag">div#content</span>, 
 			<span class="htmltag">div#navigation</span> and <span class="htmltag">div#footer</span>.
@@ -40,43 +40,45 @@
 
 		<ul>
 			<li><a href="/docs/article">Article</a></li>
+			<li><a href="/docs/newsarticle">NewsArticle</a></li>
+			<li><a href="/docs/blogposting">BlogPosting</a></li>
 			<li><a href="/docs/organization">Organization</a>
 				<ul>
-					<li><a href="/docs/address">Address</a></li>
-					<li><a href="/docs/geo_location">Geo location</a></li>
-					<li><a href="/docs/contact">Contact</a></li>
+					<li><a href="/docs/postaladdress">PostalAddress</a></li>
+					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
+					<li><a href="/docs/contact">Contact (To be updated)</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/event">Event</a>
+				<a href="/docs/event">Event (To be updated)</a>
 				<ul>
-					<li><a href="/docs/address">Address</a></li>
-					<li><a href="/docs/geo_location">Geo location</a></li>
-					<li><a href="/docs/contact">Contact</a></li>
-					<li><a href="/docs/price">Price</a></li>
+					<li><a href="/docs/postaladdress">PostalAddress</a></li>
+					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
+					<li><a href="/docs/contact">Contact (To be updated)</a></li>
+					<li><a href="/docs/price">Price (To be updated)</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/product">Product</a>
+				<a href="/docs/product">Product (To be updated)</a>
 				<ul>
-					<li><a href="/docs/price">Price</a></li>
-					<li><a href="/docs/review">Review</a></li>
+					<li><a href="/docs/price">Price (To be updated)</a></li>
+					<li><a href="/docs/review">Review (To be updated)</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/movie">Movie</a>
+				<a href="/docs/movie">Movie (To be updated)</a>
 				<ul>
-					<li><a href="/docs/contact">Contact</a></li>
-					<li><a href="/docs/price">Price</a></li>
-					<li><a href="/docs/review">Review</a></li>
+					<li><a href="/docs/contact">Contact (To be updated)</a></li>
+					<li><a href="/docs/price">Price (To be updated)</a></li>
+					<li><a href="/docs/review">Review (To be updated)</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="/docs/person">Person</a>
 				<ul>
-					<li><a href="/docs/address">Address</a></li>
-					<li><a href="/docs/geo_location">Geo location</a></li>
-					<li><a href="/docs/contact">Contact</a></li>
+					<li><a href="/docs/postaladdress">PostalAddress</a></li>
+					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
+					<li><a href="/docs/contact">Contact (To be updated)</a></li>
 				</ul>
 			</li>
 			<li><a href="/docs/form">Form</a></li>
@@ -84,12 +86,12 @@
 					<li><a href="/docs/actions">Actions</a></li>
 				</ul>
 			<li><a href="/docs/actions">Actions</a></li>
-			<li><a href="/docs/sharing">Sharing</a></li>
-			<li><a href="/docs/address">Address</a></li>
-			<li><a href="/docs/geo_location">Geo location</a></li>
-			<li><a href="/docs/contact">Contact</a></li>
-			<li><a href="/docs/price">Price</a></li>
-			<li><a href="/docs/review">Review</a></li>
+			<li><a href="/docs/sharing">Sharing (To be updated)</a></li>
+			<li><a href="/docs/postaladdress">PostalAddress</a></li>
+			<li><a href="/docs/geo_location">GeoCoordinates</a></li>
+			<li><a href="/docs/contact">Contact (To be updated)</a></li>
+			<li><a href="/docs/price">Price (To be updated)</a></li>
+			<li><a href="/docs/review">Review (To be updated)</a></li>
 		</ul>
 	</div>
 
