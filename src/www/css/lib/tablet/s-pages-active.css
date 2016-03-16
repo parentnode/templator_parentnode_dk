@@ -1,2 +1,4 @@
 #content ul.actions input.button.primary:active,
 #content ul.actions a.button.primary:active {background-color: #4e026e;}
+
+#content .scene .article ul.tags a:active {color: #4e026e;}

@@ -427,11 +427,12 @@ dd {display: block; font-size: 13px; line-height: 1.25em;}
 
 
 /*s-pages.css*/
+#content .scene ul.info {display: none;}
+#content .scene.login form {display: none;}
 #content .scene.docs .list ul li {padding: 2px 0;}
 #content .scene.docs .list ul ul {padding-left: 30px;}
 #content .scene.docs .list ul ul ul {padding-bottom: 0;}
 #content .scene.docs code {margin-bottom: 20px;}
-#content .scene .article dl.info {display: none;}
 
 
 /*s-colorscheme.css*/
@@ -449,10 +450,11 @@ body {}
 #content ul.actions a.button.primary:hover,
 #content .scene .pagination .next:hover,
 #content .scene .pagination .previous:hover {background-color: #4e026e;}
+#content .scene div.categories ul.tags li.selected a {color: #4e026e;}
+#content .scene ul.tags a:hover {color: #b365d4;}
 #footer {border-color: #4e026e;}
-.terms_notification .accept,
-.terms_notification .details {color: #b365d4;}
-.terms_notification {border-color: #4e026e;}
+#footer a {color: #b365d4;}
+.terms_notification {background-color: #4e026e;}
 .front #header .logo,
 .docs #navigation ul li.docs,
 .principles #navigation ul li.principles {color: #4e026e;}

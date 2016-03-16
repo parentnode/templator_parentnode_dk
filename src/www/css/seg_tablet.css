@@ -693,8 +693,12 @@ body {}
 #content .scene dl.geo.active dd {color: #b365d4;}
 #content .scene hr {border-color: #b365d4;}
 #content ul.actions input.button.primary,
-#content ul.actions a.button.primary {background-color: #b365d4;}
+#content ul.actions a.button.primary,
+#header ul.servicenavigation li.github {background-color: #b365d4;}
+#content .scene div.categories ul.tags li.selected a,
+#content .scene div.categories ul.tags li.selected:before {color: #4e026e;}
 #footer {border-color: #b365d4;}
+#footer a {color: #b365d4;}
 .terms_notification {background-color: #4e026e;}
 .front #header .logo,
 .docs #navigation ul li.docs,
@@ -704,4 +708,5 @@ body {}
 /*s-pages-active.css*/
 #content ul.actions input.button.primary:active,
 #content ul.actions a.button.primary:active {background-color: #4e026e;}
+#content .scene .article ul.tags a:active {color: #4e026e;}
 
