@@ -7,7 +7,7 @@
 			<li class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
 			<li class="modified_at" itemprop="dateModified" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
 			<li class="author" itemprop="author">Martin Kæstel Nielsen</li>
-			<li class="main_entity share" itemprop="mainEntityOfPage"><?= SITE_URL."/terms" ?></li>
+			<li class="main_entity share" itemprop="mainEntityOfPage"><?= SITE_URL."/" ?></li>
 			<li class="publisher" itemprop="publisher" itemscope itemtype="https://schema.org/Organization">
 				<ul class="publisher_info">
 					<li class="name" itemprop="name">parentnode.dk</li>
@@ -33,7 +33,7 @@
 				<a href="http://manipulator.parentnode.dk">Manipulator</a> and Templator.
 			</p>
 			<ul class="actions">
-				<li class="download"><a href="/assets/templator-v1_5.zip" class="button primary">Download 1.5 (zip)</a></li>
+				<li class="download"><a href="/assets/templator-v2.zip" class="button primary">Download v2 (zip)</a></li>
 			</ul>
 
 
