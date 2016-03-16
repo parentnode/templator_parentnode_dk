@@ -7,3 +7,6 @@
 [submodule "submodules/janitor"]
 	path = submodules/janitor
 	url = https://github.com/parentnode/janitor.git
+[submodule "submodules/templator"]
+	path = submodules/templator
+	url = https://github.com/parentnode/templator.git
