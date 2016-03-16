@@ -46,31 +46,31 @@
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
 					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-					<li><a href="/docs/contact">Contact (To be updated)</a></li>
+					<li><a href="/docs/contact">Contact (v1)</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/event">Event (To be updated)</a>
+				<a href="/docs/event">Event (v1)</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
 					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-					<li><a href="/docs/contact">Contact (To be updated)</a></li>
-					<li><a href="/docs/price">Price (To be updated)</a></li>
+					<li><a href="/docs/contact">Contact (v1)</a></li>
+					<li><a href="/docs/price">Price (v1)</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/product">Product (To be updated)</a>
+				<a href="/docs/product">Product (v1)</a>
 				<ul>
-					<li><a href="/docs/price">Price (To be updated)</a></li>
-					<li><a href="/docs/review">Review (To be updated)</a></li>
+					<li><a href="/docs/price">Price (v1)</a></li>
+					<li><a href="/docs/review">Review (v1)</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/movie">Movie (To be updated)</a>
+				<a href="/docs/movie">Movie (v1)</a>
 				<ul>
-					<li><a href="/docs/contact">Contact (To be updated)</a></li>
-					<li><a href="/docs/price">Price (To be updated)</a></li>
-					<li><a href="/docs/review">Review (To be updated)</a></li>
+					<li><a href="/docs/contact">Contact (v1)</a></li>
+					<li><a href="/docs/price">Price (v1)</a></li>
+					<li><a href="/docs/review">Review (v1)</a></li>
 				</ul>
 			</li>
 			<li>
@@ -78,7 +78,7 @@
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
 					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-					<li><a href="/docs/contact">Contact (To be updated)</a></li>
+					<li><a href="/docs/contact">Contact (v1)</a></li>
 				</ul>
 			</li>
 			<li><a href="/docs/form">Form</a></li>
@@ -86,12 +86,12 @@
 					<li><a href="/docs/actions">Actions</a></li>
 				</ul>
 			<li><a href="/docs/actions">Actions</a></li>
-			<li><a href="/docs/sharing">Sharing (To be updated)</a></li>
+			<li><a href="/docs/sharing">Sharing (v1)</a></li>
 			<li><a href="/docs/postaladdress">PostalAddress</a></li>
 			<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-			<li><a href="/docs/contact">Contact (To be updated)</a></li>
-			<li><a href="/docs/price">Price (To be updated)</a></li>
-			<li><a href="/docs/review">Review (To be updated)</a></li>
+			<li><a href="/docs/contact">Contact (v1)</a></li>
+			<li><a href="/docs/price">Price (v1)</a></li>
+			<li><a href="/docs/review">Review (v1)</a></li>
 		</ul>
 	</div>
 
