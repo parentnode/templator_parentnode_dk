@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-js-merged @ 2016-01-12 05:44:52
+js-merged @ 2016-03-16 17:08:50
 */
 
 /*seg_mobile_include.js*/
@@ -3645,9 +3645,11 @@ if(String.prototype.substr == undefined || "ABC".substr(-1,1) == "A") {
 }
 
 
-/*ga.js*/
+/*u-settings.js*/
+u.site_name = "Templator";
+u.github_fork = {"url":"https://github.com/parentnode/templator", "text":"Fork me on GitHub"};
 u.ga_account = 'UA-49741763-1';
-u.ga_domain = 'modulator.parentnode.dk';
+u.ga_domain = 'templator.parentnode.dk';
 
 
 /*u-googleanalytics.js*/
