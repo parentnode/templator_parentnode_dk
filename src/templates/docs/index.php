@@ -1,5 +1,9 @@
 <div class="scene docs i:scene">
 	<h1>Documentation</h1>
+	<ul>
+		<li><a href="/pages/changelog">Changelog</a></li>
+		<!--li><a href="/pages/milestones">Milestones</a></li-->
+	</ul>
 	<p>
 		This documentation is provided to give you an overview and explanation of the overall Templator 
 		page structure and the content blocks used to structure the individual content of a HTML page.

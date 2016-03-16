@@ -22,6 +22,7 @@ body {}
 
 #content .scene div.categories ul.tags li.selected a,
 #content .scene div.categories ul.tags li.selected:before {color: #4e026e;}
+#content .scene div.comments.open h2 {color: #b365d4;}
 
 #footer {border-color: #b365d4;}
 #footer a {color: #b365d4;}
@@ -31,7 +32,6 @@ body {}
 
 
 /* LOCAL */
-
 .front #header .logo,
 .docs #navigation ul li.docs,
 .principles #navigation ul li.principles {color: #4e026e;}

@@ -1,13 +1,17 @@
 #content .scene ul.info {display: none;}
 
 
+/* POST ARTICLE */
+#content div.post div.article ul.info {display: block;}
+
+
 /* LOGIN */
-#content .scene.login form {display: none;}
+#content div.login form {display: none;}
 
 
 /* DOCUMENTATION */
-#content .scene.docs .list ul li {padding: 2px 0;}
-#content .scene.docs .list ul ul {padding-left: 30px;}
-#content .scene.docs .list ul ul ul {padding-bottom: 0;}
-#content .scene.docs code {margin-bottom: 20px;}
+#content div.docs .list ul li {padding: 2px 0;}
+#content div.docs .list ul ul {padding-left: 30px;}
+#content div.docs .list ul ul ul {padding-bottom: 0;}
+#content div.docs code {margin-bottom: 20px;}
 

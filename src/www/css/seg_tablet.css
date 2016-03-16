@@ -678,6 +678,7 @@ body #selection_options ul.actions a.button:active {background-color: #313942;}
 
 /*s-pages.css*/
 #content .scene ul.info {display: none;}
+#content .scene.post div.article ul.info {display: block;}
 #content .scene.docs .list ul li {padding: 2px 0;}
 #content .scene.docs .list ul ul {padding-left: 30px;}
 #content .scene.docs .list ul ul ul {padding-bottom: 0;}
@@ -697,6 +698,7 @@ body {}
 #header ul.servicenavigation li.github {background-color: #b365d4;}
 #content .scene div.categories ul.tags li.selected a,
 #content .scene div.categories ul.tags li.selected:before {color: #4e026e;}
+#content .scene div.comments.open h2 {color: #b365d4;}
 #footer {border-color: #b365d4;}
 #footer a {color: #b365d4;}
 .terms_notification {background-color: #4e026e;}
@@ -707,6 +709,9 @@ body {}
 
 /*s-pages-active.css*/
 #content ul.actions input.button.primary:active,
-#content ul.actions a.button.primary:active {background-color: #4e026e;}
+#content ul.actions a.button.primary:active,
+#header ul.servicenavigation li.github:active {background-color: #4e026e;}
 #content .scene .article ul.tags a:active {color: #4e026e;}
+#content .scene div.comments h2:active {color: #4e026e;}
+#content .scene div.comments h2:active svg.arrow line {stroke: #4e026e;}
 
