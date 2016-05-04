@@ -4,3 +4,12 @@ u.github_fork = {"url":"https://github.com/parentnode/templator", "text":"Fork m
 
 u.ga_account = 'UA-49741763-1';
 u.ga_domain = 'templator.parentnode.dk';
+
+
+// dynamic text
+u.txt = {};
+
+// terms
+u.txt["terms-headline"] = "We love <br />cookies and privacy";
+u.txt["terms-accept"] = "Accept";
+u.txt["terms-details"] = "Details";
