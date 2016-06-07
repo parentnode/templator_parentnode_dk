@@ -53,19 +53,23 @@
 					<li><a href="/docs/contact">Contact (v1)</a></li>
 				</ul>
 			</li>
-			<li>
-				<a href="/docs/event">Event (v1)</a>
+			<li><a href="/docs/place">Place</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
 					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-					<li><a href="/docs/contact">Contact (v1)</a></li>
-					<li><a href="/docs/price">Price (v1)</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="/docs/event">Event</a>
+				<ul>
+					<li><a href="/docs/place">Place</a></li>
+					<li><a href="/docs/offer">Offer</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="/docs/product">Product (v1)</a>
 				<ul>
-					<li><a href="/docs/price">Price (v1)</a></li>
+					<li><a href="/docs/offer">Offer</a></li>
 					<li><a href="/docs/review">Review (v1)</a></li>
 				</ul>
 			</li>
@@ -73,7 +77,7 @@
 				<a href="/docs/movie">Movie (v1)</a>
 				<ul>
 					<li><a href="/docs/contact">Contact (v1)</a></li>
-					<li><a href="/docs/price">Price (v1)</a></li>
+					<li><a href="/docs/offer">Offer</a></li>
 					<li><a href="/docs/review">Review (v1)</a></li>
 				</ul>
 			</li>
@@ -94,7 +98,7 @@
 			<li><a href="/docs/postaladdress">PostalAddress</a></li>
 			<li><a href="/docs/geo_location">GeoCoordinates</a></li>
 			<li><a href="/docs/contact">Contact (v1)</a></li>
-			<li><a href="/docs/price">Price (v1)</a></li>
+			<li><a href="/docs/offer">Offer</a></li>
 			<li><a href="/docs/review">Review (v1)</a></li>
 		</ul>
 	</div>
