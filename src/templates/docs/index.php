@@ -43,20 +43,43 @@
 
 
 		<ul>
-			<li><a href="/docs/article">Article</a></li>
-			<li><a href="/docs/newsarticle">NewsArticle</a></li>
-			<li><a href="/docs/blogposting">BlogPosting</a></li>
+			<li><a href="/docs/article">Article</a>
+				<ul>
+					<li><a href="/docs/place">Place</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
+					<li><a href="/docs/comment">Comment</a></li>
+				</ul>
+			</li>
+			<li><a href="/docs/newsarticle">NewsArticle</a>
+				<ul>
+					<li><a href="/docs/place">Place</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
+					<li><a href="/docs/comment">Comment</a></li>
+				</ul>
+			</li>
+			<li><a href="/docs/blogposting">BlogPosting</a>
+				<ul>
+					<li><a href="/docs/place">Place</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
+					<li><a href="/docs/comment">Comment</a></li>
+				</ul>
+			</li>
 			<li><a href="/docs/organization">Organization</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
-					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-					<li><a href="/docs/contact">Contact (v1)</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
+				</ul>
+			</li>
+			<li><a href="/docs/localbusiness">LocalBusiness</a>
+				<ul>
+					<li><a href="/docs/postaladdress">PostalAddress</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 				</ul>
 			</li>
 			<li><a href="/docs/place">Place</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
-					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 				</ul>
 			</li>
 			<li>
@@ -67,26 +90,24 @@
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/product">Product (v1)</a>
+				<a href="/docs/product">Product</a>
 				<ul>
 					<li><a href="/docs/offer">Offer</a></li>
-					<li><a href="/docs/review">Review (v1)</a></li>
+					<!--li><a href="/docs/review">Review (v1)</a></li-->
 				</ul>
 			</li>
 			<li>
 				<a href="/docs/movie">Movie (v1)</a>
 				<ul>
-					<li><a href="/docs/contact">Contact (v1)</a></li>
 					<li><a href="/docs/offer">Offer</a></li>
-					<li><a href="/docs/review">Review (v1)</a></li>
+					<!--li><a href="/docs/review">Review (v1)</a></li-->
 				</ul>
 			</li>
 			<li>
 				<a href="/docs/person">Person</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
-					<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-					<li><a href="/docs/contact">Contact (v1)</a></li>
+					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 				</ul>
 			</li>
 			<li><a href="/docs/form">Form</a></li>
@@ -94,12 +115,10 @@
 					<li><a href="/docs/actions">Actions</a></li>
 				</ul>
 			<li><a href="/docs/actions">Actions</a></li>
-			<li><a href="/docs/sharing">Sharing (v1)</a></li>
 			<li><a href="/docs/postaladdress">PostalAddress</a></li>
-			<li><a href="/docs/geo_location">GeoCoordinates</a></li>
-			<li><a href="/docs/contact">Contact (v1)</a></li>
+			<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 			<li><a href="/docs/offer">Offer</a></li>
-			<li><a href="/docs/review">Review (v1)</a></li>
+			<!--li><a href="/docs/review">Review (v1)</a></li-->
 		</ul>
 	</div>
 

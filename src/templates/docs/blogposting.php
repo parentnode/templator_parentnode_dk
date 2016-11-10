@@ -12,6 +12,9 @@
 	<ul class="links">
 		<li><a href="/docs/article">Article</a></li>
 		<li><a href="/docs/newsarticle">NewsArticle</a></li>
+		<li><a href="/docs/comment">Comment</a></li>
+		<li><a href="/docs/place">Place</a></li>
+		<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 	</ul>
 
 </div>

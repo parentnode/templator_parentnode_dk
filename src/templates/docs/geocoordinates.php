@@ -12,8 +12,10 @@
 		<li><a href="/docs/postaladdress">PostalAddress</a></li>
 		<li><a href="/docs/organization">Organization</a></li>
 		<li><a href="/docs/place">Place</a></li>
-		<li><a href="/docs/contact">Contact</a></li>
 		<li><a href="/docs/person">Person</a></li>
+		<li><a href="/docs/article">Article</a></li>
+		<li><a href="/docs/newsarticle">NewsArticle</a></li>
+		<li><a href="/docs/blogposting">BlogPosting</a></li>
 	</ul>
 
 </div>

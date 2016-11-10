@@ -57,7 +57,6 @@
 
 <h2>This section includes parts from:</h2>
 <ul>
-	<li><a href="/documentation/contact">Contact</a></li>
 	<li><a href="/documentation/price">Price</a></li>
 	<li><a href="/documentation/review">Review</a></li>
 </ul>
