@@ -33,7 +33,7 @@
 				<a href="http://manipulator.parentnode.dk">Manipulator</a> and Templator.
 			</p>
 			<ul class="actions">
-				<li class="download"><a href="/assets/templator-v2.zip" class="button primary">Download v2 (zip)</a></li>
+				<li class="download"><a href="/assets/templator-v2.1.zip" class="button primary">Download v2.1 (zip)</a></li>
 			</ul>
 
 
