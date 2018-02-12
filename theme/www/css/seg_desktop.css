@@ -812,9 +812,10 @@ body {}
 #content .scene a,
 #content .scene ul.geo.active li.location {color: #b365d4;}
 #content .scene hr {border-color: #b365d4;}
-#content ul.actions input.button.primary,
+ul.actions input.button.primary,
+ul.actions a.button.primary,
 #content ul.actions a.button.primary,
-#header ul.servicenavigation li.github {background-color: #b365d4;}
+#header ul.servicenavigation li.github {background-color: #b365d4; color: #ffffff;}
 #content .scene div.categories ul.tags li.selected a,
 #content .scene div.categories ul.tags li.selected:before {color: #4e026e;}
 #content .scene div.comments.open h2 {color: #b365d4;}
@@ -827,9 +828,11 @@ body {}
 
 
 /*s-pages-hovers.css*/
-#content ul.actions input.button.primary:hover,
+ul.actions input.button.primary:hover,
+ul.actions a.button.primary:hover,
 #content ul.actions a.button.primary:hover,
-#header ul.servicenavigation li.github:hover {background-color: #4e026e;}
+#header ul.servicenavigation li.github:hover {background-color: #034769;}
+#content .scene ul.articles .article ul.tags li a:hover,
 #content .scene .article ul.tags a:hover {color: #b365d4;}
 #content .scene div.comments h2:hover {color: #b365d4;}
 #content .scene div.comments h2:hover svg.arrow line {stroke: #b365d4;}
