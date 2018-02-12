@@ -831,8 +831,7 @@ ul.actions a.button.primary,
 ul.actions input.button.primary:hover,
 ul.actions a.button.primary:hover,
 #content ul.actions a.button.primary:hover,
-#header ul.servicenavigation li.github:hover {background-color: #034769;}
-#content .scene ul.articles .article ul.tags li a:hover,
+#header ul.servicenavigation li.github:hover {background-color: #4e026e;}
 #content .scene .article ul.tags a:hover {color: #b365d4;}
 #content .scene div.comments h2:hover {color: #b365d4;}
 #content .scene div.comments h2:hover svg.arrow line {stroke: #b365d4;}
