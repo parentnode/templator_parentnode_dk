@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="<?= $this->language() ?>">
+<html lang="EN">
 <head>
 	<!-- (c) & (p) think.dk 2002-2016 -->
 	<!-- For detailed copyright license, see /terms -->
