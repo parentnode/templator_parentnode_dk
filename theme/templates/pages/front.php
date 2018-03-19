@@ -28,12 +28,14 @@
 		<div class="articlebody" itemprop="articleBody">
 			<h2>Download</h2>
 			<p>
-				Here you can download the full template package, including a boilerplate for getting started with 
+				Below you can download the full template package. Check out 
+				<a href="https://github.com/parentnode" target="_blank">https://github.com/parentnode</a>
+				for boilerplates to get started with 
 				<a href="http://detector.parentnode.dk" target="_blank">Detector</a>, 
 				<a href="http://manipulator.parentnode.dk">Manipulator</a> and Templator.
 			</p>
 			<ul class="actions">
-				<li class="download"><a href="/assets/templator-v2.1.zip" class="button primary">Download v2.1 (zip)</a></li>
+				<li class="download"><a href="/assets/templator-v3.zip" class="button primary">Download v3 (zip)</a></li>
 			</ul>
 
 

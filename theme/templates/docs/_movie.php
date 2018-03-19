@@ -2,7 +2,7 @@
 
 	<h1>Movie</h1>
 	
-	<p>Below shows a possible cenario of a movie</p>
+	<p>Below shows a possible scenario of a movie</p>
 
 <code>&lt;div itemscope itemtype=&quot;http://schema.org/Movie&quot;&gt;
 

@@ -31,6 +31,16 @@ $this->pageTitle("It's just improvements");
 
 		<div class="articlebody" itemprop="articleBody">
 
+			<h2>Version 3</h2>
+			<ul class="changes">
+				<li>
+					Updated and extended Schema properties for existing templates
+				</li>
+				<li>
+					Added review, rating and service templates
+				</li>
+			</ul>
+
 			<h2>Version 2</h2>
 			<ul class="changes">
 				<li>

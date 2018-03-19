@@ -76,7 +76,8 @@
 					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 				</ul>
 			</li>
-			<li><a href="/docs/place">Place</a>
+			<li>
+				<a href="/docs/person">Person</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
 					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
@@ -85,40 +86,52 @@
 			<li>
 				<a href="/docs/event">Event</a>
 				<ul>
-					<li><a href="/docs/place">Place</a></li>
 					<li><a href="/docs/offer">Offer</a></li>
+					<li><a href="/docs/review">Review</a></li>
+					<li><a href="/docs/person">Person</a></li>
+					<li><a href="/docs/organization">Organization</a></li>
+					<li><a href="/docs/place">Place</a></li>
 				</ul>
 			</li>
 			<li>
 				<a href="/docs/product">Product</a>
 				<ul>
 					<li><a href="/docs/offer">Offer</a></li>
-					<!--li><a href="/docs/review">Review (v1)</a></li-->
+					<li><a href="/docs/review">Review</a></li>
 				</ul>
 			</li>
 			<li>
-				<a href="/docs/movie">Movie (v1)</a>
+				<a href="/docs/service">Service</a>
 				<ul>
 					<li><a href="/docs/offer">Offer</a></li>
-					<!--li><a href="/docs/review">Review (v1)</a></li-->
+					<li><a href="/docs/review">Review</a></li>
 				</ul>
 			</li>
-			<li>
-				<a href="/docs/person">Person</a>
+			<li><a href="/docs/offer">Offer</a>
+				<ul>
+					<li><a href="/docs/review">Review</a></li>
+				</ul>			
+			</li>
+			<li><a href="/docs/review">Review</a>
+				<ul>
+					<li><a href="/docs/rating">Rating</a></li>
+				</ul>
+			</li>
+			<li><a href="/docs/place">Place</a>
 				<ul>
 					<li><a href="/docs/postaladdress">PostalAddress</a></li>
 					<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 				</ul>
 			</li>
-			<li><a href="/docs/form">Form</a></li>
+			<li><a href="/docs/postaladdress">PostalAddress</a></li>
+			<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
+			<li><a href="/docs/rating">Rating</a></li>
+
+			<li><a href="/docs/form">Form</a>
 				<ul>
 					<li><a href="/docs/actions">Actions</a></li>
 				</ul>
-			<li><a href="/docs/actions">Actions</a></li>
-			<li><a href="/docs/postaladdress">PostalAddress</a></li>
-			<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
-			<li><a href="/docs/offer">Offer</a></li>
-			<!--li><a href="/docs/review">Review (v1)</a></li-->
+			</li>
 		</ul>
 	</div>
 

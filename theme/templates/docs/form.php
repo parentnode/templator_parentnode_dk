@@ -1,4 +1,4 @@
-<div class="scene docs">
+<div class="scene docs i:scene">
 	<h1>Form</h1>
 	<p>Form element for Manipulator form module - <a href="http://manipulator.parentnode.dk/docs/u-form">Util.Form</a>.</p>
 

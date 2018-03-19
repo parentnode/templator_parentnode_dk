@@ -1,4 +1,4 @@
-<div class="scene docs">
+<div class="scene docs i:scene">
 	<h1>Navigation</h1>
 	<p>
 		The <span class="htmltag">div#navigation</span> contains the primary navigation element of the site. This can be 

@@ -9,8 +9,9 @@
 
 	<h2>Related types:</h2>
 	<ul class="links">
-		<li><a href="/docs/postaladdress">PostalAddress</a></li>
 		<li><a href="/docs/organization">Organization</a></li>
+		<li><a href="/docs/localbusiness">LocalBusiness</a></li>
+		<li><a href="/docs/postaladdress">PostalAddress</a></li>
 		<li><a href="/docs/place">Place</a></li>
 		<li><a href="/docs/geocoordinates">GeoCoordinates</a></li>
 	</ul>
