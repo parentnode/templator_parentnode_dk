@@ -39,6 +39,9 @@ $this->pageTitle("It's just improvements");
 				<li>
 					Added review, rating and service templates
 				</li>
+				<li>
+					Moved boilerplate to manipulator_boilerplate
+				</li>
 			</ul>
 
 			<h2>Version 2</h2>
