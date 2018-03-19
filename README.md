@@ -1,11 +1,11 @@
 This is the source code for https://templator.parentnode.dk.
 
-#About Templator and templator.parentnode.dk
+# About Templator and templator.parentnode.dk
 Templator is a semantic search engine optimized HTML template model for web development, that allows for a complete separation of content, design and functionality
 
 Visit https://templator.parentnode.dk for more information.
 
-#About parentNode.dk
+# About parentNode.dk
 parentnode.dk is a Copenhagen based open source project and part of [think.dk](https://think.dk), a think tank & center for acceleration of sustainable change. 
 
 Visit https://think.dk or https://parentnode.dk for more information.
@@ -13,10 +13,10 @@ Visit https://think.dk or https://parentnode.dk for more information.
 # Licenses:
 templator.parentnode.dk is licensed as follows:
 
-##Source code:
+## Source code:
 https://github.com/parentnode/templator_parentnode_dk/blob/master/LICENSE-CPAL.md
 
-##Content:
+## Content:
 https://creativecommons.org/licenses/by/4.0/
 
 
