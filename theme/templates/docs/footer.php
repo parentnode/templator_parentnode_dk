@@ -12,7 +12,7 @@
 		&lt;li class=&quot;terms&quot;&gt;&lt;a href=&quot;/terms&quot;&gt;Terms&lt;/a&gt;&lt;/li&gt;
 		&lt;li class=&quot;press&quot;&gt;&lt;a href=&quot;/press&quot;&gt;Press&lt;/a&gt;&lt;/li&gt;
 	&lt;/ul&gt;
-	&lt;div class=&quot;copyright&quot;&gt;&lt;p&gt;Copyright 2014, parentNode&lt;/p&gt;&lt;/div&gt;
+	&lt;div class=&quot;copyright&quot;&gt;&lt;p&gt;Copyright 2018, parentNode&lt;/p&gt;&lt;/div&gt;
 &lt;/div&gt;</code>
 
 	<p>
