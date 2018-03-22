@@ -27,10 +27,10 @@
 
 		<div class="articlebody" itemprop="articleBody">
 			<p>
-				Templator wants to help you create what you want, regardsless of what you want. As frontend/creative developers
+				Templator wants to help you create what you want, regardless of what you want. As frontend/creative developers
 				we are faced with a multitude of challenges ranging from design idiocy, varying browser processing and rendering
-				speed, support of different devices and formfactors and restrictions imposed by predefined and often meaningless 
-				CMS output. The worst HTML is made by backend developers whom take HTML for granted. 
+				speed, support of different devices and form factors and restrictions imposed by predefined and often meaningless 
+				CMS output. The worst HTML is made by backend developers who take HTML for granted. 
 			</p>
 			<p>
 				The design you are going to implement is likely to evolve, even before your current project is finished, and 
