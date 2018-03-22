@@ -14,8 +14,12 @@
 		A standard Templator Page contains the four primary 
 		shell nodes, <span class="htmltag">div#header</span>, <span class="htmltag">div#content</span>, 
 		<span class="htmltag">div#navigation</span> and <span class="htmltag">div#footer</span>. The order is not random.
-		The content actually goes before the navigation. Think about it - when someone navigates to a page, is the user then
-		more interested in the content or the navigation? Think structure, not design.
+		The content actually goes before the navigation. Think about it - when someone navigates to a page, would it be 
+		safe to assume that they are more more interested in the content than the navigation? 
+		This is especially evident on the mobile phone, where the user probably don't want to scroll through a huge navigation before reaching the content.
+	</p>
+	<p>
+		Think structure, not design.
 	</p>
 
 <code>&lt;!DOCTYPE html&gt;

@@ -1,9 +1,9 @@
 <div class="scene docs i:scene">
 	<h1>Header</h1>
 	<p>
-		The <span class="htmltag">div#header</span> node should contain only elements you want to present to the user before
-		the actual content. Typically the content is the reason the user navigated to this page, so only elements which might
-		be needed to improve access to content should reside here.
+		The <span class="htmltag">div#header</span> node should only contain elements or options you want to make available to the user before
+		the actual content. Typically the content is the reason why the user navigated to this page, so only elements which might
+		be needed to improve access to content should reside in the header.
 	</p>
 
 	<code>&lt;div id=&quot;header&quot;&gt;
