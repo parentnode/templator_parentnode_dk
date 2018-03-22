@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Person</h1>
-	<p>A person (alive, dead, undead, or fictional) - <a href="https://schema.org/Person">schema.org/Person</a></p>
+	<p>Layout for a person (alive, dead, undead, or fictional) – <a href="https://schema.org/Person">schema.org/Person</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Person.html")) ?></code>

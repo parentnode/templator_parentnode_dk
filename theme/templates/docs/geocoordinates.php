@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>GeoCoordinates</h1>
-	<p>The geographic coordinates of a place or event - <a href="https://schema.org/GeoCoordinates">schema.org/GeoCoordinates</a></p>
+	<p>Layout for the geographic coordinates of a place or event – <a href="https://schema.org/GeoCoordinates">schema.org/GeoCoordinates</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/GeoCoordinates.html")) ?></code>

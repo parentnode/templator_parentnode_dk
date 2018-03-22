@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Offer</h1>
-	<p>Layout for an Offer (a service, product, etc) - <a href="https://schema.org/Offer">schema.org/Offer</a></p>
+	<p>Layout for an offer (a service, product, etc.) – <a href="https://schema.org/Offer">schema.org/Offer</a>.</p>
 
 	<p class="note">Predefined availability options: Discontinued, InStock, InStoreOnly, LimitedAvailability, OnlineOnly, OutOfStock, PreOrder, PreSale, SoldOut</p> 
 

@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Comment</h1>
-	<p>Layout for Comment - <a href="https://schema.org/Comment">schema.org/Comment</a></p>
+	<p>Layout for a comment – <a href="https://schema.org/Comment">schema.org/Comment</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Comment.html")) ?></code>

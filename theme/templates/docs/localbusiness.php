@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>LocalBusiness</h1>
-	<p>Layout for an local business such as a shop, school or club - <a href="https://schema.org/LocalBusiness">schema.org/LocalBusiness</a></p>
+	<p>Layout for a local business (a shop, school, club, etc.) – <a href="https://schema.org/LocalBusiness">schema.org/LocalBusiness</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/LocalBusiness.html")) ?></code>

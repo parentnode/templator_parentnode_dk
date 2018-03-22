@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>BlogPosting</h1>
-	<p>Layout for <a href="https://schema.org/BlogPosting">schema.org/BlogPosting</a>.</p>
+	<p>Layout for a blog post – <a href="https://schema.org/BlogPosting">schema.org/BlogPosting</a>.</p>
 	<p class="note">Please note: Dates need to be specified in a content tag and in ISO 8601 date format</p>
 
 

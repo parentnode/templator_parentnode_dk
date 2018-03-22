@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Organization</h1>
-	<p>Layout for an organization NGO or corporation - <a href="https://schema.org/Organization">schema.org/Organization</a></p>
+	<p>Layout for an organization, NGO, or corporation – <a href="https://schema.org/Organization">schema.org/Organization</a>.</p>
 
 	<p class="note">An organization cannot have opening hours - if you need this, use <a href="/docs/localbusiness">LocalBusiness</a>.</p>
 

@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Service</h1>
-	<p>Layout for Service - <a href="https://schema.org/Event">schema.org/Service</a></p>
+	<p>Layout for a service – <a href="https://schema.org/Event">schema.org/Service</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Service.html")) ?></code>
