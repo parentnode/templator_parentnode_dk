@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>PostalAddress</h1>
-	<p>Layout for PostalAddress - <a href="https://schema.org/PostalAddress">schema.org/PostalAddress</a></p>
+	<p>Layout for a postal address – <a href="https://schema.org/PostalAddress">schema.org/PostalAddress</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/PostalAddress.html")) ?></code>

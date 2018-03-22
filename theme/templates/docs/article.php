@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Article</h1>
-	<p>Layout for <a href="https://schema.org/Article">schema.org/Article</a>.</p>
+	<p>Layout for a generic article (not a news article or blog post) – <a href="https://schema.org/Article">schema.org/Article</a>.</p>
 	<p class="note">Please note: Dates need to be specified in a content tag and in ISO 8601 date format</p>
 
 

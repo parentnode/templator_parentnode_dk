@@ -44,14 +44,14 @@
 				Templator is a semantic search engine optimized HTML template model for web development, that allows for a 
 				complete separation of content, design and functionality. It allows you to build any kind of site or app, 
 				for any kind of device. It is fully W3C- and AAA-compliant, lightweight and as flexible as you will ever need. 
-				The Templator model is based on a set of bestpractices deducted over more than a decade of working 
+				The Templator model is based on a set of best practices deducted over more than a decade of working 
 				professionally with HTML, CSS and JavaScript, prioritizing a complete separation of content, design and 
 				functionality and full accessibility for both the living and the binary.
 			</p>
 			<p>
 				Templator markup is supported by all HTML capable browsers allowing you to spread your message 
-				across the planet, regardless of enduser device. That includes more than 6.000.000.000
-				mobilephones. The only question left is: <strong>What do you want to say?</strong>
+				across the planet, regardless of end user device. That includes more than 6.000.000.000
+				mobile phones. The only question left is: <strong>What do you want to say?</strong>
 			</p>
 
 			<h2>Beauty of simplicity</h2>
@@ -59,7 +59,7 @@
 				The real beauty of this markup model is it's simplicity. It is just doing what you already know, and forgetting
 				those hacks that you have had to acquire along the way. You do not need them anymore. Templator is really easy 
 				to implement and works with any modern frontend friendly CMS. It's simplistic and semantic structure makes it easy 
-				to read and implement. You can reuse any Templator snippet across different websites and designs, apply 
+				to read and implement. You can reuse any Templator snippet across different websites and designs and apply 
 				functionality as needed. Templator is perfect for both custom and template based websites.
 			</p>
 			<p>

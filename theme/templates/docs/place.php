@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Place</h1>
-	<p>Layout for Place - <a href="https://schema.org/Place">schema.org/Place</a></p>
+	<p>Layout for a place – <a href="https://schema.org/Place">schema.org/Place</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Place.html")) ?></code>

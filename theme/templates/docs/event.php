@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Event</h1>
-	<p>Layout for Event - <a href="https://schema.org/Event">schema.org/Event</a></p>
+	<p>Layout for a generic event – <a href="https://schema.org/Event">schema.org/Event</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Event.html")) ?></code>

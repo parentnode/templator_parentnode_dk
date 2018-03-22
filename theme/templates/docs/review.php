@@ -1,7 +1,7 @@
 <div class="scene docs i:scene">
 
 	<h1>Review</h1>
-	<p>Layout for Review (shop, post, product, service) – <a href="https://schema.org/Review">schema.org/Review</a>.</p>
+	<p>Layout for a review (shop, post, product, service) – <a href="https://schema.org/Review">schema.org/Review</a>.</p>
 
 
 	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Review.html")) ?></code>

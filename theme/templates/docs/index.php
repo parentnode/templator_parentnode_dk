@@ -5,7 +5,7 @@
 		<!--li><a href="/pages/milestones">Milestones</a></li-->
 	</ul>
 	<p>
-		This documentation is provided to give you an overview and explanation of the overall Templator 
+		The purpose of this documentation is to provide you with an overview and explanation of the overall Templator 
 		page structure and the content blocks used to structure the individual content of a HTML page.
 	</p>
 
@@ -35,8 +35,8 @@
 	<div class="list" id="content_blocks">
 		<h2>Content blocks</h2>
 		<p>
-			Content blocks are specific HTML content snippets optimized for Search Engine readability in accordance with
-			the <a href="http://schema.org" target="_blank">Schema.org</a> specification. This collection allows you to
+			Content blocks are specific HTML content snippets optimized for search engine readability in accordance with
+			the <a href="http://schema.org" target="_blank">Schema.org</a> specification. This collection of content block snippets allows you to
 			copy/paste most content structures into your <span class="htmltag">div.scene</span> without having to spend
 			any time reflecting upon HTML, classnames or naming conventions.
 		</p>
