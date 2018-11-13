@@ -1,5 +1,5 @@
 /*
-asset-builder @ 2018-11-13 13:47:22
+asset-builder @ 2018-11-13 15:37:16
 */
 
 /*seg_desktop_include.css*/
@@ -774,4 +774,47 @@ body #selection_options ul.actions a.button:hover {background-color: #313942;}
 #content .scene div.comments h2:hover svg.arrow line {stroke: #888888;}
 #content .scene ul.geo.active li.location:hover {text-decoration: underline;}
 #content .scene div.image p a:hover {text-decoration: none;}
+
+
+/*s-pages.css*/
+#content .scene ul.info {display: none;}
+#content .scene.post div.article ul.info {display: block;}
+#content .scene.docs .list ul li {padding: 2px 0;}
+#content .scene.docs .list > ul > li {padding-bottom: 14px;}
+#content .scene.docs .list ul ul {padding-left: 30px; padding-bottom: 0;}
+#content .scene.docs .list ul ul ul {padding-bottom: 0;}
+#content .scene.docs code {margin-bottom: 20px;}
+
+
+/*s-colorscheme.css*/
+* {color: #4e026e;}
+body {}
+#header .logo {color: #b365d4;}
+#navigation ul li {color: #b365d4;}
+#content .scene a,
+#content .scene ul.geo.active li.location {color: #b365d4;}
+#content .scene hr {border-color: #b365d4;}
+ul.actions input.button.primary,
+ul.actions a.button.primary,
+#content ul.actions a.button.primary,
+#header ul.servicenavigation li.github {background-color: #b365d4; color: #ffffff;}
+#content .scene div.categories ul.tags li.selected a,
+#content .scene div.categories ul.tags li.selected:before {color: #4e026e;}
+#content .scene div.comments.open h2 {color: #b365d4;}
+#footer {border-color: #b365d4;}
+#footer a {color: #b365d4;}
+.terms_notification {background-color: #4e026e;}
+.front #header .logo,
+.docs #navigation ul li.docs,
+.principles #navigation ul li.principles {color: #4e026e;}
+
+
+/*s-pages-hovers.css*/
+ul.actions input.button.primary:hover,
+ul.actions a.button.primary:hover,
+#content ul.actions a.button.primary:hover,
+#header ul.servicenavigation li.github:hover {background-color: #4e026e;}
+#content .scene .article ul.tags a:hover {color: #b365d4;}
+#content .scene div.comments h2:hover {color: #b365d4;}
+#content .scene div.comments h2:hover svg.arrow line {stroke: #b365d4;}
 

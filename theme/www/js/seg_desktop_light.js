@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.1 Copyright 2016 http://manipulator.parentnode.dk
-asset-builder @ 2018-11-13 13:47:22
+asset-builder @ 2018-11-13 15:37:16
 */
 
 /*seg_desktop_light_include.js*/
@@ -4043,3 +4043,14 @@ Util.Objects["newsletter"] = new function() {
 	}
 }
 
+
+/*u-settings.js*/
+u.site_name = "Templator";
+u.terms_version = "terms_v1";
+u.github_fork = {"url":"https://github.com/parentnode/templator", "text":"Fork me on GitHub"};
+u.ga_account = 'UA-49741763-1';
+u.ga_domain = 'templator.parentnode.dk';
+u.txt = {};
+u.txt["terms-headline"] = "We love <br />cookies and privacy";
+u.txt["terms-accept"] = "Accept";
+u.txt["terms-details"] = "Details";
