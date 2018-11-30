@@ -1,5 +1,5 @@
 /*
-asset-builder @ 2018-11-19 15:33:49
+asset-builder @ 2018-11-30 15:23:40
 */
 
 /*seg_tablet_include.css*/
@@ -125,7 +125,7 @@ body > div.hint a {text-decoration: underline; display: inline-block; vertical-a
 #footer {text-align: center; border-top: 1px solid #888888; opacity: 0;}
 #footer p {padding: 10px; cursor: pointer; font-size: 13px;}
 #content {position: relative;}
-#content .scene {position: relative; padding: 50px 0 75px;}
+#content .scene {opacity: 0; position: relative; padding: 50px 0 75px;}
 #content .scene .link {cursor: pointer;}
 #content .scene a {color: #888888;}
 #content .scene h1,
