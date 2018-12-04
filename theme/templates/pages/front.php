@@ -1,4 +1,4 @@
-<div class="scene i:front">
+<div class="scene i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
 		<h1 itemprop="headline">It's so simple <br />when you stop <br />making it complicated</h1>
