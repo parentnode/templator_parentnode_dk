@@ -1,7 +1,7 @@
 <div class="scene i:scene">
 
 	<div class="article" itemscope itemtype="http://schema.org/Article">
-		<h1 itemprop="headline">It's so simple <br />when you stop <br />making it complicated</h1>
+		<h1 itemprop="headline">It's so simple <br /> when you stop <br /> making it complicated</h1>
 
 		<ul class="info">
 			<li class="published_at" itemprop="datePublished" content="<?= date("Y-m-d", filemtime(__FILE__)) ?>"><?= date("Y-m-d, H:i", filemtime(__FILE__)) ?></li>
