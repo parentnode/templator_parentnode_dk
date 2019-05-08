@@ -4,7 +4,7 @@
 	<p>Layout for a set of actions (typically buttons related to a form).</p>
 
 
-	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/actions.html")) ?></code>
+	<code><?= htmlentities(file_get_contents(SITE_URL."/templator/content/Actions.html")) ?></code>
 
 
 	<h2>Related types:</h2>
