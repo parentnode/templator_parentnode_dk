@@ -1,10 +1,14 @@
 /*
-asset-builder @ 2019-04-23 23:03:44
+asset-builder @ 2019-05-14 12:09:35
 */
 
 /*seg_mobile_include.css*/
 
 /*seg_mobile.css*/
+/*
+MIT license, 2019 parentNode.dk
+asset-builder @ 2019-05-13 22:10:14
+*/
 @font-face {
 	font-family: 'OpenSans';
 	src: url('../assets/parentnode-skin-default/css/fonts/open_sans/opensans-regular-webfont.woff2') format('woff2'),
