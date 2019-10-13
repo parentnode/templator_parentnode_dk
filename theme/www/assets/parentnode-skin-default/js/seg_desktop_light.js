@@ -1,6 +1,6 @@
 /*
-Manipulator v0.9.2-full Copyright 2017 http://manipulator.parentnode.dk
-asset-builder @ 2019-04-12 09:34:38
+MIT license, 2019 parentNode.dk
+asset-builder @ 2019-05-14 16:31:41
 */
 
 /*seg_desktop_light_include.js*/
@@ -640,15 +640,15 @@ Util.removeClass = u.rc = function(node, classname, dom_update) {
 }
 Util.toggleClass = u.tc = function(node, classname, _classname, dom_update) {
 	if(u.hc(node, classname)) {
-		u.rc(node, classname);
+		u.rc(node, classname, dom_update);
 		if(_classname) {
-			u.ac(node, _classname);
+			u.ac(node, _classname, dom_update);
 		}
 	}
 	else {
 		u.ac(node, classname);
 		if(_classname) {
-			u.rc(node, _classname);
+			u.rc(node, _classname, dom_update);
 		}
 	}
 	dom_update = (dom_update === false) || (node.offsetTop);
@@ -927,6 +927,7 @@ Util.Events = u.e = new function() {
 			}
 			if(this.e_drag || this.e_swipe) {
 				u.e.addMoveEvent(this, u.e._pick);
+				u.e.addEndEvent(this, u.e._cancelPick);
 			}
 			if(this.e_scroll) {
 				u.e.addMoveEvent(this, u.e._scrollStart);
@@ -1743,29 +1744,19 @@ Util.Form = u.f = new function() {
 		if(fun(this.focused)) {
 			this.focused();
 		}
-		if(fun(this._form.focused)) {
-			this._form.focused(this);
-		}
-	}
-	this._button_blur = function(event) {
-		u.rc(this, "focus");
-		if(fun(this.blurred)) {
-			this.blurred();
-		}
-		if(fun(this._form.blurred)) {
-			this._form.blurred(this);
-		}
-	}
-	this._changed_state = function() {
-		u.f.updateDefaultState(this);
-	}
-	this.positionHint = function(field) {
-		if(field._help) {
-			var custom_hint_position;
-			for(custom_hint_position in this.customHintPosition) {
-				if(u.hc(field, custom_hint_position)) {
-					this.customHintPosition[custom_hint_position](field._form, field);
-					return;
+		return keys;
+	};
+}
+if(document.documentMode && document.documentMode <= 10 && document.documentMode >= 8) {
+	Util.appendElement = u.ae = function(_parent, node_type, attributes) {
+		try {
+			var node = (obj(node_type)) ? node_type : (node_type == "svg" ? document.createElementNS("http://www.w3.org/2000/svg", node_type) : document.createElement(node_type));
+			if(attributes) {
+				var attribute;
+				for(attribute in attributes) {
+					if(!attribute.match(/^(value|html)$/)) {
+						node.setAttribute(attribute, attributes[attribute]);
+					}
 				}
 			}
 			var input_middle, help_top;
@@ -1810,10 +1801,13 @@ Util.Form = u.f = new function() {
 			iN.default_value = "";
 		}
 	}
-	this.activateButton = function(action) {
-		if(action.type && action.type == "submit" || action.type == "reset") {
-			action.onclick = function(event) {
-				u.e.kill(event ? event : window.event);
+}
+if(document.documentMode && document.documentMode <= 11 && document.documentMode >= 8) {
+	Util.hasClass = u.hc = function(node, classname) {
+		var regexp = new RegExp("(^|\\s)(" + classname + ")(\\s|$)");
+		if(node instanceof SVGElement) {
+			if(regexp.test(node.className.baseVal)) {
+				return true;
 			}
 		}
 		u.ce(action);
