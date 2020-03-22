@@ -4,5 +4,5 @@
 @import url(../../assets/parentnode-skin-default/css/lib/mobile/s-form.css);
 
 /* Project */
-@import url(mobile/s-pages.css);
-@import url(mobile/s-colorscheme.css);
+@import url(/css/lib/mobile/s-pages.css);
+@import url(/css/lib/mobile/s-colorscheme.css);
