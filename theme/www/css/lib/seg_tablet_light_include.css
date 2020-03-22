@@ -1,7 +1,7 @@
 /* Skin */
 @import url(/assets/parentnode-skin-default/css/seg_tablet_light.css);
 
-@import url(/assets/parentnode-skin-default/css/lib/desktop_light/s-used_by.css);
+@import url(/assets/parentnode-skin-default/css/optionals/lib/desktop_light/s-used_by.css);
 
 /* Project */
 @import url(/css/lib/desktop_light/s-pages.css);
