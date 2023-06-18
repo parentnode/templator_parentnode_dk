@@ -1,6 +1,6 @@
 /*
 Manipulator v0.9.4 Copyright 2023 https://manipulator.parentnode.dk
-asset-builder @ 2023-06-18 13:36:42
+asset-builder @ 2023-06-18 13:39:57
 */
 
 /*seg_mobile_include.js*/
@@ -147,7 +147,6 @@ Util.xInObject = function(object, _options) {
 Util.saveCookie = function(name, value, _options) {
 	var expires = true;
 	var path = false;
-	var samesite = "lax";
 	var force = false;
 	if(obj(_options)) {
 		var _argument;
@@ -155,7 +154,6 @@ Util.saveCookie = function(name, value, _options) {
 			switch(_argument) {
 				case "expires"	: expires	= _options[_argument]; break;
 				case "path"		: path		= _options[_argument]; break;
-				case "samesite"	: samesite	= _options[_argument]; break;
 				case "force"	: force		= _options[_argument]; break;
 			}
 		}
@@ -170,7 +168,7 @@ Util.saveCookie = function(name, value, _options) {
 		return;
 	}
 	if(expires === false) {
-		expires = ";expires="+(new Date((new Date()).getTime() + (1000*60*60*24*365))).toGMTString();
+		expires = ";expires=Mon, 04-Apr-2020 05:00:00 GMT";
 	}
 	else if(str(expires)) {
 		expires = ";expires="+expires;
@@ -184,8 +182,7 @@ Util.saveCookie = function(name, value, _options) {
 	else {
 		path = "";
 	}
-	samesite = ";samesite="+samesite;
-	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + path + expires + samesite;
+	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + path + expires;
 }
 Util.getCookie = function(name) {
 	var matches;
@@ -238,7 +235,7 @@ Util.getNodeCookie = function(node, name, _options) {
 	var mem = JSON.parse(u.getCookie("man_mem"));
 	if(mem && mem[ref]) {
 		if(name) {
-			return (typeof(mem[ref][name]) != "undefined") ? mem[ref][name] : false;
+			return mem[ref][name] ? mem[ref][name] : "";
 		}
 		else {
 			return mem[ref];
@@ -542,10 +539,7 @@ Util.clickableElement = u.ce = function(node, _options) {
 		u.ac(node, "link");
 		if(a.getAttribute("href") !== null) {
 			node.url = a.href;
-			a.url = a.href;
-			node.onclick = function(event) {
-				event.preventDefault();
-			}
+			a.removeAttribute("href");
 			node._a = a;
 		}
 	}
@@ -706,17 +700,10 @@ u.containsOrIs = function(scope, node) {
 	}
 	return false;
 }
-<<<<<<< HEAD
 Util.insertAfter = u.ia = function(after_node, insert_node) {
-=======
-u.elementMatches = u.em = function(node, selector) {
-	return node.matches(selector);
-}
-Util.insertAfter = u.ia = function(insert_node, after_node) {
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 	var next_node = u.ns(after_node);
 	if(next_node) {
-		after_node.parentNode.insertBefore(insert_node, next_node);
+		after_node.parentNode.insertBefore(next_node, insert_node);
 	}
 	else {
 		after_node.parentNode.appendChild(insert_node);
@@ -940,7 +927,7 @@ Util.Events = u.e = new function() {
 			}
 			if(this.e_drag || this.e_swipe) {
 				u.e.addMoveEvent(this, u.e._pick);
-				this.e_cancelPick = u.e.addWindowEndEvent(this, u.e._cancelPick);
+				u.e.addEndEvent(this, u.e._cancelPick);
 			}
 			if(this.e_scroll) {
 				u.e.addMoveEvent(this, u.e._scrollStart);
@@ -992,7 +979,7 @@ Util.Events = u.e = new function() {
 		u.e.addStartEvent(node, this._inputStart);
 	}
 	this._held = function(event) {
-		this.e_hold_options.event = this.e_hold_options.event || "hold";
+		this.e_hold_options.event = event;
 		u.stats.event(this, this.e_hold_options);
 		u.e.resetNestedEvents(this);
 		if(fun(this.held)) {
@@ -1007,7 +994,7 @@ Util.Events = u.e = new function() {
 	}
 	this._clicked = function(event) {
 		if(this.e_click_options) {
-			this.e_click_options.event = this.e_click_options.event || "click";
+			this.e_click_options.event = event;
 			u.stats.event(this, this.e_click_options);
 		}
 		u.e.resetNestedEvents(this);
@@ -1025,7 +1012,7 @@ Util.Events = u.e = new function() {
 	this._rightclicked = function(event) {
 		u.bug("_rightclicked:", this);
 		if(this.e_rightclick_options) {
-			this.e_rightclick_options.event = this.e_rightclick_options.event || "rightclick";
+			this.e_rightclick_options.event = event;
 			u.stats.event(this, this.e_rightclick_options);
 		}
 		u.e.resetNestedEvents(this);
@@ -1041,7 +1028,7 @@ Util.Events = u.e = new function() {
 	}
 	this._dblclicked = function(event) {
 		if(u.t.valid(this.t_clicked) && event) {
-			this.e_dblclick_options.event = this.e_dblclick_options.event || "doubleclick";
+			this.e_dblclick_options.event = event;
 			u.stats.event(this, this.e_dblclick_options);
 			u.e.resetNestedEvents(this);
 			if(fun(this.dblclicked)) {
@@ -1123,22 +1110,9 @@ u.e.addDOMReadyEvent = function(action) {
 		}
 		else {
 			var id = u.randomString();
-			window["_DOMReady_" + id] = {
-				id: id,
-				action: action,
-				callback: function(event) {
-					if(fun(this.action)) {
-						this.action.bind(window)(event);
-					}
-					else if(fun(this[this.action])){
-						this[this.action].bind(window)(event);
-					}
- 					u.e.removeEvent(document, "DOMContentLoaded", window["_DOMReady_" + this.id].eventCallback); 
-					delete window["_DOMReady_" + this.id];
-				}
-			}
-			eval('window["_DOMReady_' + id + '"].eventCallback = function() {window["_DOMReady_'+id+'"].callback(event);}');
-			u.e.addEvent(document, "DOMContentLoaded", window["_DOMReady_" + id].eventCallback);
+			window["DOMReady_" + id] = action;
+			eval('window["_DOMReady_' + id + '"] = function() {window["DOMReady_'+id+'"](); u.e.removeEvent(document, "DOMContentLoaded", window["_DOMReady_' + id + '"])}');
+			u.e.addEvent(document, "DOMContentLoaded", window["_DOMReady_" + id]);
 		}
 	}
 	else {
@@ -1151,155 +1125,81 @@ u.e.addOnloadEvent = function(action) {
 	}
 	else {
 		var id = u.randomString();
-		window["_Onload_" + id] = {
-			id: id,
-			action: action,
-			callback: function(event) {
-				if(fun(this.action)) {
-					this.action.bind(window)(event);
-				}
-				else if(fun(this[this.action])){
-					this[this.action].bind(window)(event);
-				}
-				u.e.removeEvent(document, "load", window["_Onload_" + this.id].eventCallback); 
-				delete window["_Onload_" + this.id];
-			}
-		}
-		eval('window["_Onload_' + id + '"].eventCallback = function() {u.bug("load");window["_Onload_'+id+'"].callback(event);}');
-		u.e.addEvent(window, "load", window["_Onload_" + id].eventCallback);
+		window["Onload_" + id] = action;
+		eval('window["_Onload_' + id + '"] = function() {window["Onload_'+id+'"](); u.e.removeEvent(window, "load", window["_Onload_' + id + '"])}');
+		u.e.addEvent(window, "load", window["_Onload_" + id]);
 	}
 }
 u.e.addWindowEvent = function(node, type, action) {
 	var id = u.randomString();
-	window["_OnWindowEvent_"+ id] = {
-		id: id,
-		node: node,
-		type: type,
-		action: action,
-		callback: function(event) {
-			if(fun(this.action)) {
-				this.action.bind(this.node)(event);
-			}
-			else if(fun(this[this.action])){
-				this[this.action](event);
-			}
-		}
-	};
-	eval('window["_OnWindowEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowEvent_'+ id + '"].callback(event);}');
-	u.e.addEvent(window, type, window["_OnWindowEvent_" + id].eventCallback);
+	window["_OnWindowEvent_node_"+ id] = node;
+	if(fun(action)) {
+		eval('window["_OnWindowEvent_callback_' + id + '"] = function(event) {window["_OnWindowEvent_node_'+ id + '"]._OnWindowEvent_callback_'+id+' = '+action+'; window["_OnWindowEvent_node_'+ id + '"]._OnWindowEvent_callback_'+id+'(event);};');
+	} 
+	else {
+		eval('window["_OnWindowEvent_callback_' + id + '"] = function(event) {if(fun(window["_OnWindowEvent_node_'+ id + '"]["'+action+'"])) {window["_OnWindowEvent_node_'+id+'"]["'+action+'"](event);}};');
+	}
+	u.e.addEvent(window, type, window["_OnWindowEvent_callback_" + id]);
 	return id;
 }
-<<<<<<< HEAD
 u.e.removeWindowEvent = function(node, type, id) {
 	u.e.removeEvent(window, type, window["_OnWindowEvent_callback_"+id]);
 	window["_OnWindowEvent_node_"+id] = null;
 	window["_OnWindowEvent_callback_"+id] = null;
-=======
-u.e.removeWindowEvent = function(id) {
-	if(window["_OnWindowEvent_" + id]) {
-		u.e.removeEvent(window, window["_OnWindowEvent_"+id].type, window["_OnWindowEvent_"+id].eventCallback);
-		delete window["_OnWindowEvent_"+id];
-	}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 u.e.addWindowStartEvent = function(node, action) {
 	var id = u.randomString();
-	window["_OnWindowStartEvent_"+ id] = {
-		id: id,
-		node: node,
-		action: action,
-		callback: function(event) {
-			if(fun(this.action)) {
-				this.action.bind(this.node)(event);
-			}
-			else if(fun(this[this.action])){
-				this[this.action](event);
-			}
-		}
-	};
-	eval('window["_OnWindowStartEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowStartEvent_'+ id + '"].callback(event);}');
-	u.e.addStartEvent(window, window["_OnWindowStartEvent_" + id].eventCallback);
+	window["_Onstart_node_"+ id] = node;
+	if(fun(action)) {
+		eval('window["_Onstart_callback_' + id + '"] = function(event) {window["_Onstart_node_'+ id + '"]._Onstart_callback_'+id+' = '+action+'; window["_Onstart_node_'+ id + '"]._Onstart_callback_'+id+'(event);};');
+	} 
+	else {
+		eval('window["_Onstart_callback_' + id + '"] = function(event) {if(fun(window["_Onstart_node_'+ id + '"]["'+action+'"])) {window["_Onstart_node_'+id+'"]["'+action+'"](event);}};');
+	}
+	u.e.addStartEvent(window, window["_Onstart_callback_" + id]);
 	return id;
 }
-<<<<<<< HEAD
 u.e.removeWindowStartEvent = function(node, id) {
 	u.e.removeStartEvent(window, window["_Onstart_callback_"+id]);
 	window["_Onstart_node_"+id]["_Onstart_callback_"+id] = null;
 	window["_Onstart_node_"+id] = null;
 	window["_Onstart_callback_"+id] = null;
-=======
-u.e.removeWindowStartEvent = function(id) {
-	if(window["_OnWindowStartEvent_" + id]) {
-		u.e.removeStartEvent(window, window["_OnWindowStartEvent_"+id].eventCallback);
-		delete window["_OnWindowStartEvent_"+id];
-	}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 u.e.addWindowMoveEvent = function(node, action) {
 	var id = u.randomString();
-	window["_OnWindowMoveEvent_"+ id] = {
-		id: id,
-		node: node,
-		action: action,
-		callback: function(event) {
-			if(fun(this.action)) {
-				this.action.bind(this.node)(event);
-			}
-			else if(fun(this[this.action])){
-				this[this.action](event);
-			}
-		}
-	};
-	eval('window["_OnWindowMoveEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowMoveEvent_'+ id + '"].callback(event);}');
-	u.e.addMoveEvent(window, type, window["_OnWindowMoveEvent_" + id].eventCallback);
+	window["_Onmove_node_"+ id] = node;
+	if(fun(action)) {
+		eval('window["_Onmove_callback_' + id + '"] = function(event) {window["_Onmove_node_'+ id + '"]._Onmove_callback_'+id+' = '+action+'; window["_Onmove_node_'+ id + '"]._Onmove_callback_'+id+'(event);};');
+	} 
+	else {
+		eval('window["_Onmove_callback_' + id + '"] = function(event) {if(fun(window["_Onmove_node_'+ id + '"]["'+action+'"])) {window["_Onmove_node_'+id+'"]["'+action+'"](event);}};');
+	}
+	u.e.addMoveEvent(window, window["_Onmove_callback_" + id]);
 	return id;
 }
-<<<<<<< HEAD
 u.e.removeWindowMoveEvent = function(node, id) {
 	u.e.removeMoveEvent(window, window["_Onmove_callback_" + id]);
 	window["_Onmove_node_"+ id]["_Onmove_callback_"+id] = null;
 	window["_Onmove_node_"+ id] = null;
 	window["_Onmove_callback_"+ id] = null;
-=======
-u.e.removeWindowMoveEvent = function(id) {
-	if(window["_OnWindowMoveEvent_" + id]) {
-		u.e.removeMoveEvent(window, window["_OnWindowMoveEvent_"+id].eventCallback);
-		delete window["_OnWindowMoveEvent_"+id];
-	}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 u.e.addWindowEndEvent = function(node, action) {
 	var id = u.randomString();
-	window["_OnWindowEndEvent_"+ id] = {
-		id: id,
-		node: node,
-		action: action,
-		callback: function(event) {
-			if(fun(this.action)) {
-				this.action.bind(this.node)(event);
-			}
-			else if(fun(this[this.action])){
-				this[this.action](event);
-			}
-		}
-	};
-	eval('window["_OnWindowEndEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowEndEvent_'+ id + '"].callback(event);}');
-	u.e.addEndEvent(window, window["_OnWindowEndEvent_" + id].eventCallback);
+	window["_Onend_node_"+ id] = node;
+	if(fun(action)) {
+		eval('window["_Onend_callback_' + id + '"] = function(event) {window["_Onend_node_'+ id + '"]._Onend_callback_'+id+' = '+action+'; window["_Onend_node_'+ id + '"]._Onend_callback_'+id+'(event);};');
+	} 
+	else {
+		eval('window["_Onend_callback_' + id + '"] = function(event) {if(fun(window["_Onend_node_'+ id + '"]["'+action+'"])) {window["_Onend_node_'+id+'"]["'+action+'"](event);}};');
+	}
+	u.e.addEndEvent(window, window["_Onend_callback_" + id]);
 	return id;
 }
-<<<<<<< HEAD
 u.e.removeWindowEndEvent = function(node, id) {
 	u.e.removeEndEvent(window, window["_Onend_callback_" + id]);
 	window["_Onend_node_"+ id]["_Onend_callback_"+id] = null;
 	window["_Onend_node_"+ id] = null;
 	window["_Onend_callback_"+ id] = null;
-=======
-u.e.removeWindowEndEvent = function(id) {
-	if(window["_OnWindowEndEvent_" + id]) {
-		u.e.removeEndEvent(window, window["_OnWindowEndEvent_" + id].eventCallback);
-		delete window["_OnWindowEndEvent_"+id];
-	}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 Util.absoluteX = u.absX = function(node) {
 	if(node.offsetParent) {
@@ -1577,79 +1477,6 @@ Util.vendorPrefix = function() {
 	}
 	return Util.vendor_prefix;
 }
-<<<<<<< HEAD
-=======
-Util.Timer = u.t = new function() {
-	this._timers = new Array();
-	this.setTimer = function(node, action, timeout, param) {
-		var id = this._timers.length;
-		param = param != undefined ? param : {"target":node, "type":"timeout"};
-		this._timers[id] = {"_a":action, "_n":node, "_p":param, "_t":setTimeout("u.t._executeTimer("+id+")", timeout)};
-		return id;
-	}
-	this.resetTimer = function(id) {
-		if(this._timers[id]) {
-			clearTimeout(this._timers[id]._t);
-			this._timers[id] = false;
-		}
-	}
-	this._executeTimer = function(id) {
-		var timer = this._timers[id];
-		this._timers[id] = false;
-		var node = timer._n;
-		if(fun(timer._a)) {
-			node._timer_action = timer._a;
-			node._timer_action(timer._p);
-			node._timer_action = null;
-		}
-		else if(fun(node[timer._a])) {
-			node[timer._a](timer._p);
-		}
-	}
-	this.setInterval = function(node, action, interval, param) {
-		var id = this._timers.length;
-		param = param ? param : {"target":node, "type":"timeout"};
-		this._timers[id] = {"_a":action, "_n":node, "_p":param, "_i":setInterval("u.t._executeInterval("+id+")", interval)};
-		return id;
-	}
-	this.resetInterval = function(id) {
-		if(this._timers[id]) {
-			clearInterval(this._timers[id]._i);
-			this._timers[id] = false;
-		}
-	}
-	this._executeInterval = function(id) {
-		var node = this._timers[id]._n;
-		if(fun(this._timers[id]._a)) {
-			node._interval_action = this._timers[id]._a;
-			node._interval_action(this._timers[id]._p);
-			node._interval_action = null;
-		}
-		else if(fun(node[this._timers[id]._a])) {
-			node[this._timers[id]._a](this._timers[id]._p);
-		}
-	}
-	this.valid = function(id) {
-		return this._timers[id] ? true : false;
-	}
-	this.resetAllTimers = function() {
-		var i, t;
-		for(i = 0; i < this._timers.length; i++) {
-			if(this._timers[i] && this._timers[i]._t) {
-				this.resetTimer(i);
-			}
-		}
-	}
-	this.resetAllIntervals = function() {
-		var i, t;
-		for(i = 0; i < this._timers.length; i++) {
-			if(this._timers[i] && this._timers[i]._i) {
-				this.resetInterval(i);
-			}
-		}
-	}
-}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 u.txt = function(index) {
 	if(!u.translations) {
 	}
@@ -1778,19 +1605,15 @@ if(document.documentMode && document.documentMode <= 11 && document.documentMode
 		return false;
 	}
 	Util.addClass = u.ac = function(node, classname, dom_update) {
-		var classnames = classname.split(" ");
-		while(classnames.length) {
-			classname = classnames.shift();
-			var regexp = new RegExp("(^|\\s)" + classname + "(\\s|$)");
-			if(node instanceof SVGElement) {
-				if(!regexp.test(node.className.baseVal)) {
-					node.className.baseVal += node.className.baseVal ? " " + classname : classname;
-				}
+		var regexp = new RegExp("(^|\\s)" + classname + "(\\s|$)");
+		if(node instanceof SVGElement) {
+			if(!regexp.test(node.className.baseVal)) {
+				node.className.baseVal += node.className.baseVal ? " " + classname : classname;
 			}
-			else {
-				if(!regexp.test(node.className)) {
-					node.className += node.className ? " " + classname : classname;
-				}
+		}
+		else {
+			if(!regexp.test(node.className)) {
+				node.className += node.className ? " " + classname : classname;
 			}
 		}
 		dom_update = (!dom_update) || (node.offsetTop);
@@ -1836,20 +1659,15 @@ Util.hasClass = u.hc = function(node, classname) {
 	return false;
 }
 Util.addClass = u.ac = function(node, classname, dom_update) {
-	var classnames = classname.split(" ");
-	while(classnames.length) {
-		classname = classnames.shift();
-		var regexp = new RegExp("(^|\\s)" + classname + "(\\s|$)");
-		u.bug(classname, regexp.test(node.className));
-		if(typeof(SVGElement) !== "undefined" && node instanceof SVGElement) {
-			if(!regexp.test(node.className.baseVal)) {
-				node.className.baseVal += node.className.baseVal ? " " + classname : classname;
-			}
+	var regexp = new RegExp("(^|\\s)" + classname + "(\\s|$)");
+	if(typeof(SVGElement) !== "undefined" && node instanceof SVGElement) {
+		if(!regexp.test(node.className.baseVal)) {
+			node.className.baseVal += node.className.baseVal ? " " + classname : classname;
 		}
-		else {
-			if(!regexp.test(node.className)) {
-				node.className += node.className ? " " + classname : classname;
-			}
+	}
+	else {
+		if(!regexp.test(node.className)) {
+			node.className += node.className ? " " + classname : classname;
 		}
 	}
 	dom_update = (!dom_update) || (node.offsetTop);
@@ -2063,17 +1881,6 @@ if(typeof(document.contains) == "undefined") {
 		return false;
 	}
 }
-<<<<<<< HEAD
-=======
-if(!Element.prototype.matches) {
-	Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector || function(selector) {
-		var matches = (this.document || this.ownerDocument).querySelectorAll(selector);
-		var i = matches.length;
-		while (--i >= 0 && matches.item(i) !== this) {}
-		return i > -1;
-	};
-}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 if(document.querySelector == undefined) {
 	(function(){
 	var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g,
@@ -3131,1191 +2938,6 @@ if(document.querySelector == undefined) {
 		return res;
 	}
 }
-<<<<<<< HEAD
-=======
-Util.Form = u.f = new function() {
-	this.customInit = {};
-	this.customValidate = {};
-	this.customDataFormat = {};
-	this.customHintPosition = {};
-	this.init = function(_form, _options) {
-		var i, j, field, action, input, hidden_input;
-		_form._bulk_operation = true;
-		if(_form.nodeName.toLowerCase() != "form") {
-			_form.native_form = u.pn(_form, {"include":"form"});
-			if(!_form.native_form) {
-				u.bug("there is no form in this document??");
-				return;
-			}
-		}
-		else {
-			_form.native_form = _form;
-		}
-		_form._focus_z_index = 50;
-		_form._validation = true;
-		_form._debug = false;
-		_form._callback_ready = "ready";
-		_form._callback_submitted = "submitted";
-		_form._callback_pre_submitted = "preSubmitted";
-		_form._callback_resat = "resat";
-		_form._callback_updated = "updated";
-		_form._callback_changed = "changed";
-		_form._callback_blurred = "blurred";
-		_form._callback_focused = "focused";
-		_form._callback_input_validation_failed = "inputValidationFailed";
-		_form._callback_input_validation_passed = "inputValidationPassed";
-		_form._callback_validation_failed = "validationFailed";
-		_form._callback_validation_passed = "validationPassed";
-		if(obj(_options)) {
-			var _argument;
-			for(_argument in _options) {
-				switch(_argument) {
-					case "validation"               : _form._validation                = _options[_argument]; break;
-					case "debug"                    : _form._debug                     = _options[_argument]; break;
-					case "focus_z"                  : _form._focus_z_index             = _options[_argument]; break;
-					case "callback_ready"           : _form._callback_ready            = _options[_argument]; break;
-					case "callback_submitted"       : _form._callback_submitted        = _options[_argument]; break;
-					case "callback_pre_submitted"   : _form._callback_pre_submitted    = _options[_argument]; break;
-					case "callback_resat"           : _form._callback_resat            = _options[_argument]; break;
-					case "callback_updated"         : _form._callback_updated          = _options[_argument]; break;
-					case "callback_changed"         : _form._callback_changed          = _options[_argument]; break;
-					case "callback_blurred"         : _form._callback_blurred          = _options[_argument]; break;
-					case "callback_focused"         : _form._callback_focused          = _options[_argument]; break;
-					case "callback_input_validation_failed"   : _form._callback_input_validation_failed    = _options[_argument]; break;
-					case "callback_input_validation_passed"   : _form._callback_input_validation_passed    = _options[_argument]; break;
-					case "callback_validation_failed"         : _form._callback_validation_failed          = _options[_argument]; break;
-					case "callback_validation_passed"         : _form._callback_validation_passed          = _options[_argument]; break;
-				}
-			}
-		}
-		_form._hover_z_index = _form._focus_z_index - 1;
-		_form.native_form.onsubmit = function(event) {
-			if(event.target._form) {
-				return false;
-			}
-		}
-		_form.native_form.setAttribute("novalidate", "novalidate");
-		_form.DOMsubmit = _form.native_form.submit;
-		_form.submit = this._submit;
-		_form.DOMreset = _form.native_form.reset;
-		_form.reset = this._reset;
-		_form.getData = function(_options) {
-			return u.f.getFormData(this, _options);
-		}
-		_form.inputs = {};
-		_form.actions = {};
-		_form._error_inputs = {};
-		var fields = u.qsa(".field", _form);
-		for(i = 0; i < fields.length; i++) {
-			field = fields[i];
-			u.f.initField(_form, field);
-		}
-		var hidden_inputs = u.qsa("input[type=hidden]", _form);
-		for(i = 0; i < hidden_inputs.length; i++) {
-			hidden_input = hidden_inputs[i];
-			if(!_form.inputs[hidden_input.name]) {
-				_form.inputs[hidden_input.name] = hidden_input;
-				hidden_input._form = _form;
-				hidden_input.val = this._value;
-			}
-		}
-		var actions = u.qsa(".actions li input[type=button],.actions li input[type=submit],.actions li input[type=reset],.actions li a.button", _form);
-		for(i = 0; i < actions.length; i++) {
-			action = actions[i];
-			this.initButton(_form, action);
-		}
-		u.t.setTimer(_form, function() {
-			var validate_inputs = [];
-			for(input in this.inputs) {
-				if(this.inputs[input].field) {
-					validate_inputs.push(this.inputs[input]);
-				}
-			}
-			u.f.bulkValidate(validate_inputs);
-			if(_form._debug) {
-				u.bug(_form, "inputs:", _form.inputs, "actions:", _form.actions);
-			}
-			if(fun(this[this._callback_ready])) {
-				this[this._callback_ready]();
-			}
-		}, 100);
-	}
-	this.initField = function(_form, field) {
-		field._form = _form;
-		field._base_z_index = u.gcs(field, "z-index");
-		field.help = u.qs(".help", field);
-		field.hint = u.qs(".hint", field);
-		field.error = u.qs(".error", field);
-		field.label = u.qs("label", field);
-		field.indicator = u.ae(field.label, "span", {"class":"indicator", "html":"&nbsp;*"});
-		if(fun(u.f.fixFieldHTML)) {
-			u.f.fixFieldHTML(field);
-		}
-		field._custom_initialized = false;
-		var custom_init;
-		for(custom_init in this.customInit) {
-			if(u.hc(field, custom_init)) {
-				this.customInit[custom_init](field);
-				field._custom_initialized = true;
-				break;
-			}
-		}
-		if(!field._custom_initialized) {
-			if(u.hc(field, "string|email|tel|number|integer|password|date|datetime")) {
-				field.type = field.className.match(/(?:^|\b)(string|email|tel|number|integer|password|date|datetime)(?:\b|$)/)[0];
-				field.input = u.qs("input", field);
-				field.input._form = _form;
-				field.input.label = u.qs("label[for='"+field.input.id+"']", field);
-				field.input.field = field;
-				field.input.val = this._value;
-				u.e.addEvent(field.input, "keyup", this._updated);
-				u.e.addEvent(field.input, "change", this._changed);
-				this.inputOnEnter(field.input);
-				this.activateInput(field.input);
-			}
-			else if(u.hc(field, "text")) {
-				field.type = "text";
-				field.input = u.qs("textarea", field);
-				field.input._form = _form;
-				field.input.label = u.qs("label[for='"+field.input.id+"']", field);
-				field.input.field = field;
-				field.input.val = this._value;
-				if(u.hc(field, "autoexpand")) {
-					var current_height = parseInt(u.gcs(field.input, "height"));
-					var current_value = field.input.val();
-					field.input.value = "";
-					u.as(field.input, "overflow", "hidden");
-					field.input.autoexpand_offset = 0;
-					if(parseInt(u.gcs(field.input, "height")) != field.input.scrollHeight) {
-						field.input.autoexpand_offset = field.input.scrollHeight - parseInt(u.gcs(field.input, "height"));
-					}
-					field.input.value = current_value;
-					field.input.setHeight = function() {
-						var textarea_height = parseInt(u.gcs(this, "height"));
-						if(this.val()) {
-							if(u.browser("webkit") || u.browser("firefox", ">=29")) {
-								if(this.scrollHeight - this.autoexpand_offset > textarea_height) {
-									u.ass(this, {
-										"height":this.scrollHeight + "px"
-									});
-								}
-							}
-							else if(u.browser("opera") || u.browser("explorer")) {
-								if(this.scrollHeight > textarea_height) {
-									u.ass(this, {
-										"height":this.scrollHeight + "px"
-									});
-								}
-							}
-							else {
-								u.ass(this, {
-									"height":this.scrollHeight + "px"
-								});
-							}
-						}
-					}
-					u.e.addEvent(field.input, "keyup", field.input.setHeight);
-					field.input.setHeight();
-				}
-				u.e.addEvent(field.input, "keyup", this._updated);
-				u.e.addEvent(field.input, "change", this._changed);
-				this.activateInput(field.input);
-			}
-			else if(u.hc(field, "select")) {
-				field.type = "select";
-				field.input = u.qs("select", field);
-				field.input._form = _form;
-				field.input.label = u.qs("label[for='"+field.input.id+"']", field);
-				field.input.field = field;
-				field.input.val = this._value_select;
-				u.e.addEvent(field.input, "change", this._updated);
-				u.e.addEvent(field.input, "keyup", this._updated);
-				u.e.addEvent(field.input, "change", this._changed);
-				this.activateInput(field.input);
-			}
-			else if(u.hc(field, "checkbox|boolean")) {
-				field.type = field.className.match(/(?:^|\b)(checkbox|boolean)(?:\b|$)/)[0];
-				field.input = u.qs("input[type=checkbox]", field);
-				field.input._form = _form;
-				field.input.label = u.qs("label[for='"+field.input.id+"']", field);
-				field.input.field = field;
-				field.input.val = this._value_checkbox;
-				u.f._update_checkbox_field.bind(field.input)();
-				if(u.browser("explorer", "<=8")) {
-					field.input.pre_state = field.input.checked;
-					field.input._changed = this._changed;
-					field.input._updated = this._updated;
-					field.input._update_checkbox_field = this._update_checkbox_field;
-					field.input._clicked = function(event) {
-						if(this.checked != this.pre_state) {
-							this._changed(window.event);
-							this._updated(window.event);
-							this._update_checkbox_field(window.event);
-						}
-						this.pre_state = this.checked;
-					}
-					u.e.addEvent(field.input, "click", field.input._clicked);
-				}
-				else {
-					u.e.addEvent(field.input, "change", this._changed);
-					u.e.addEvent(field.input, "change", this._updated);
-					u.e.addEvent(field.input, "change", this._update_checkbox_field);
-				}
-				this.inputOnEnter(field.input);
-				this.activateInput(field.input);
-			}
-			else if(u.hc(field, "radiobuttons")) {
-				field.type = "radiobuttons";
-				field.inputs = u.qsa("input", field);
-				field.input = field.inputs[0];
-				for(j = 0; j < field.inputs.length; j++) {
-					input = field.inputs[j];
-					input._form = _form;
-					input.label = u.qs("label[for='"+input.id+"']", field);
-					input.field = field;
-					input.val = this._value_radiobutton;
-					if(u.browser("explorer", "<=8")) {
-						input.pre_state = input.checked;
-						input._changed = this._changed;
-						input._updated = this._updated;
-						input._clicked = function(event) {
-							var i, input;
-							if(this.checked != this.pre_state) {
-								this._changed(window.event);
-								this._updated(window.event);
-							}
-							for(i = 0; i < this.field.input.length; i++) {
-								input = this.field.input[i];
-								input.pre_state = input.checked;
-							}
-						}
-						u.e.addEvent(input, "click", input._clicked);
-					}
-					else {
-						u.e.addEvent(input, "change", this._changed);
-						u.e.addEvent(input, "change", this._updated);
-					}
-					this.inputOnEnter(input);
-					this.activateInput(input);
-				}
-			}
-			else if(u.hc(field, "files")) {
-				field.type = "files";
-				field.input = u.qs("input", field);
-				field.input._form = _form;
-				field.input.label = u.qs("label[for='"+field.input.id+"']", field);
-				field.input.field = field;
-				field.input.val = this._value_file;
-				field.filelist = u.qs("ul.filelist", field);
-				if(!field.filelist) {
-					field.filelist = u.ae(field, "ul", {"class":"filelist"});
-					field.insertBefore(field.help, field.filelist);
-				}
-				field.filelist.field = field;
-				field.uploaded_files = u.qsa("li.uploaded", field.filelist);
-				this._update_filelist.bind(field.input)();
-				u.e.addEvent(field.input, "change", this._updated);
-				u.e.addEvent(field.input, "change", this._changed);
-				u.e.addEvent(field.input, "change", this._update_filelist);
-				this.activateInput(field.input);
-			}
-			else {
-				u.bug("UNKNOWN FIELD IN FORM INITIALIZATION:", field, field.input);
-			}
-		}
-		if(field.input) {
-			_form.inputs[field.input.name] = field.input;
-			if(!_form._bulk_operation) {
-				this.validate(field.input);
-			}
-		}
-	}
-	this.initButton = function(_form, action) {
-		action._form = _form;
-		this.buttonOnEnter(action);
-		this.activateButton(action);
-	}
-	this._reset = function(event, iN) {
-		for (name in this.inputs) {
-			if (this.inputs[name] && this.inputs[name].field && this.inputs[name].type != "hidden" && !this.inputs[name].getAttribute("readonly")) {
-				this.inputs[name]._used = false;
-				this.inputs[name].val("");
-			}
-		}
-		if(fun(this[this._callback_resat])) {
-			this[this._callback_resat](iN);
-		}
-	}
-	this._submit = function(event, iN) {
-		var validate_inputs = [];
-		for(name in this.inputs) {
-			if(this.inputs[name] && this.inputs[name].field && fun(this.inputs[name].val)) {
-				this.inputs[name]._used = true;
-				validate_inputs.push(this.inputs[name]);
-			}
-		}
-		u.f.bulkValidate(validate_inputs);
-		if(!Object.keys(this._error_inputs).length) {
-			if(fun(this[this._callback_pre_submitted])) {
-				this[this._callback_pre_submitted](iN);
-			}
-			if(fun(this[this._callback_submitted])) {
-				this[this._callback_submitted](iN);
-			}
-			else {
-				for(name in this.inputs) {
-					if(this.inputs[name] && this.inputs[name].default_value && this.inputs[name].nodeName.match(/^(input|textarea)$/i)) {
-						if(fun(this.inputs[name].val) && !this.inputs[name].val()) {
-							this.inputs[name].value = "";
-						}
-					}
-				}
-				this.DOMsubmit();
-			}
-		}
-	}
-	this._value = function(value) {
-		if(value !== undefined) {
-			this.value = value;
-			if(value !== this.default_value) {
-				u.rc(this, "default");
-			}
-			u.f.validate(this);
-		}
-		return (this.value != this.default_value) ? this.value : "";
-	}
-	this._value_radiobutton = function(value) {
-		var i, option;
-		if(value !== undefined) {
-			for(i = 0; i < this.field.inputs.length; i++) {
-				option = this.field.inputs[i];
-				if(option.value == value || (option.value == "true" && value) || (option.value == "false" && value === false)) {
-					option.checked = true;
-					u.f.validate(this);
-				}
-				else {
-					option.checked = false;
-				}
-			}
-		}
-		for(i = 0; i < this.field.inputs.length; i++) {
-			option = this.field.inputs[i];
-			if(option.checked) {
-				return option.value;
-			}
-		}
-		return "";
-	}
-	this._value_checkbox = function(value) {
-		if(value !== undefined) {
-			if(value) {
-				this.checked = true
-			}
-			else {
-				this.checked = false;
-			}
-			u.f._update_checkbox_field.bind(this)();
-			u.f.validate(this);
-		}
-		if(this.checked) {
-			return this.value;
-		}
-		return "";
-	}
-	this._value_select = function(value) {
-		if(value !== undefined) {
-			var i, option;
-			for(i = 0; i < this.options.length; i++) {
-				option = this.options[i];
-				if(option.value == value) {
-					this.selectedIndex = i;
-					u.f.validate(this);
-					return this.options[this.selectedIndex].value;
-				}
-			}
-			if (value === "") {
-				this.selectedIndex = -1;
-				u.f.validate(this);
-				return "";
-			}
-		}
-		return (this.selectedIndex >= 0 && this.default_value != this.options[this.selectedIndex].value) ? this.options[this.selectedIndex].value : "";
-	}
-	this._value_file = function(value) {
-		if(value !== undefined) {
-			if(value === "") {
-				this.value = null;
-			}
-			else {
-				u.bug('ADDING VALUES MANUALLY TO INPUT type="file" IS NOT SUPPORTED IN JAVASCRIPT');
-			}
-			u.f._update_filelist.bind(this)();
-			u.f.validate(this);
-		}
-		if(this.files && this.files.length) {
-			var i, file, files = [];
-			for(i = 0; i < this.files.length; i++) {
-				file = this.files[i];
-				files.push(file);
-			}
-			return files;
-		}
-		else if(!this.files && this.value) {
-			return this.value;
-		}
-		else if(this.field.uploaded_files && this.field.uploaded_files.length){
-			return true;
-		}
-		return "";
-	}
-	this._changed = function(event) {
-		if(fun(this[this._form._callback_changed])) {
-			this[this._form._callback_changed](this);
-		}
-		else if(fun(this.field.input[this._form._callback_changed])) {
-			this.field.input[this._form._callback_changed](this);
-		}
-		if(fun(this._form[this._form._callback_changed])) {
-			this._form[this._form._callback_changed](this);
-		}
-	}
-	this._updated = function(event) {
-		if(event.keyCode != 9 && event.keyCode != 13 && event.keyCode != 16 && event.keyCode != 17 && event.keyCode != 18) {
-			u.f.validate(this);
-			if(fun(this[this._form._callback_updated])) {
-				this[this._form._callback_updated](this);
-			}
-			else if(fun(this.field.input[this._form._callback_updated])) {
-				this.field.input[this._form._callback_updated](this);
-			}
-			if(fun(this._form[this._form._callback_updated])) {
-				this._form[this._form._callback_updated](this);
-			}
-		}
-	}
-	this._update_checkbox_field = function(event) {
-		if(this.checked) {
-			u.ac(this.field, "checked");
-		}
-		else {
-			u.rc(this.field, "checked");
-		}
-	}
-	this._update_filelist = function(event) {
-		var i;
-		var files = this.val();
-		this.field.filelist.innerHTML = "";
-		u.ae(this.field.filelist, "li", {"html":this.field.hint ? u.text(this.field.hint) : u.text(this.label), "class":"label"})
-		if(files && files.length) {
-			u.ac(this.field, "has_new_files");
-			var i;
-			for(i = 0; i < files.length; i++) {
-				u.ae(this.field.filelist, "li", {"html":files[i].name, "class":"new"})
-			}
-			if(this.multiple) {
-				for(i = 0; i < this.field.uploaded_files.length; i++) {
-					u.ae(this.field.filelist, this.field.uploaded_files[i]);
-				}
-			}
-		}
-		else if(this.field.uploaded_files && this.field.uploaded_files.length) {
-			u.rc(this.field, "has_new_files");
-			var i;
-			for(i = 0; i < this.field.uploaded_files.length; i++) {
-				u.ae(this.field.filelist, this.field.uploaded_files[i]);
-			}
-		}
-		else {
-			u.rc(this.field, "has_new_files");
-		}
-	}
-	this._mouseenter = function(event) {
-		u.ac(this.field, "hover");
-		u.ac(this, "hover");
-		u.as(this.field, "zIndex", this._form._hover_z_index);
-		u.f.positionHint(this.field);
-	}
-	this._mouseleave = function(event) {
-		u.rc(this.field, "hover");
-		u.rc(this, "hover");
-		u.as(this.field, "zIndex", this.field._base_z_index);
-		u.f.positionHint(this.field);
-	}
-	this._focus = function(event) {
-		this.field.is_focused = true;
-		this.is_focused = true;
-		u.ac(this.field, "focus");
-		u.ac(this, "focus");
-		u.as(this.field, "zIndex", this._form._focus_z_index);
-		u.f.positionHint(this.field);
-		if(fun(this[this._form._callback_focused])) {
-			this[this._form._callback_focused]();
-		}
-		else if(fun(this.field.input[this._form._callback_focused])) {
-			this.field.input[this._form._callback_focused](this);
-		}
-		if(fun(this._form[this._form._callback_focused])) {
-			this._form[this._form._callback_focused](this);
-		}
-	}
-	this._blur = function(event) {
-		this.field.is_focused = false;
-		this.is_focused = false;
-		u.rc(this.field, "focus");
-		u.rc(this, "focus");
-		u.as(this.field, "zIndex", this.field._base_z_index);
-		u.f.positionHint(this.field);
-		this._used = true;
-		if(fun(this[this._form._callback_blurred])) {
-			this[this._form._callback_blurred]();
-		}
-		else if(fun(this.field.input[this._form._callback_blurred])) {
-			this.field.input[this._form._callback_blurred](this);
-		}
-		if(fun(this._form[this._form._callback_blurred])) {
-			this._form[this._form._callback_blurred](this);
-		}
-	}
-	this._button_focus = function(event) {
-		u.ac(this, "focus");
-		if(fun(this[this._form._callback_focused])) {
-			this[this._form._callback_focused]();
-		}
-		if(fun(this._form[this._form._callback_focused])) {
-			this._form[this._form._callback_focused](this);
-		}
-	}
-	this._button_blur = function(event) {
-		u.rc(this, "focus");
-		if(fun(this[this._form._callback_blurred])) {
-			this[this._form._callback_blurred]();
-		}
-		if(fun(this._form[this._form._callback_blurred])) {
-			this._form[this._form._callback_blurred](this);
-		}
-	}
-	this._validate = function(event) {
-		u.f.validate(this);
-	}
-	this.inputOnEnter = function(node) {
-		node.keyPressed = function(event) {
-			if(this.nodeName.match(/input/i) && (event.keyCode == 40 || event.keyCode == 38)) {
-				this._submit_disabled = true;
-			}
-			else if(this.nodeName.match(/input/i) && this._submit_disabled && (
-				event.keyCode == 46 || 
-				(event.keyCode == 39 && u.browser("firefox")) || 
-				(event.keyCode == 37 && u.browser("firefox")) || 
-				event.keyCode == 27 || 
-				event.keyCode == 13 || 
-				event.keyCode == 9 ||
-				event.keyCode == 8
-			)) {
-				this._submit_disabled = false;
-			}
-			else if(event.keyCode == 13 && !this._submit_disabled) {
-				u.e.kill(event);
-				this.blur();
-				this._form.submitInput = this;
-				this._form.submitButton = false;
-				this._form.submit(event, this);
-			}
-		}
-		u.e.addEvent(node, "keydown", node.keyPressed);
-	}
-	this.buttonOnEnter = function(node) {
-		node.keyPressed = function(event) {
-			if(event.keyCode == 13 && !u.hc(this, "disabled") && fun(this.clicked)) {
-				u.e.kill(event);
-				this.clicked(event);
-			}
-		}
-		u.e.addEvent(node, "keydown", node.keyPressed);
-	}
-	this.activateInput = function(iN) {
-		u.e.addEvent(iN, "focus", this._focus);
-		u.e.addEvent(iN, "blur", this._blur);
-		if(u.e.event_support != "touch") {
-			u.e.addEvent(iN, "mouseenter", this._mouseenter);
-			u.e.addEvent(iN, "mouseleave", this._mouseleave);
-		}
-		u.e.addEvent(iN, "blur", this._validate);
-		iN.default_value = "";
-	}
-	this.activateButton = function(action) {
-		if(action.type && action.type == "submit" || action.type == "reset") {
-			action.onclick = function(event) {
-				u.e.kill(event ? event : window.event);
-			}
-		}
-		u.ce(action);
-		if(!action.clicked) {
-			action.clicked = function(event) {
-				if(!u.hc(this, "disabled")) {
-					if(this.type && this.type.match(/submit/i)) {
-						this._form._submit_button = this;
-						this._form._submit_input = false;
-						this._form.submit(event, this);
-					}
-					else if(this.type && this.type.match(/reset/i)) {
-						this._form._submit_button = false;
-						this._form._submit_input = false;
-						this._form.reset(event, this);
-					}
-					else if(this.url) {
-						if(event && (event.metaKey || event.ctrlKey)) {
-							window.open(this.url);
-						}
-						else {
-							if(obj(u.h) && u.h.is_listening) {
-								u.h.navigate(this.url, this);
-							}
-							else {
-								location.href = this.url;
-							}
-						}
-					}
-				}
-			}
-		}
-		var action_name = action.name ? action.name : (action.parentNode.className ? u.superNormalize(action.parentNode.className) : (action.value ? u.superNormalize(action.value) : u.superNormalize(u.text(action))));
-		if(action_name && !action._form.actions[action_name]) {
-			action._form.actions[action_name] = action;
-		}
-		if(obj(u.k) && u.hc(action, "key:[a-z0-9]+")) {
-			u.k.addKey(action, u.cv(action, "key"));
-		}
-		u.e.addEvent(action, "focus", this._button_focus);
-		u.e.addEvent(action, "blur", this._button_blur);
-	}
-	this.positionHint = function(field) {
-		if(field.help) {
-			var custom_hint_position;
-			for(custom_hint_position in this.customHintPosition) {
-				if(u.hc(field, custom_hint_position)) {
-					this.customHintPosition[custom_hint_position](field);
-					return;
-				}
-			}
-			var input_middle = field.input.offsetTop + (field.input.offsetHeight / 2);
-			var help_top = input_middle - field.help.offsetHeight / 2;
-			u.ass(field.help, {
-				"top": help_top + "px"
-			});
-		}
-	}
-	this.updateFilelistStatus = function(form, response) {
-		if(form && form.inputs && response && response.cms_status == "success" && response.cms_object && response.cms_object.mediae) {
-			var mediae = JSON.parse(JSON.stringify(response.cms_object.mediae));
-			var filelists = u.qsa("div.field.files ul.filelist", form);
-			var i, j, k, filelist, old_files, old_file, new_files, new_files;
-			for(i = 0; i < filelists.length; i++) {
-				filelist = filelists[i];
-				new_files = u.qsa("li.new", filelist);
-				if(new_files.length) {
-					old_files = u.qsa("li.uploaded", filelist);
-					if(old_files.length) {
-						for(j in mediae) {
-							media = mediae[j];
-							if(media.variant.match("^" + filelist.field.input.name.replace(/\[\]$/, "") + "(\-|$)")) {
-								for(k = 0; k < old_files.length; k++) {
-									old_file = old_files[k];
-									if(u.cv(old_file, "media_id") == media.id) {
-										delete mediae[j];
-									}
-								}
-							}
-						}
-					}
-					if(Object.keys(mediae).length) {
-						for(j in mediae) {
-							media = mediae[j];
-							if(media.variant.match("^"+filelist.field.input.name.replace(/\[\]$/, "")+"(\-|$)")) {
-								for(k = 0; k < new_files.length; k++) {
-									new_file = new_files[k];
-									if(u.text(new_file) == media.name || u.text(new_file)+".zip" == media.name) {
-										new_file.innerHTML = media.name;
-										u.rc(new_file, "new");
-										u.ac(new_file, "uploaded media_id:"+media.id+" variant:"+media.variant+" format:"+media.format+" width:"+media.width+" height:"+media.height);
-										delete mediae[j];
-									}
-								}
-							}
-						}
-					}
-				}
-				filelist.field.uploaded_files = u.qsa("li.uploaded", filelist);
-			}
-		}
-	}
-	this.inputHasError = function(iN) {
-		u.rc(iN, "correct");
-		u.rc(iN.field, "correct");
-		delete iN.is_correct;
-		if(iN.val() !== "") {
-			if(!iN.has_error && (iN._used || iN._form._bulk_operation)) {
-				iN._form._error_inputs[iN.name] = true;
-				u.ac(iN, "error");
-				u.ac(iN.field, "error");
-				iN.has_error = true;
-				this.updateInputValidationState(iN);
-			 }
-		}
-		else if(!iN.has_error && iN._used) {
-			iN._form._error_inputs[iN.name] = true;
-			u.ac(iN, "error");
-			u.ac(iN.field, "error");
-			iN.has_error = true;
-			this.updateInputValidationState(iN);
-		}
-		else if(!iN._used) {
-			delete iN._form._error_inputs[iN.name];
-			u.rc(iN, "error");
-			u.rc(iN.field, "error");
-			delete iN.has_error;
-		}
-		this.positionHint(iN.field);
-	}
-	this.inputIsCorrect = function(iN) {
-		u.rc(iN, "error");
-		u.rc(iN.field, "error");
-		delete iN.has_error;
-		delete iN._form._error_inputs[iN.name];
-		if(iN.val() !== "") {
-			if(!iN.is_correct) {
-				iN._used = true;
-				u.ac(iN, "correct");
-				u.ac(iN.field, "correct");
-				iN.is_correct = true;
-				this.updateInputValidationState(iN);
-			}
-		}
-		else if(iN.is_correct || iN.has_error) {
-			u.rc(iN, "correct");
-			u.rc(iN.field, "correct");
-			delete iN.is_correct;
-			this.updateInputValidationState(iN);
-		}
-	}
-	this.updateInputValidationState = function(iN) {
-		if(iN.has_error && fun(iN[iN._form._callback_input_validation_failed])) {
-			iN[iN._form._callback_input_validation_failed]();
-		}
-		else if(iN.is_correct && fun(iN[iN._form._callback_input_validation_passed])) {
-			iN[iN._form._callback_input_validation_passed]();
-		}
-		this.updateFormValidationState(iN._form);
-	}
-	this.updateFormValidationState = function(_form) {
-		if(!_form._bulk_operation) {
-			if(Object.keys(_form._error_inputs).length) {
-				_form._validation_state = "error";
-				if(_form._error_inputs !== _form._reference_error_inputs) {
-					if(fun(_form[_form._callback_validation_failed])) {
-						_form[_form._callback_validation_failed](_form._error_inputs);
-					}
-				}
-			}
-			else if(u.qsa(".field.required", _form).length === u.qsa(".field.required.correct", _form).length) {
-				if(fun(_form[_form._callback_validation_passed]) && _form._validation_state !== "correct") {
-					_form[_form._callback_validation_passed]();
-				}
-				_form._validation_state = "correct";
-			}
-			else {
-				_form._validation_state = "void";
-			}
-			_form._reference_error_inputs = JSON.parse(JSON.stringify(_form._error_inputs));
-		}
-	}
-	this.bulkValidate = function(inputs) {
-		if(inputs && inputs.length) {
-			var _form = inputs[0]._form;
-			_form._bulk_operation = true;
-			var i;
-			for(i = 0; i < inputs.length; i++) {
-				u.f.validate(inputs[i]);
-			}
-			_form._bulk_operation = false;
-			this.updateFormValidationState(_form);
-		}
-	}
-	this.validate = function(iN) {
-		if(!iN._form._validation || !iN.field) {
-			return true;
-		}
-		var min, max, pattern;
-		var validated = false;
-		var compare_to = iN.getAttribute("data-compare-to");
-		if(!u.hc(iN.field, "required") && iN.val() === "" && (!compare_to || iN._form.inputs[compare_to].val() === "")) {
-			this.inputIsCorrect(iN);
-			return true;
-		}
-		else if(u.hc(iN.field, "required") && iN.val() === "") {
-			this.inputHasError(iN);
-			return false;
-		}
-		var custom_validate;
-		for(custom_validate in u.f.customValidate) {
-			if(u.hc(iN.field, custom_validate)) {
-				u.f.customValidate[custom_validate](iN);
-				validated = true;
-			}
-		}
-		if(!validated) {
-			if(u.hc(iN.field, "password")) {
-				min = Number(u.cv(iN.field, "min"));
-				max = Number(u.cv(iN.field, "max"));
-				min = min ? min : 8;
-				max = max ? max : 255;
-				pattern = iN.getAttribute("pattern");
-				if(
-					iN.val().length >= min && 
-					iN.val().length <= max && 
-					(!pattern || iN.val().match("^"+pattern+"$")) &&
-					(!compare_to || iN.val() == iN._form.inputs[compare_to].val())
-				) {
-					this.inputIsCorrect(iN);
-					if(compare_to) {
-						this.inputIsCorrect(iN._form.inputs[compare_to]);
-					}
-				}
-				else {
-					this.inputHasError(iN);
-					if(compare_to) {
-						this.inputHasError(iN._form.inputs[compare_to]);
-					}
-				}
-			}
-			else if(u.hc(iN.field, "number")) {
-				min = Number(u.cv(iN.field, "min"));
-				max = Number(u.cv(iN.field, "max"));
-				min = min ? min : 0;
-				max = max ? max : 99999999999999999999999999999;
-				pattern = iN.getAttribute("pattern");
-				if(
-					!isNaN(iN.val()) && 
-					iN.val() >= min && 
-					iN.val() <= max && 
-					(!pattern || iN.val().match("^"+pattern+"$"))
-				) {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "integer")) {
-				min = Number(u.cv(iN.field, "min"));
-				max = Number(u.cv(iN.field, "max"));
-				min = min ? min : 0;
-				max = max ? max : 99999999999999999999999999999;
-				pattern = iN.getAttribute("pattern");
-				if(
-					!isNaN(iN.val()) && 
-					Math.round(iN.val()) == iN.val() && 
-					iN.val() >= min && 
-					iN.val() <= max && 
-					(!pattern || iN.val().match("^"+pattern+"$"))
-				) {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "tel")) {
-				pattern = iN.getAttribute("pattern");
-				if(
-					(
-						(!pattern && iN.val().match(/^([\+0-9\-\.\s\(\)]){5,18}$/)) 
-						||
-						(pattern && iN.val().match("^"+pattern+"$"))
-					)
-					&&
-					(!compare_to || iN.val() == iN._form.inputs[compare_to].val())
-				) {
-					this.inputIsCorrect(iN);
-					if(compare_to) {
-						this.inputIsCorrect(iN._form.inputs[compare_to]);
-					}
-				}
-				else {
-					this.inputHasError(iN);
-					if(compare_to) {
-						this.inputHasError(iN._form.inputs[compare_to]);
-					}
-				}
-			}
-			else if(u.hc(iN.field, "email")) {
-				pattern = iN.getAttribute("pattern");
-				if(
-					(
-						(!pattern && iN.val().match(/^([^<>\\\/%$])+\@([^<>\\\/%$])+\.([^<>\\\/%$]{2,20})$/)) 
-						||
-						(pattern && iN.val().match("^"+pattern+"$"))
-					)
-					&&
-					(!compare_to || iN.val() == iN._form.inputs[compare_to].val())
-				) {
-					this.inputIsCorrect(iN);
-					if(compare_to) {
-						this.inputIsCorrect(iN._form.inputs[compare_to]);
-					}
-				}
-				else {
-					this.inputHasError(iN);
-					if(compare_to) {
-						this.inputHasError(iN._form.inputs[compare_to]);
-					}
-				}
-			}
-			else if(u.hc(iN.field, "text")) {
-				min = Number(u.cv(iN.field, "min"));
-				max = Number(u.cv(iN.field, "max"));
-				min = min ? min : 1;
-				max = max ? max : 10000000;
-				pattern = iN.getAttribute("pattern");
-				if(
-					iN.val().length >= min && 
-					iN.val().length <= max && 
-					(!pattern || iN.val().match("^"+pattern+"$"))
-				) {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "date")) {
-				min = u.cv(iN.field, "min");
-				max = u.cv(iN.field, "max");
-				pattern = iN.getAttribute("pattern");
-				if(
-					(!min || new Date(decodeURIComponent(min)) <= new Date(iN.val())) &&
-					(!max || new Date(decodeURIComponent(max)) >= new Date(iN.val())) &&
-					(
-						(!pattern && iN.val().match(/^([\d]{4}[\-\/\ ]{1}[\d]{2}[\-\/\ ][\d]{2})$/))
-						||
-						(pattern && iN.val().match("^"+pattern+"$"))
-					)
-				) {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "datetime")) {
-				min = u.cv(iN.field, "min");
-				max = u.cv(iN.field, "max");
-				pattern = iN.getAttribute("pattern");
-				if(
-					(!min || new Date(decodeURIComponent(min)) <= new Date(iN.val())) &&
-					(!max || new Date(decodeURIComponent(max)) >= new Date(iN.val())) &&
-					(
-						(!pattern && iN.val().match(/^([\d]{4}[\-\/\ ]{1}[\d]{2}[\-\/\ ][\d]{2} [\d]{2}[\-\/\ \:]{1}[\d]{2}[\-\/\ \:]{0,1}[\d]{0,2})$/))
-						||
-						(pattern && iN.val().match(pattern))
-					)
-				) {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "files")) {
-				min = Number(u.cv(iN.field, "min"));
-				max = Number(u.cv(iN.field, "max"));
-				min = min ? min : 1;
-				max = max ? max : 10000000;
-				pattern = iN.getAttribute("accept");
-				var i, value = iN.val(), files = [];
-				if(iN.field.uploaded_files && iN.field.uploaded_files.length) {
-					for(i = 0; i < iN.field.uploaded_files.length; i++) {
-						files.push("." + u.cv(iN.field.uploaded_files[i], "format").toLowerCase());
-					}
-				}
-				if(value && value.length) {
-					for(i = 0; i < value.length; i++) {
-						files.push(value[i].name.substring(value[i].name.lastIndexOf(".")));
-					}
-				}
-				if(
-					(files.length >= min && files.length <= max)
-					&&
-					(!pattern || files.every(function(v) {return pattern.split(",").indexOf(v) !== -1}))
-				) {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "select")) {
-				if(iN.val() !== "") {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "checkbox|boolean|radiobuttons")) {
-				if(iN.val() !== "") {
-					this.inputIsCorrect(iN);
-				}
-				else {
-					this.inputHasError(iN);
-				}
-			}
-			else if(u.hc(iN.field, "string")) {
-				min = Number(u.cv(iN.field, "min"));
-				max = Number(u.cv(iN.field, "max"));
-				min = min ? min : 1;
-				max = max ? max : 255;
-				pattern = iN.getAttribute("pattern");
-				if(
-					iN.val().length >= min &&
-					iN.val().length <= max && 
-					(!pattern || iN.val().match("^"+pattern+"$"))
-					&&
-					(!compare_to || iN.val() == iN._form.inputs[compare_to].val())
-				) {
-					this.inputIsCorrect(iN);
-					if(compare_to) {
-						this.inputIsCorrect(iN._form.inputs[compare_to]);
-					}
-				}
-				else {
-					this.inputHasError(iN);
-					if(compare_to) {
-						this.inputHasError(iN._form.inputs[compare_to]);
-					}
-				}
-			}
-		}
-		if(u.hc(iN.field, "error")) {
-			return false;
-		}
-		else {
-			return true;
-		}
-	}
-	this.getFormData = this.getParams = function(_form, _options) {
-		var format = "params";
-		var ignore_inputs = "ignoreinput";
-		if(obj(_options)) {
-			var _argument;
-			for(_argument in _options) {
-				switch(_argument) {
-					case "ignore_inputs"    : ignore_inputs     = _options[_argument]; break;
-					case "format"           : format            = _options[_argument]; break;
-				}
-			}
-		}
-		var i, input, select, textarea, param, params;
-		if(format == "formdata" && (fun(window.FormData) || obj(window.FormData))) {
-			params = new FormData();
-		}
-		else {
-			if(format == "formdata") {
-				format == "params";
-			}
-			params = new Object();
-			params.append = function(name, value, filename) {
-				this[name] = filename || value;
-			}
-		}
-		if(_form._submit_button && _form._submit_button.name) {
-			params.append(_form._submit_button.name, _form._submit_button.value);
-		}
-		var inputs = u.qsa("input", _form);
-		var selects = u.qsa("select", _form)
-		var textareas = u.qsa("textarea", _form)
-		for(i = 0; i < inputs.length; i++) {
-			input = inputs[i];
-			if(!u.hc(input, ignore_inputs)) {
-				if((input.type == "checkbox" || input.type == "radio") && input.checked) {
-					if(fun(input.val)) {
-						params.append(input.name, input.val());
-					}
-					else {
-						params.append(input.name, input.value);
-					}
-				}
-				else if(input.type == "file") {
-					var f, file, files;
-					if(fun(input.val)) {
-						files = input.val();
-					}
-					else if(input.files) {
-						files = input.files;
-					}
-					if(files && files.length) {
-						for(f = 0; f < files.length; f++) {
-							file = files[f];
-							params.append(input.name, file, file.name);
-						}
-					}
-					else {
-						params.append(input.name, "");
-					}
-				}
-				else if(!input.type.match(/button|submit|reset|file|checkbox|radio/i)) {
-					if(fun(input.val)) {
-						params.append(input.name, input.val());
-					}
-					else {
-						params.append(input.name, input.value);
-					}
-				}
-			}
-		}
-		for(i = 0; i < selects.length; i++) {
-			select = selects[i];
-			if(!u.hc(select, ignore_inputs)) {
-				if(fun(select.val)) {
-					params.append(select.name, select.val());
-				}
-				else {
-					params.append(select.name, select.options[select.selectedIndex] ? select.options[select.selectedIndex].value : "");
-				}
-			}
-		}
-		for(i = 0; i < textareas.length; i++) {
-			textarea = textareas[i];
-			if(!u.hc(textarea, ignore_inputs)) {
-				if(fun(textarea.val)) {
-					params.append(textarea.name, textarea.val());
-				}
-				else {
-					params.append(textarea.name, textarea.value);
-				}
-			}
-		}
-		if(format && fun(this.customDataFormat[format])) {
-			return this.customDataFormat[format](params, _form);
-		}
-		else if(format == "formdata") {
-			return params;
-		}
-		else if(format == "object") {
-			delete params.append;
-			return params;
-		}
-		else {
-			var string = "";
-			for(param in params) {
-				if(!fun(params[param])) {
-					string += (string ? "&" : "") + param + "=" + encodeURIComponent(params[param]);
-				}
-			}
-			return string;
-		}
-	}
-}
->>>>>>> 770ad18af27267932492023651d12d1231c56e18
 if(document.all && document.addEventListener == undefined) {
 	window.attachedEvents = {};
 	window.eventHandler = function(eid) {
@@ -4652,19 +3274,6 @@ if (typeof JSON !== 'object') {
         };
     }
 }());
-if(String.prototype.trim == undefined) {
-	String.prototype.trim = function() {
-		return this.replace(/^\s+|\s+$/g, "");
-	};
-}
-if(String.prototype.substr == undefined || "ABC".substr(-1,1) == "A") {
-	String.prototype.substr = function(start_index, length) {
-		start_index = start_index < 0 ? this.length + start_index : start_index;
-		start_index = start_index < 0 ? 0 : start_index;
-		length = length ? start_index + length : this.length;
-		return this.substring(start_index, length);
-	};
-}
 u.smartphoneSwitch = new function() {
 	this.state = 0;
 	this.init = function(node) {
@@ -4848,100 +3457,6 @@ u.txt["smartphone-switch-text"] = [
 ];
 u.txt["smartphone-switch-bn-hide"] = "Hide";
 u.txt["smartphone-switch-bn-switch"] = "Go to Smartphone version";
-u.bug_console_only = true;
-Util.Modules["page"] = new function() {
-	this.init = function(page) {
-		window.page = page;
-		u.bug_force = true;
-		u.bug("This site is built using the combined powers of body, mind and spirit. Well, and also Manipulator, Janitor and Detector");
-		u.bug("Visit https://parentnode.dk for more information");
-		u.bug_force = false;
-		page.hN = u.qs("#header");
-		page.hN.service = u.qs(".servicenavigation", page.hN);
-		page.cN = u.qs("#content", page);
-		page.nN = u.qs("#navigation", page);
-		page.nN = u.ie(page.hN, page.nN);
-		page.fN = u.qs("#footer");
-		page.fN.service = u.qs(".servicenavigation", page.fN);
-		page.logo = u.ie(page.hN, "a", {"class":"logo", "html":u.eitherOr(u.site_name, "Frontpage")});
-		u.ce(page.logo);
-		page.logo.clicked = function(event) {
-			location.href = '/';
-		}
-		page.resized = function() {
-			page.browser_h = u.browserH();
-			page.browser_w = u.browserW();
-			if(page.cN && page.cN.scene && typeof(page.cN.scene.resized) == "function") {
-				page.cN.scene.resized();
-			}
-		}
-		page.scrolled = function() {
-			page.scrolled_y = u.scrollY();
-			if(page.cN && page.cN.scene && typeof(page.cN.scene.scrolled) == "function") {
-				page.cN.scene.scrolled();
-			}
-		}
-		page.ready = function() {
-			if(!u.hc(this, "ready")) {
-				u.ac(this, "ready");
-				this.initNavigation();
-				this.resized();
-				this.acceptCookies();
-			}
-		}
-		page.acceptCookies = function() {
-			if(u.terms_version && !u.getCookie(u.terms_version)) {
-				var terms = u.ie(document.body, "div", {"class":"terms_notification"});
-				u.ae(terms, "h3", {"html":"We love <br />cookies and privacy"});
-				var bn_accept = u.ae(terms, "a", {"class":"accept", "html":"Accept"});
-				bn_accept.terms = terms;
-				u.ce(bn_accept);
-				bn_accept.clicked = function() {
-					this.terms.parentNode.removeChild(this.terms);
-					u.saveCookie(u.terms_version, true, {"expiry":new Date(new Date().getTime()+(1000*60*60*24*365)).toGMTString()});
-				}
-				if(!location.href.match(/\/terms\//)) {
-					var bn_details = u.ae(terms, "a", {"class":"details", "html":"Details", "href":"/terms"});
-					u.ce(bn_details, {"type":"link"});
-				}
-			}
-		}
-		page.initNavigation = function() {
-			var i, node, nodes;
-			if(page.hN.service) {
-				var nav_anchor = u.qs("li.navigation", page.hN.service);
-				if(nav_anchor) {
-					page.hN.service.removeChild(nav_anchor);
-				}
-			}
-			if(page.fN.service) {
-				nodes = u.qsa("li", page.fN.service);
-				for(i = 0; node = nodes[i]; i++) {
-					u.ie(page.hN.service, node);
-				}
-				page.fN.removeChild(page.fN.service);
-			}
-		}
-		page.ready();
-	}
-}
-window.onload = u.init;
-Util.Modules["login"] = new function() {
-	this.init = function(scene) {
-		scene.resized = function() {
-		}
-		scene.scrolled = function() {
-		}
-		scene.ready = function() {
-			u.ae(this, "p", {"html":"Your browser is not supported by the Administration system.<br />Please upgrade:"})
-			var ul = u.ae(this, "ul");
-			u.ae(ul, "li", {"html":'<a href="https://firefox.com/download" target="_blank">Firefox</a>'});
-			u.ae(ul, "li", {"html":'<a href="https://www.google.com/chrome/" target="_blank">Chrome</a>'});
-			page.cN.scene = this;
-		}
-		scene.ready();
-	}
-}
 
 
 /*u-settings.js*/
