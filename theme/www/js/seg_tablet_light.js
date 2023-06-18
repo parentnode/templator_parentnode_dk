@@ -1,6 +1,6 @@
 /*
-Manipulator v0.9.3 Copyright 2020 https://manipulator.parentnode.dk
-asset-builder @ 2020-03-22 23:00:49
+Manipulator v0.9.4 Copyright 2023 https://manipulator.parentnode.dk
+asset-builder @ 2023-06-18 13:36:42
 */
 
 /*seg_tablet_light_include.js*/
@@ -147,6 +147,7 @@ Util.xInObject = function(object, _options) {
 Util.saveCookie = function(name, value, _options) {
 	var expires = true;
 	var path = false;
+	var samesite = "lax";
 	var force = false;
 	if(obj(_options)) {
 		var _argument;
@@ -154,6 +155,7 @@ Util.saveCookie = function(name, value, _options) {
 			switch(_argument) {
 				case "expires"	: expires	= _options[_argument]; break;
 				case "path"		: path		= _options[_argument]; break;
+				case "samesite"	: samesite	= _options[_argument]; break;
 				case "force"	: force		= _options[_argument]; break;
 			}
 		}
@@ -168,7 +170,7 @@ Util.saveCookie = function(name, value, _options) {
 		return;
 	}
 	if(expires === false) {
-		expires = ";expires=Mon, 04-Apr-2020 05:00:00 GMT";
+		expires = ";expires="+(new Date((new Date()).getTime() + (1000*60*60*24*365))).toGMTString();
 	}
 	else if(str(expires)) {
 		expires = ";expires="+expires;
@@ -182,7 +184,8 @@ Util.saveCookie = function(name, value, _options) {
 	else {
 		path = "";
 	}
-	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + path + expires;
+	samesite = ";samesite="+samesite;
+	document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value) + path + expires + samesite;
 }
 Util.getCookie = function(name) {
 	var matches;
@@ -235,7 +238,7 @@ Util.getNodeCookie = function(node, name, _options) {
 	var mem = JSON.parse(u.getCookie("man_mem"));
 	if(mem && mem[ref]) {
 		if(name) {
-			return mem[ref][name] ? mem[ref][name] : "";
+			return (typeof(mem[ref][name]) != "undefined") ? mem[ref][name] : false;
 		}
 		else {
 			return mem[ref];
@@ -539,7 +542,10 @@ Util.clickableElement = u.ce = function(node, _options) {
 		u.ac(node, "link");
 		if(a.getAttribute("href") !== null) {
 			node.url = a.href;
-			a.removeAttribute("href");
+			a.url = a.href;
+			node.onclick = function(event) {
+				event.preventDefault();
+			}
 			node._a = a;
 		}
 	}
@@ -700,10 +706,17 @@ u.containsOrIs = function(scope, node) {
 	}
 	return false;
 }
+<<<<<<< HEAD
 Util.insertAfter = u.ia = function(after_node, insert_node) {
+=======
+u.elementMatches = u.em = function(node, selector) {
+	return node.matches(selector);
+}
+Util.insertAfter = u.ia = function(insert_node, after_node) {
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 	var next_node = u.ns(after_node);
 	if(next_node) {
-		after_node.parentNode.insertBefore(next_node, insert_node);
+		after_node.parentNode.insertBefore(insert_node, next_node);
 	}
 	else {
 		after_node.parentNode.appendChild(insert_node);
@@ -927,7 +940,7 @@ Util.Events = u.e = new function() {
 			}
 			if(this.e_drag || this.e_swipe) {
 				u.e.addMoveEvent(this, u.e._pick);
-				u.e.addEndEvent(this, u.e._cancelPick);
+				this.e_cancelPick = u.e.addWindowEndEvent(this, u.e._cancelPick);
 			}
 			if(this.e_scroll) {
 				u.e.addMoveEvent(this, u.e._scrollStart);
@@ -979,7 +992,7 @@ Util.Events = u.e = new function() {
 		u.e.addStartEvent(node, this._inputStart);
 	}
 	this._held = function(event) {
-		this.e_hold_options.event = event;
+		this.e_hold_options.event = this.e_hold_options.event || "hold";
 		u.stats.event(this, this.e_hold_options);
 		u.e.resetNestedEvents(this);
 		if(fun(this.held)) {
@@ -994,7 +1007,7 @@ Util.Events = u.e = new function() {
 	}
 	this._clicked = function(event) {
 		if(this.e_click_options) {
-			this.e_click_options.event = event;
+			this.e_click_options.event = this.e_click_options.event || "click";
 			u.stats.event(this, this.e_click_options);
 		}
 		u.e.resetNestedEvents(this);
@@ -1012,7 +1025,7 @@ Util.Events = u.e = new function() {
 	this._rightclicked = function(event) {
 		u.bug("_rightclicked:", this);
 		if(this.e_rightclick_options) {
-			this.e_rightclick_options.event = event;
+			this.e_rightclick_options.event = this.e_rightclick_options.event || "rightclick";
 			u.stats.event(this, this.e_rightclick_options);
 		}
 		u.e.resetNestedEvents(this);
@@ -1028,7 +1041,7 @@ Util.Events = u.e = new function() {
 	}
 	this._dblclicked = function(event) {
 		if(u.t.valid(this.t_clicked) && event) {
-			this.e_dblclick_options.event = event;
+			this.e_dblclick_options.event = this.e_dblclick_options.event || "doubleclick";
 			u.stats.event(this, this.e_dblclick_options);
 			u.e.resetNestedEvents(this);
 			if(fun(this.dblclicked)) {
@@ -1110,9 +1123,22 @@ u.e.addDOMReadyEvent = function(action) {
 		}
 		else {
 			var id = u.randomString();
-			window["DOMReady_" + id] = action;
-			eval('window["_DOMReady_' + id + '"] = function() {window["DOMReady_'+id+'"](); u.e.removeEvent(document, "DOMContentLoaded", window["_DOMReady_' + id + '"])}');
-			u.e.addEvent(document, "DOMContentLoaded", window["_DOMReady_" + id]);
+			window["_DOMReady_" + id] = {
+				id: id,
+				action: action,
+				callback: function(event) {
+					if(fun(this.action)) {
+						this.action.bind(window)(event);
+					}
+					else if(fun(this[this.action])){
+						this[this.action].bind(window)(event);
+					}
+ 					u.e.removeEvent(document, "DOMContentLoaded", window["_DOMReady_" + this.id].eventCallback); 
+					delete window["_DOMReady_" + this.id];
+				}
+			}
+			eval('window["_DOMReady_' + id + '"].eventCallback = function() {window["_DOMReady_'+id+'"].callback(event);}');
+			u.e.addEvent(document, "DOMContentLoaded", window["_DOMReady_" + id].eventCallback);
 		}
 	}
 	else {
@@ -1125,81 +1151,155 @@ u.e.addOnloadEvent = function(action) {
 	}
 	else {
 		var id = u.randomString();
-		window["Onload_" + id] = action;
-		eval('window["_Onload_' + id + '"] = function() {window["Onload_'+id+'"](); u.e.removeEvent(window, "load", window["_Onload_' + id + '"])}');
-		u.e.addEvent(window, "load", window["_Onload_" + id]);
+		window["_Onload_" + id] = {
+			id: id,
+			action: action,
+			callback: function(event) {
+				if(fun(this.action)) {
+					this.action.bind(window)(event);
+				}
+				else if(fun(this[this.action])){
+					this[this.action].bind(window)(event);
+				}
+				u.e.removeEvent(document, "load", window["_Onload_" + this.id].eventCallback); 
+				delete window["_Onload_" + this.id];
+			}
+		}
+		eval('window["_Onload_' + id + '"].eventCallback = function() {u.bug("load");window["_Onload_'+id+'"].callback(event);}');
+		u.e.addEvent(window, "load", window["_Onload_" + id].eventCallback);
 	}
 }
 u.e.addWindowEvent = function(node, type, action) {
 	var id = u.randomString();
-	window["_OnWindowEvent_node_"+ id] = node;
-	if(fun(action)) {
-		eval('window["_OnWindowEvent_callback_' + id + '"] = function(event) {window["_OnWindowEvent_node_'+ id + '"]._OnWindowEvent_callback_'+id+' = '+action+'; window["_OnWindowEvent_node_'+ id + '"]._OnWindowEvent_callback_'+id+'(event);};');
-	} 
-	else {
-		eval('window["_OnWindowEvent_callback_' + id + '"] = function(event) {if(fun(window["_OnWindowEvent_node_'+ id + '"]["'+action+'"])) {window["_OnWindowEvent_node_'+id+'"]["'+action+'"](event);}};');
-	}
-	u.e.addEvent(window, type, window["_OnWindowEvent_callback_" + id]);
+	window["_OnWindowEvent_"+ id] = {
+		id: id,
+		node: node,
+		type: type,
+		action: action,
+		callback: function(event) {
+			if(fun(this.action)) {
+				this.action.bind(this.node)(event);
+			}
+			else if(fun(this[this.action])){
+				this[this.action](event);
+			}
+		}
+	};
+	eval('window["_OnWindowEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowEvent_'+ id + '"].callback(event);}');
+	u.e.addEvent(window, type, window["_OnWindowEvent_" + id].eventCallback);
 	return id;
 }
+<<<<<<< HEAD
 u.e.removeWindowEvent = function(node, type, id) {
 	u.e.removeEvent(window, type, window["_OnWindowEvent_callback_"+id]);
 	window["_OnWindowEvent_node_"+id] = null;
 	window["_OnWindowEvent_callback_"+id] = null;
+=======
+u.e.removeWindowEvent = function(id) {
+	if(window["_OnWindowEvent_" + id]) {
+		u.e.removeEvent(window, window["_OnWindowEvent_"+id].type, window["_OnWindowEvent_"+id].eventCallback);
+		delete window["_OnWindowEvent_"+id];
+	}
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 u.e.addWindowStartEvent = function(node, action) {
 	var id = u.randomString();
-	window["_Onstart_node_"+ id] = node;
-	if(fun(action)) {
-		eval('window["_Onstart_callback_' + id + '"] = function(event) {window["_Onstart_node_'+ id + '"]._Onstart_callback_'+id+' = '+action+'; window["_Onstart_node_'+ id + '"]._Onstart_callback_'+id+'(event);};');
-	} 
-	else {
-		eval('window["_Onstart_callback_' + id + '"] = function(event) {if(fun(window["_Onstart_node_'+ id + '"]["'+action+'"])) {window["_Onstart_node_'+id+'"]["'+action+'"](event);}};');
-	}
-	u.e.addStartEvent(window, window["_Onstart_callback_" + id]);
+	window["_OnWindowStartEvent_"+ id] = {
+		id: id,
+		node: node,
+		action: action,
+		callback: function(event) {
+			if(fun(this.action)) {
+				this.action.bind(this.node)(event);
+			}
+			else if(fun(this[this.action])){
+				this[this.action](event);
+			}
+		}
+	};
+	eval('window["_OnWindowStartEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowStartEvent_'+ id + '"].callback(event);}');
+	u.e.addStartEvent(window, window["_OnWindowStartEvent_" + id].eventCallback);
 	return id;
 }
+<<<<<<< HEAD
 u.e.removeWindowStartEvent = function(node, id) {
 	u.e.removeStartEvent(window, window["_Onstart_callback_"+id]);
 	window["_Onstart_node_"+id]["_Onstart_callback_"+id] = null;
 	window["_Onstart_node_"+id] = null;
 	window["_Onstart_callback_"+id] = null;
+=======
+u.e.removeWindowStartEvent = function(id) {
+	if(window["_OnWindowStartEvent_" + id]) {
+		u.e.removeStartEvent(window, window["_OnWindowStartEvent_"+id].eventCallback);
+		delete window["_OnWindowStartEvent_"+id];
+	}
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 u.e.addWindowMoveEvent = function(node, action) {
 	var id = u.randomString();
-	window["_Onmove_node_"+ id] = node;
-	if(fun(action)) {
-		eval('window["_Onmove_callback_' + id + '"] = function(event) {window["_Onmove_node_'+ id + '"]._Onmove_callback_'+id+' = '+action+'; window["_Onmove_node_'+ id + '"]._Onmove_callback_'+id+'(event);};');
-	} 
-	else {
-		eval('window["_Onmove_callback_' + id + '"] = function(event) {if(fun(window["_Onmove_node_'+ id + '"]["'+action+'"])) {window["_Onmove_node_'+id+'"]["'+action+'"](event);}};');
-	}
-	u.e.addMoveEvent(window, window["_Onmove_callback_" + id]);
+	window["_OnWindowMoveEvent_"+ id] = {
+		id: id,
+		node: node,
+		action: action,
+		callback: function(event) {
+			if(fun(this.action)) {
+				this.action.bind(this.node)(event);
+			}
+			else if(fun(this[this.action])){
+				this[this.action](event);
+			}
+		}
+	};
+	eval('window["_OnWindowMoveEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowMoveEvent_'+ id + '"].callback(event);}');
+	u.e.addMoveEvent(window, type, window["_OnWindowMoveEvent_" + id].eventCallback);
 	return id;
 }
+<<<<<<< HEAD
 u.e.removeWindowMoveEvent = function(node, id) {
 	u.e.removeMoveEvent(window, window["_Onmove_callback_" + id]);
 	window["_Onmove_node_"+ id]["_Onmove_callback_"+id] = null;
 	window["_Onmove_node_"+ id] = null;
 	window["_Onmove_callback_"+ id] = null;
+=======
+u.e.removeWindowMoveEvent = function(id) {
+	if(window["_OnWindowMoveEvent_" + id]) {
+		u.e.removeMoveEvent(window, window["_OnWindowMoveEvent_"+id].eventCallback);
+		delete window["_OnWindowMoveEvent_"+id];
+	}
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 u.e.addWindowEndEvent = function(node, action) {
 	var id = u.randomString();
-	window["_Onend_node_"+ id] = node;
-	if(fun(action)) {
-		eval('window["_Onend_callback_' + id + '"] = function(event) {window["_Onend_node_'+ id + '"]._Onend_callback_'+id+' = '+action+'; window["_Onend_node_'+ id + '"]._Onend_callback_'+id+'(event);};');
-	} 
-	else {
-		eval('window["_Onend_callback_' + id + '"] = function(event) {if(fun(window["_Onend_node_'+ id + '"]["'+action+'"])) {window["_Onend_node_'+id+'"]["'+action+'"](event);}};');
-	}
-	u.e.addEndEvent(window, window["_Onend_callback_" + id]);
+	window["_OnWindowEndEvent_"+ id] = {
+		id: id,
+		node: node,
+		action: action,
+		callback: function(event) {
+			if(fun(this.action)) {
+				this.action.bind(this.node)(event);
+			}
+			else if(fun(this[this.action])){
+				this[this.action](event);
+			}
+		}
+	};
+	eval('window["_OnWindowEndEvent_' + id + '"].eventCallback = function(event) {window["_OnWindowEndEvent_'+ id + '"].callback(event);}');
+	u.e.addEndEvent(window, window["_OnWindowEndEvent_" + id].eventCallback);
 	return id;
 }
+<<<<<<< HEAD
 u.e.removeWindowEndEvent = function(node, id) {
 	u.e.removeEndEvent(window, window["_Onend_callback_" + id]);
 	window["_Onend_node_"+ id]["_Onend_callback_"+id] = null;
 	window["_Onend_node_"+ id] = null;
 	window["_Onend_callback_"+ id] = null;
+=======
+u.e.removeWindowEndEvent = function(id) {
+	if(window["_OnWindowEndEvent_" + id]) {
+		u.e.removeEndEvent(window, window["_OnWindowEndEvent_" + id].eventCallback);
+		delete window["_OnWindowEndEvent_"+id];
+	}
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 }
 Util.absoluteX = u.absX = function(node) {
 	if(node.offsetParent) {
@@ -1597,7 +1697,7 @@ Util.Timer = u.t = new function() {
 	this._timers = new Array();
 	this.setTimer = function(node, action, timeout, param) {
 		var id = this._timers.length;
-		param = param ? param : {"target":node, "type":"timeout"};
+		param = param != undefined ? param : {"target":node, "type":"timeout"};
 		this._timers[id] = {"_a":action, "_n":node, "_p":param, "_t":setTimeout("u.t._executeTimer("+id+")", timeout)};
 		return id;
 	}
@@ -1749,15 +1849,20 @@ Util.hasClass = u.hc = function(node, classname) {
 	return false;
 }
 Util.addClass = u.ac = function(node, classname, dom_update) {
-	var regexp = new RegExp("(^|\\s)" + classname + "(\\s|$)");
-	if(typeof(SVGElement) !== "undefined" && node instanceof SVGElement) {
-		if(!regexp.test(node.className.baseVal)) {
-			node.className.baseVal += node.className.baseVal ? " " + classname : classname;
+	var classnames = classname.split(" ");
+	while(classnames.length) {
+		classname = classnames.shift();
+		var regexp = new RegExp("(^|\\s)" + classname + "(\\s|$)");
+		u.bug(classname, regexp.test(node.className));
+		if(typeof(SVGElement) !== "undefined" && node instanceof SVGElement) {
+			if(!regexp.test(node.className.baseVal)) {
+				node.className.baseVal += node.className.baseVal ? " " + classname : classname;
+			}
 		}
-	}
-	else {
-		if(!regexp.test(node.className)) {
-			node.className += node.className ? " " + classname : classname;
+		else {
+			if(!regexp.test(node.className)) {
+				node.className += node.className ? " " + classname : classname;
+			}
 		}
 	}
 	dom_update = (!dom_update) || (node.offsetTop);
@@ -1971,6 +2076,17 @@ if(typeof(document.contains) == "undefined") {
 		return false;
 	}
 }
+<<<<<<< HEAD
+=======
+if(!Element.prototype.matches) {
+	Element.prototype.matches = Element.prototype.matchesSelector || Element.prototype.mozMatchesSelector || Element.prototype.msMatchesSelector || Element.prototype.oMatchesSelector || Element.prototype.webkitMatchesSelector || function(selector) {
+		var matches = (this.document || this.ownerDocument).querySelectorAll(selector);
+		var i = matches.length;
+		while (--i >= 0 && matches.item(i) !== this) {}
+		return i > -1;
+	};
+}
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 if(document.querySelector == undefined) {
 	(function(){
 	var chunker = /((?:\((?:\([^()]+\)|[^()]+)+\)|\[(?:\[[^\[\]]*\]|['"][^'"]*['"]|[^\[\]'"]+)+\]|\\.|[^ >+~,(\[\\]+)+|[>+~])(\s*,\s*)?((?:.|\r|\n)*)/g,
@@ -3418,11 +3534,31 @@ Util.Form = u.f = new function() {
 			}
 		}
 		else {
+<<<<<<< HEAD
 			if(this.value && this.files && this.files.length) {
 				var i, file, files = [];
 				for(i = 0; i < this.files.length; i++) {
 					file = this.files[i];
 					files.push(file);
+=======
+			u.rc(this.field, "checked");
+		}
+	}
+	this._update_filelist = function(event) {
+		var i;
+		var files = this.val();
+		this.field.filelist.innerHTML = "";
+		u.ae(this.field.filelist, "li", {"html":this.field.hint ? u.text(this.field.hint) : u.text(this.label), "class":"label"})
+		if(files && files.length) {
+			u.ac(this.field, "has_new_files");
+			var i;
+			for(i = 0; i < files.length; i++) {
+				u.ae(this.field.filelist, "li", {"html":files[i].name, "class":"new"})
+			}
+			if(this.multiple) {
+				for(i = 0; i < this.field.uploaded_files.length; i++) {
+					u.ae(this.field.filelist, this.field.uploaded_files[i]);
+>>>>>>> 770ad18af27267932492023651d12d1231c56e18
 				}
 				return files;
 			}
@@ -4731,5 +4867,5 @@ window.onload = u.init;
 u.site_name = "Templator";
 u.terms_version = "terms_v1";
 u.github_fork = {"url":"https://github.com/parentnode/templator", "text":"Fork me on GitHub"};
-u.ga_account = 'UA-49741763-1';
+u.ga_account = 'G-WE96DF7LZ6';
 u.ga_domain = 'templator.parentnode.dk';
